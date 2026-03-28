@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7lakcfvh0cxj"]
+
+[ext_resource type="Texture2D" uid="uid://cubi3x5nhjats" path="res://assets/background.png" id="1_akttn"]
+[ext_resource type="PackedScene" uid="uid://x0o0j2d63yk6" path="res://entities/player.tscn" id="1_w31da"]
+[ext_resource type="Texture2D" uid="uid://b6kuf7txc1oyx" path="res://assets/floor.png" id="2_05isf"]
+
+[node name="Main" type="Node"]
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 1149.0
+offset_bottom = 646.0
+texture = ExtResource("1_akttn")
+expand_mode = 1
+
+[node name="Floor" type="TextureRect" parent="."]
+offset_top = 489.0
+offset_right = 1149.0
+offset_bottom = 646.0
+texture = ExtResource("2_05isf")
+expand_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("1_w31da")]
+position = Vector2(567, 456)
+offset = Vector2(0, 1)
