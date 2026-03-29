@@ -48,7 +48,7 @@ animations = [{
 radius = 34.0
 height = 82.0
 
-[node name="Mob" type="RigidBody2D"]
+[node name="Mob" type="RigidBody2D" groups=["mobs"]]
 gravity_scale = 0.0
 script = ExtResource("1_6un0d")
 metadata/_edit_group_ = true
