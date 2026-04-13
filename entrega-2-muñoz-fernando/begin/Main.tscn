@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" path="res://entities/player/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://8bghxjdqybr1" path="res://assets/textures/background.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://cjdaaihpfw25c" path="res://assets/textures/floor.png" id="3"]
-[ext_resource type="PackedScene" uid="uid://dr7wyytgaydfp" path="res://entities/player/Turret.tscn" id="4_88n51"]
-[ext_resource type="PackedScene" uid="uid://dql45dem1t0qu" path="res://entities/Cannon.tscn" id="4_ysihk"]
+[ext_resource type="PackedScene" uid="uid://dr7wyytgaydfp" path="res://entities/turret/Turret.tscn" id="4_88n51"]
+[ext_resource type="PackedScene" uid="uid://dql45dem1t0qu" path="res://entities/cannon/Cannon.tscn" id="4_ysihk"]
 
 [node name="Main" type="Node"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmhsdvxtvq0f"]
 
-[ext_resource type="Script" path="res://entities/player/Proyectile_turret.gd" id="1_5pos0"]
+[ext_resource type="Script" path="res://entities/proyectil_turret/Proyectile_turret.gd" id="1_5pos0"]
 [ext_resource type="Texture2D" uid="uid://bfj0llb0rnp7c" path="res://assets/textures/proyectile_turret.png" id="1_lf2vy"]
 
 [node name="proyectile_turret" type="Node2D"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dr7wyytgaydfp"]
 
-[ext_resource type="Script" path="res://entities/player/Turret.gd" id="1_0fvop"]
+[ext_resource type="Script" path="res://entities/turret/Turret.gd" id="1_0fvop"]
 [ext_resource type="Texture2D" uid="uid://bx6v0jd2ljk66" path="res://assets/textures/turret.png" id="1_w5vcp"]
-[ext_resource type="PackedScene" uid="uid://bmhsdvxtvq0f" path="res://entities/player/Proyectile_turret.tscn" id="2_w2rsc"]
+[ext_resource type="PackedScene" uid="uid://bmhsdvxtvq0f" path="res://entities/proyectil_turret/Proyectile_turret.tscn" id="2_w2rsc"]
 
 [node name="Turret" type="Node2D"]
 script = ExtResource("1_0fvop")
