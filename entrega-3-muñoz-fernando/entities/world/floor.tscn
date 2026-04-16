@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dwg3vpmlm24nh" path="res://assets/textures/floor.png" id="1_bg37q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v76np"]
-size = Vector2(68.3101, 16.7861)
+size = Vector2(66.0001, 16.7861)
 
 [node name="Floor" type="StaticBody2D"]
 position = Vector2(400, 513.5)
@@ -13,5 +13,6 @@ scale = Vector2(12.1212, 2.62121)
 texture = ExtResource("1_bg37q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.9075, -22.6994)
+position = Vector2(-0.247505, -22.6994)
 shape = SubResource("RectangleShape2D_v76np")
+one_way_collision = true

@@ -24,5 +24,10 @@ collision_mask = 2
 scale = Vector2(12.5265, 14.8792)
 shape = SubResource("CircleShape2D_gv82f")
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 280)
+collision_mask = 3
+collide_with_areas = true
+
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

@@ -41,16 +41,17 @@ func _physics_process(delta: float) -> void:
 		# Ternary if: {true code} if {condition} else {false code}
 		velocity.x = lerp(velocity.x, 0.0, FRICTION_WEIGHT) if abs(velocity.x) > 1.0 else 0.0
 	
-	#print("vertical     " + str(self.velocity.y))
-	#print("horizontal   " + str(self.velocity.x))
-	#
-	#self.velocity.y = 0
 	self.velocity.y += GRAVITY
 	
 	if Input.is_action_just_pressed("jump") and self.is_on_floor() :
 		self.velocity.y = JUMP_SPEED - GRAVITY
-		#self.velocity.y += GRAVITY
-		#print(self.velocity.x)
+	if Input.is_action_pressed("down") and Input.is_action_pressed("jump"):
+		if self.is_on_floor() :
+			self.set_collision_mask_value(1,false)
+			await get_tree().create_timer(1).timeout
+			self.set_collision_mask_value(1,true)
 		
 	self.move_and_slide()
-	#position += velocity * delta
+
+func down_platform():
+	pass

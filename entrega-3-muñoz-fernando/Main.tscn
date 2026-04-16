@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnc5muoeyfwah"]
+[gd_scene load_steps=9 format=3 uid="uid://dnc5muoeyfwah"]
 
 [ext_resource type="PackedScene" uid="uid://26kk58v72xh2" path="res://entities/player/Player.tscn" id="1"]
 [ext_resource type="Texture2D" uid="uid://cwss7yl8udbui" path="res://assets/textures/background.png" id="2"]
@@ -7,14 +7,69 @@
 [ext_resource type="PackedScene" uid="uid://bscjwoaotlcqc" path="res://entities/enemies/Turret.tscn" id="4"]
 [ext_resource type="Script" path="res://entities/enemies/TurretsSpawner.gd" id="5"]
 [ext_resource type="PackedScene" uid="uid://bxisrc36s11fo" path="res://entities/cube.tscn" id="7_u4r7h"]
+[ext_resource type="PackedScene" uid="uid://dw4i2glp3rair" path="res://entities/wall.tscn" id="8_l00cy"]
 
 [node name="Main" type="Node"]
 script = ExtResource("3")
+
+[node name="Floor_Container" type="Node2D" parent="."]
+
+[node name="Floor" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+
+[node name="Floor2" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(1190, 513.5)
+
+[node name="Floor3" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(-390, 513.5)
+
+[node name="Floor4" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(-2503, 265)
+
+[node name="Floor5" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(-2186, 513.5)
+
+[node name="Floor6" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(760, 226)
+scale = Vector2(12.1212, 0.685193)
+
+[node name="Floor15" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(1139, 96)
+scale = Vector2(12.1212, 0.685193)
+
+[node name="Floor7" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(-469, 329)
+scale = Vector2(13.2235, 0.807858)
+
+[node name="Floor11" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(-1424, 262)
+scale = Vector2(13.2235, 0.807858)
+
+[node name="Floor12" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(-671, 130)
+scale = Vector2(13.2235, 0.807858)
+
+[node name="Floor13" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(1905, 187)
+scale = Vector2(13.2235, 0.807858)
+
+[node name="Floor14" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(2666, 328)
+scale = Vector2(13.2235, 0.807858)
+
+[node name="Floor8" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(2781, 513.5)
+
+[node name="Floor9" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(1981, 513.5)
+
+[node name="Floor10" parent="Floor_Container" instance=ExtResource("3_cqa67")]
+position = Vector2(-1189, 513.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1
 
 [node name="Background" type="TextureRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -27,16 +82,8 @@ grow_vertical = 2
 texture = ExtResource("2")
 expand_mode = 1
 
-[node name="Floor" parent="." instance=ExtResource("3_cqa67")]
-
-[node name="Floor2" parent="." instance=ExtResource("3_cqa67")]
-position = Vector2(997, 513.5)
-
-[node name="Floor3" parent="." instance=ExtResource("3_cqa67")]
-position = Vector2(1773, 513.5)
-
 [node name="Player" parent="." instance=ExtResource("1")]
-position = Vector2(413.003, 395.272)
+position = Vector2(299, 394)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
@@ -44,11 +91,20 @@ position = Vector2(413.003, 395.272)
 script = ExtResource("5")
 turret_scene = ExtResource("4")
 
-[node name="cube" parent="." instance=ExtResource("7_u4r7h")]
-position = Vector2(965, 339)
-
 [node name="cube2" parent="." instance=ExtResource("7_u4r7h")]
 position = Vector2(80, 395)
 
 [node name="cube3" parent="." instance=ExtResource("7_u4r7h")]
 position = Vector2(966, 399)
+
+[node name="cube4" parent="." instance=ExtResource("7_u4r7h")]
+position = Vector2(965, 339)
+
+[node name="wall" parent="." instance=ExtResource("8_l00cy")]
+position = Vector2(-48, 214)
+
+[node name="wall2" parent="." instance=ExtResource("8_l00cy")]
+position = Vector2(546, 118)
+
+[node name="wall3" parent="." instance=ExtResource("8_l00cy")]
+position = Vector2(-419, 16)

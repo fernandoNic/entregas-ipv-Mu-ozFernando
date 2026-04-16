@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw4i2glp3rair"]
+
+[ext_resource type="Texture2D" uid="uid://doiohr46lpdc7" path="res://assets/textures/cannon.png" id="1_meedv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67ap7"]
+size = Vector2(20, 172)
+
+[node name="wall" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(5.2573, 1.37626)
+texture = ExtResource("1_meedv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_67ap7")
