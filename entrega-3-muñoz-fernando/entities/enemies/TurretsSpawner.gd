@@ -13,4 +13,5 @@ func initialize(player: Node2D) -> void:
 		)
 		
 		add_child(turret_instance)
-		turret_instance.initialize(turret_pos,player, self)
+		turret_instance.initialize(turret_pos,self)
+		#turret_instance.initialize(turret_pos,player, self)
