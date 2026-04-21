@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cgadr55reetnl"]
+
+[ext_resource type="Script" uid="uid://0yxqa7pr5dye" path="res://src/entities/Projectile.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://6s4eeg8s67tg" path="res://assets/textures/proyectile_player.png" id="2_skcxe"]
+
+[sub_resource type="Animation" id="1"]
+resource_name = "fire_loop"
+
+[sub_resource type="Animation" id="2"]
+resource_name = "fire_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="3"]
+resource_name = "hit"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_remove"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n3s4t"]
+_data = {
+&"fire_loop": SubResource("1"),
+&"fire_start": SubResource("2"),
+&"hit": SubResource("3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3s4t"]
+
+[node name="Projectile" type="Node2D" unique_id=1209271225]
+script = ExtResource("1")
+
+[node name="LifetimeTimer" type="Timer" parent="." unique_id=240690091]
+
+[node name="ProjectileAnimations" type="AnimationPlayer" parent="." unique_id=1059980429]
+libraries/ = SubResource("AnimationLibrary_n3s4t")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1850187677]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1405739095]
+shape = SubResource("RectangleShape2D_n3s4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=309896729]
+texture = ExtResource("2_skcxe")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
