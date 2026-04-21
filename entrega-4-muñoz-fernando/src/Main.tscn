@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coqxktsvv203r" path="res://src/Main.gd" id="1"]
 [ext_resource type="Script" uid="uid://25xetcj5a1il" path="res://src/entities/enemies/TurretsSpawner.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://ct77imo5scsq5" path="res://assets/textures/background.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://ctr8khlrbhmg7" path="res://assets/textures/background/Space Background.png" id="2_0vhqb"]
 [ext_resource type="PackedScene" path="res://src/environment/Floor.tscn" id="4"]
 [ext_resource type="PackedScene" uid="uid://bd5hj26cc16d2" path="res://src/entities/enemies/Turret.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://dvchiotj4dluu" path="res://src/environment/Obstacle.tscn" id="6"]
@@ -15,15 +15,17 @@
 [node name="Main" type="Node" unique_id=2119756450]
 script = ExtResource("1")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1522230864]
-layer = -1
+[node name="CanvasLayer" type="Node2D" parent="." unique_id=1993096732]
 
-[node name="Background" type="TextureRect" parent="CanvasLayer" unique_id=819139033]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-texture = ExtResource("3")
-expand_mode = 1
+[node name="Background" type="Parallax2D" parent="CanvasLayer" unique_id=1165823182]
+scroll_scale = Vector2(0.4, 1)
+repeat_size = Vector2(288, 162)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Background" unique_id=1493674158]
+position = Vector2(1, 0)
+texture = ExtResource("2_0vhqb")
+centered = false
 
 [node name="Environment" type="Node2D" parent="." unique_id=36366164]
 
@@ -82,8 +84,16 @@ script = ExtResource("2")
 turret_scene = ExtResource("5")
 extents = Vector2(300, -350)
 
-[node name="Turret" parent="Environment/Entities" unique_id=1771932699 instance=ExtResource("5")]
+[node name="Enemies" type="Node2D" parent="Environment/Entities" unique_id=820908905]
+
+[node name="Turret" parent="Environment/Entities/Enemies" unique_id=1771932699 instance=ExtResource("5")]
 position = Vector2(1608.14, 497.862)
+
+[node name="Turret3" parent="Environment/Entities/Enemies" unique_id=486949320 instance=ExtResource("5")]
+position = Vector2(1114, 485)
+
+[node name="Turret2" parent="Environment/Entities/Enemies" unique_id=615120669 instance=ExtResource("5")]
+position = Vector2(1720, 215)
 
 [node name="Objects" type="Node2D" parent="Environment" unique_id=381769877]
 

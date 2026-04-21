@@ -102,7 +102,7 @@ func _process_input() -> void:
 		body_pivot.scale.x = 1 - 2 * float(h_movement_direction < 0)
 	elif h_movement_direction == -1:
 		self.velocity.x = self.velocity.x - h_movement_direction
-		body_pivot.scale.x = 1 - 2 * float(h_movement_direction < 0)		
+		body_pivot.scale.x = 1 - 2 * float(h_movement_direction < 0)
 	else:
 		self.velocity.x = self.velocity.x + 1
 		
