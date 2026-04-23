@@ -563,7 +563,6 @@ centered = false
 [node name="Ground" type="Node2D" parent="Environment" unique_id=318231680]
 
 [node name="Wall" parent="Environment/Ground" unique_id=740328824 instance=ExtResource("8")]
-visible = false
 position = Vector2(31.8359, 298.952)
 
 [node name="Wall2" parent="Environment/Ground" unique_id=1073782390 instance=ExtResource("8")]
