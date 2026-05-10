@@ -126,23 +126,27 @@ zoom_speed = 1.0
 [node name="Enemies" type="Node2D" parent="Environment/Entities" unique_id=924310226]
 
 [node name="AstarTilemap" parent="Environment/Entities/Enemies" unique_id=74684712 instance=ExtResource("7_k2i6c")]
+tile_map_data = PackedByteArray("AAArABEAAAAAAAAAAAAsABEAAAAAAAAAAAAtABEAAAAAAAAAAAAuABEAAAAAAAAAAAAvABEAAAAAAAAAAAAwABEAAAAAAAAAAAAxABEAAAAAAAAAAAAyABEAAAAAAAAAAAAzABEAAAAAAAAAAAA0ABEAAAAAAAAAAAA1ABEAAAAAAAAAAAA2ABEAAAAAAAAAAAA3ABEAAAAAAAAAAAA4ABEAAAAAAAAAAAA5ABEAAAAAAAAAAAA6ABEAAAAAAAAAAAA7ABEAAAAAAAAAAAA8ABEAAAAAAAAAAAA9ABEAAAAAAAAAAAA9ABIAAAAAAAAAAAA9ABMAAAAAAAAAAAA8ABMAAAAAAAAAAAA7ABMAAAAAAAAAAAA6ABMAAAAAAAAAAAA5ABMAAAAAAAAAAAA4ABMAAAAAAAAAAAA3ABMAAAAAAAAAAAA2ABMAAAAAAAAAAAA1ABMAAAAAAAAAAAA0ABMAAAAAAAAAAAAzABMAAAAAAAAAAAAyABMAAAAAAAAAAAAxABMAAAAAAAAAAAAwABMAAAAAAAAAAAAvABMAAAAAAAAAAAAuABMAAAAAAAAAAAAtABMAAAAAAAAAAAAsABMAAAAAAAAAAAArABMAAAAAAAAAAAArABIAAAAAAAAAAAAsABIAAAAAAAAAAAAtABIAAAAAAAAAAAAuABIAAAAAAAAAAAAvABIAAAAAAAAAAAAwABIAAAAAAAAAAAAxABIAAAAAAAAAAAAyABIAAAAAAAAAAAAzABIAAAAAAAAAAAA0ABIAAAAAAAAAAAA1ABIAAAAAAAAAAAA2ABIAAAAAAAAAAAA3ABIAAAAAAAAAAAA4ABIAAAAAAAAAAAA5ABIAAAAAAAAAAAA6ABIAAAAAAAAAAAA7ABIAAAAAAAAAAAA8ABIAAAAAAAAAAAA=")
 
-[node name="Turret" parent="Environment/Entities/Enemies" unique_id=917698510 instance=ExtResource("9")]
+[node name="Turret" parent="Environment/Entities/Enemies" unique_id=917698510 node_paths=PackedStringArray("pathfinding") instance=ExtResource("9")]
 position = Vector2(1801, 211)
+pathfinding = NodePath("../AstarTilemap")
 
-[node name="TurretsSpawner" type="Marker2D" parent="Environment/Entities/Enemies" unique_id=529546777]
+[node name="TurretsSpawner" type="Marker2D" parent="Environment/Entities/Enemies" unique_id=529546777 node_paths=PackedStringArray("pathfinding")]
 position = Vector2(689, 270)
 script = ExtResource("4")
 turret_scene = ExtResource("9")
 amount = 3
 extents = Vector2(300, 50)
+pathfinding = NodePath("../AstarTilemap")
 
-[node name="TurretsSpawner2" type="Marker2D" parent="Environment/Entities/Enemies" unique_id=749978210]
-position = Vector2(1370, 173)
+[node name="TurretsSpawner2" type="Marker2D" parent="Environment/Entities/Enemies" unique_id=749978210 node_paths=PackedStringArray("pathfinding")]
+position = Vector2(1371, 173)
 script = ExtResource("4")
 turret_scene = ExtResource("9")
 amount = 6
 extents = Vector2(250, 300)
+pathfinding = NodePath("../AstarTilemap")
 
 [node name="Objects" type="Node2D" parent="Environment" unique_id=1642421350]
 z_as_relative = false

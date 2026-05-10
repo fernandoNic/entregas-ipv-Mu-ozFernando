@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://1c4vf4hpp4y0"]
+[gd_scene format=3 uid="uid://1c4vf4hpp4y0"]
 
 [ext_resource type="Script" uid="uid://bkj5hhu2oxiwc" path="res://src/entities/enemies/Turret.gd" id="2"]
 [ext_resource type="PackedScene" path="res://src/entities/enemies/TurretProjectile.tscn" id="3"]
@@ -12,49 +12,54 @@ size = Vector2(19, 25)
 [sub_resource type="CircleShape2D" id="2"]
 radius = 192.0
 
-[node name="Turret" type="CharacterBody2D"]
+[node name="Turret" type="CharacterBody2D" unique_id=907640688]
 texture_filter = 1
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("2")
 projectile_scene = ExtResource("3")
 
-[node name="FireTimer" type="Timer" parent="."]
+[node name="FireTimer" type="Timer" parent="." unique_id=1482359729]
 wait_time = 2.0
 one_shot = true
 
-[node name="FirePosition" type="Marker2D" parent="."]
+[node name="IdleTimer" type="Timer" parent="." unique_id=286495142]
+one_shot = true
+autostart = true
+
+[node name="FirePosition" type="Marker2D" parent="." unique_id=77905201]
 position = Vector2(0, -18.0339)
 
-[node name="Body" type="AnimatedSprite2D" parent="."]
+[node name="Body" type="AnimatedSprite2D" parent="." unique_id=203420329]
 position = Vector2(0, -16)
 sprite_frames = ExtResource("3_chgy7")
 animation = &"go_normal"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=462989403]
 position = Vector2(0.5, -12.5)
 shape = SubResource("1")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=510154006]
 position = Vector2(0.0428963, -18.0659)
 target_position = Vector2(0, 0)
 collision_mask = 3
 
-[node name="DetectionArea" type="Area2D" parent="."]
+[node name="DetectionArea" type="Area2D" parent="." unique_id=359166025]
 position = Vector2(0, -12)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4")
 
-[node name="GreenCircle" type="Sprite2D" parent="DetectionArea"]
+[node name="GreenCircle" type="Sprite2D" parent="DetectionArea" unique_id=1192811267]
 visible = false
 modulate = Color(1, 1, 1, 0.301961)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1092929014]
 shape = SubResource("2")
 
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
 [connection signal="animation_finished" from="Body" to="." method="_on_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
