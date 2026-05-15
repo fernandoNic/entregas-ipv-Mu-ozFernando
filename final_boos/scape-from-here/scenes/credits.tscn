@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cj2pru6nsovxf"]
+
+[ext_resource type="FontFile" uid="uid://dnwag73vl1x83" path="res://assets/fonts/SpecialElite-Regular.ttf" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://3ifqg678elio" path="res://scripts/credits.gd" id="1_2ckv8"]
+[ext_resource type="AudioStream" uid="uid://f71grrrdkkui" path="res://assets/tracks/11 - DavidKBD - Belmont Chronicles Pack - Credits Theme.ogg" id="3_0ctdu"]
+[ext_resource type="AudioStream" uid="uid://cvp3bs4dabpuu" path="res://assets/tracks/Sword Parry 1.ogg" id="4_2fbfq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ckv8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ctdu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2fbfq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8gwij"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mah5v"]
+
+[node name="Credits" type="Control" unique_id=682064032]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ckv8")
+
+[node name="background" type="Panel" parent="." unique_id=265748458]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="name" type="Label" parent="." unique_id=1182461139]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 30
+text = "Fernando Nicolas Muñoz"
+
+[node name="back menu" type="Button" parent="." unique_id=1088347702]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 117.0
+grow_vertical = 0
+theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2ckv8")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_0ctdu")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2fbfq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8gwij")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mah5v")
+text = "◄ Back To Menu"
+
+[node name="sfx" type="Node2D" parent="." unique_id=1244617156]
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="sfx" unique_id=958393994]
+stream = ExtResource("3_0ctdu")
+autoplay = true
+
+[node name="btn_music" type="AudioStreamPlayer2D" parent="sfx" unique_id=1115772571]
+stream = ExtResource("4_2fbfq")
+
+[connection signal="mouse_entered" from="back menu" to="." method="_on_back_menu_mouse_entered"]
+[connection signal="pressed" from="back menu" to="." method="_on_back_menu_pressed"]

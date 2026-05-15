@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://f71grrrdkkui"
+path="res://.godot/imported/11 - DavidKBD - Belmont Chronicles Pack - Credits Theme.ogg-b930b28667660c593c8a4b5fc91e945a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/tracks/11 - DavidKBD - Belmont Chronicles Pack - Credits Theme.ogg"
+dest_files=["res://.godot/imported/11 - DavidKBD - Belmont Chronicles Pack - Credits Theme.ogg-b930b28667660c593c8a4b5fc91e945a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

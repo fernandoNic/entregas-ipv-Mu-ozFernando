@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bru4cekdb3m5b"]
+
+[ext_resource type="Script" uid="uid://clahbl4lkxmdr" path="res://scripts/pause_menu.gd" id="1_myx47"]
+[ext_resource type="FontFile" uid="uid://dnwag73vl1x83" path="res://assets/fonts/SpecialElite-Regular.ttf" id="1_n87rw"]
+[ext_resource type="AudioStream" uid="uid://cvp3bs4dabpuu" path="res://assets/tracks/Sword Parry 1.ogg" id="3_kukqi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n87rw"]
+
+[node name="pause_menu" type="Control" unique_id=716560160]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_myx47")
+
+[node name="Panel" type="VBoxContainer" parent="." unique_id=1443138216]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.5
+offset_top = -19.0
+offset_right = 76.5
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume game" type="Button" parent="Panel" unique_id=1870539905]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n87rw")
+text = "Resume Game"
+
+[node name="quit to menu" type="Button" parent="Panel" unique_id=1698095646]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n87rw")
+text = "Quit to Title Menu"
+
+[node name="sfx" type="Node2D" parent="." unique_id=490465551]
+
+[node name="button_action" type="AudioStreamPlayer2D" parent="sfx" unique_id=1562357973]
+stream = ExtResource("3_kukqi")
+
+[connection signal="mouse_entered" from="Panel/resume game" to="." method="_on_resume_game_mouse_entered"]
+[connection signal="pressed" from="Panel/resume game" to="." method="_on_resume_game_pressed"]
+[connection signal="mouse_entered" from="Panel/quit to menu" to="." method="_on_quit_to_menu_mouse_entered"]
+[connection signal="pressed" from="Panel/quit to menu" to="." method="_on_quit_to_menu_pressed"]

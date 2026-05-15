@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://em0hkvjs0tgs"
+path="res://.godot/imported/1. Moonspire.ogg-40447848ec78149397331a2f78fdc867.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/tracks/1. Moonspire.ogg"
+dest_files=["res://.godot/imported/1. Moonspire.ogg-40447848ec78149397331a2f78fdc867.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

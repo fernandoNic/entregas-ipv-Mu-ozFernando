@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cnrjs5r85ra62"]
+
+[ext_resource type="PackedScene" uid="uid://bru4cekdb3m5b" path="res://scenes/pause_menu.tscn" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://xlruqv6hyw4a" path="res://scenes/entities/player.tscn" id="2_w7c3h"]
+[ext_resource type="AudioStream" uid="uid://d3inr23owdyoh" path="res://assets/tracks/01 - DavidKBD - Belmont Chronicles Pack - Belmont Chronicles.ogg" id="3_w8frs"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2q6dc"]
+distance = 276.0
+
+[node name="Level" type="Node2D" unique_id=2039849859]
+
+[node name="UI" type="Control" parent="." unique_id=1961269203]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseLayer" type="CanvasLayer" parent="UI" unique_id=78855931]
+layer = 10
+visible = false
+
+[node name="DarkOverlay" type="ColorRect" parent="UI/PauseLayer" unique_id=256838616]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="pause_menu" parent="UI/PauseLayer" unique_id=716560160 instance=ExtResource("1_2q6dc")]
+
+[node name="World" type="Node2D" parent="." unique_id=1928016570]
+
+[node name="ground" type="StaticBody2D" parent="World" unique_id=804728645]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/ground" unique_id=147305721]
+position = Vector2(217, 769)
+shape = SubResource("WorldBoundaryShape2D_2q6dc")
+
+[node name="Player" parent="World" unique_id=417206827 instance=ExtResource("2_w7c3h")]
+position = Vector2(415, 260)
+
+[node name="music" type="Node2D" parent="." unique_id=936055420]
+
+[node name="bg_music" type="AudioStreamPlayer2D" parent="music" unique_id=1705552312]
+stream = ExtResource("3_w8frs")
+autoplay = true
+
+[editable path="UI/PauseLayer/pause_menu"]
