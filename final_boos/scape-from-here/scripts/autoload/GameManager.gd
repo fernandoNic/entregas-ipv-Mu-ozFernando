@@ -11,9 +11,7 @@ func _input(_event):
 		get_tree().quit()
 		
 func obtener_canvas():
-	# Accedemos a la escena que el usuario está viendo actualmente
-	var escena_actual = get_tree().current_scene #level
-	# Buscamos el nodo por nombre (debe estar en la raíz de esa escena)
+	var escena_actual = get_tree().current_scene
 	var canvas = escena_actual.get_node_or_null("UI").get_node_or_null("PauseLayer")
 	#var canvas = escena_actual.get_node_or_null("CharacterBody2D")
 	return canvas

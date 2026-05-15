@@ -24,38 +24,94 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2ckv8")
 
-[node name="background" type="Panel" parent="." unique_id=265748458]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1979083615]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
 
-[node name="name" type="Label" parent="." unique_id=1182461139]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer" unique_id=1259285486]
+custom_minimum_size = Vector2(500, 1000)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+theme_override_constants/separation = 0
+
+[node name="nombre_juego" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1473276291]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 50
+text = "Escape From Here"
+horizontal_alignment = 1
+
+[node name="programacion" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=857392975]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("1_0bpdh")
 theme_override_font_sizes/font_size = 30
-text = "Fernando Nicolas Muñoz"
+text = "PROGRAMACIÓN:
+Programación de Gameplay: Fernando Muñoz
+Programación de UI/Sistemas: Fernando Muñoz"
+
+[node name="arte" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=465472032]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 30
+text = "ARTE Y ANIMACIÓN:
+Artistas 2D Pixel Art: nombre de autores"
+
+[node name="diseño" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=267498084]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 30
+text = "DISEÑO DE JUEGO:
+Diseño de Niveles: Fernando Muñoz
+Escritor / Narrativa: Fernando Muñoz"
+
+[node name="musica" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=489668498]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 30
+text = "AUDIO Y MÚSICA:
+Composición Musical: alkakrab.itch.io
+Diseño de Sonido (SFX): davidkbd.itch.io"
+
+[node name="engine" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=893073027]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 30
+text = "HERRAMIENTAS Y TECNOLOGÍA:
+Desarrollado con el motor de juego Godot v4.6.2"
+
+[node name="gracias" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=724430453]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 30
+text = "GRACIAS POR JUGAR !!!"
 
 [node name="back menu" type="Button" parent="." unique_id=1088347702]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -31.0
-offset_right = 117.0
+offset_top = -42.0
+offset_right = 232.0
 grow_vertical = 0
 theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
 theme_override_fonts/font = ExtResource("1_0bpdh")
