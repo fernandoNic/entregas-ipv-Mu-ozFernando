@@ -21,6 +21,10 @@ func _on_resume_button_pressed() -> void:
 
 
 func _on_return_button_pressed() -> void:
-	hide()
-	#get_tree().change_scene_to_packed(level_manager_scene)
+	hide_custom()
+	#return_selected.emit()
 	get_tree().change_scene_to_file("res://src/screens/MainMenu.tscn")
+
+func hide_custom() -> void:
+	hide()
+	get_tree().paused = false
