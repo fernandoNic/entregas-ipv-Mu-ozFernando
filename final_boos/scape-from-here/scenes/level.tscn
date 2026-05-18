@@ -2,10 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://bru4cekdb3m5b" path="res://scenes/pause_menu.tscn" id="1_2q6dc"]
 [ext_resource type="PackedScene" uid="uid://xlruqv6hyw4a" path="res://scenes/entities/player.tscn" id="2_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://b65rmuvq57nyd" path="res://assets/input/input.png" id="3_mx8sn"]
+[ext_resource type="Script" uid="uid://l6d0olbcpxex" path="res://scripts/tutorial_prompt.gd" id="3_ppgk2"]
 [ext_resource type="AudioStream" uid="uid://d3inr23owdyoh" path="res://assets/tracks/01 - DavidKBD - Belmont Chronicles Pack - Belmont Chronicles.ogg" id="3_w8frs"]
+[ext_resource type="Script" uid="uid://cr2nst8tqlm8g" path="res://scripts/tutorial_jump.gd" id="5_2r41h"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2q6dc"]
 distance = 276.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppgk2"]
+size = Vector2(103.5, 118.0625)
 
 [node name="Level" type="Node2D" unique_id=2039849859]
 
@@ -40,12 +46,98 @@ position = Vector2(217, 769)
 shape = SubResource("WorldBoundaryShape2D_2q6dc")
 
 [node name="Player" parent="World" unique_id=417206827 instance=ExtResource("2_w7c3h")]
-position = Vector2(415, 260)
+position = Vector2(152, 475)
+
+[node name="Tutorial_move" type="Area2D" parent="World" unique_id=1651048172]
+script = ExtResource("3_ppgk2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Tutorial_move" unique_id=1745452423]
+position = Vector2(156, 429.9375)
+shape = SubResource("RectangleShape2D_ppgk2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="World/Tutorial_move" unique_id=733204201]
+offset_left = 94.0
+offset_top = 357.0
+offset_right = 217.0
+offset_bottom = 425.0
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="World/Tutorial_move/VBoxContainer" unique_id=189750132]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="World/Tutorial_move/VBoxContainer/HBoxContainer" unique_id=421222462]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="key_A2" type="Sprite2D" parent="World/Tutorial_move/VBoxContainer/HBoxContainer/Control" unique_id=198365108]
+position = Vector2(18, 18)
+texture = ExtResource("3_mx8sn")
+hframes = 6
+vframes = 11
+frame = 6
+
+[node name="Label" type="Label" parent="World/Tutorial_move/VBoxContainer/HBoxContainer" unique_id=66504668]
+layout_mode = 2
+text = "Move Left"
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="World/Tutorial_move/VBoxContainer" unique_id=1378264023]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="World/Tutorial_move/VBoxContainer/HBoxContainer2" unique_id=448250846]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+
+[node name="key_D2" type="Sprite2D" parent="World/Tutorial_move/VBoxContainer/HBoxContainer2/Control" unique_id=1472361138]
+position = Vector2(17, 16)
+texture = ExtResource("3_mx8sn")
+hframes = 6
+vframes = 11
+frame = 9
+
+[node name="Label" type="Label" parent="World/Tutorial_move/VBoxContainer/HBoxContainer2" unique_id=89001929]
+layout_mode = 2
+text = "Move Right"
+vertical_alignment = 1
+
+[node name="Tutorial_jump" type="Area2D" parent="World" unique_id=521516483]
+script = ExtResource("5_2r41h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Tutorial_jump" unique_id=1847182342]
+position = Vector2(423, 428.96875)
+shape = SubResource("RectangleShape2D_ppgk2")
+
+[node name="jump_key" type="Sprite2D" parent="World/Tutorial_jump" unique_id=1043042339]
+position = Vector2(389, 401)
+texture = ExtResource("3_mx8sn")
+hframes = 6
+vframes = 11
+frame = 36
+
+[node name="jump_key2" type="Sprite2D" parent="World/Tutorial_jump" unique_id=879037954]
+position = Vector2(389, 373)
+texture = ExtResource("3_mx8sn")
+hframes = 6
+vframes = 11
+frame = 28
+
+[node name="Label" type="Label" parent="World/Tutorial_jump" unique_id=957972952]
+offset_left = 415.0
+offset_top = 376.0
+offset_right = 522.0
+offset_bottom = 399.0
+text = "press to Jump"
 
 [node name="music" type="Node2D" parent="." unique_id=936055420]
+visible = false
 
 [node name="bg_music" type="AudioStreamPlayer2D" parent="music" unique_id=1705552312]
 stream = ExtResource("3_w8frs")
 autoplay = true
+
+[connection signal="body_entered" from="World/Tutorial_move" to="World/Tutorial_move" method="_on_body_entered"]
+[connection signal="body_exited" from="World/Tutorial_move" to="World/Tutorial_move" method="_on_body_exited"]
+[connection signal="body_entered" from="World/Tutorial_jump" to="World/Tutorial_jump" method="_on_body_entered"]
+[connection signal="body_exited" from="World/Tutorial_jump" to="World/Tutorial_jump" method="_on_body_exited"]
 
 [editable path="UI/PauseLayer/pause_menu"]
