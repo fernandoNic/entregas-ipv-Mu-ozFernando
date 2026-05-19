@@ -128,6 +128,27 @@ offset_right = 522.0
 offset_bottom = 399.0
 text = "press to Jump"
 
+[node name="Tutorial_attack" type="Area2D" parent="World" unique_id=736664544]
+position = Vector2(280, 0)
+script = ExtResource("5_2r41h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/Tutorial_attack" unique_id=795303849]
+position = Vector2(423, 428.96875)
+shape = SubResource("RectangleShape2D_ppgk2")
+
+[node name="jump_key" type="Sprite2D" parent="World/Tutorial_attack" unique_id=1313985212]
+position = Vector2(392, 392)
+texture = ExtResource("3_mx8sn")
+hframes = 6
+vframes = 11
+
+[node name="Label" type="Label" parent="World/Tutorial_attack" unique_id=764220656]
+offset_left = 415.0
+offset_top = 376.0
+offset_right = 522.0
+offset_bottom = 399.0
+text = "press to Jump"
+
 [node name="music" type="Node2D" parent="." unique_id=936055420]
 visible = false
 
@@ -139,5 +160,8 @@ autoplay = true
 [connection signal="body_exited" from="World/Tutorial_move" to="World/Tutorial_move" method="_on_body_exited"]
 [connection signal="body_entered" from="World/Tutorial_jump" to="World/Tutorial_jump" method="_on_body_entered"]
 [connection signal="body_exited" from="World/Tutorial_jump" to="World/Tutorial_jump" method="_on_body_exited"]
+[connection signal="body_entered" from="World/Tutorial_attack" to="World/Tutorial_attack" method="_on_body_entered"]
+[connection signal="body_exited" from="World/Tutorial_attack" to="World/Tutorial_attack" method="_on_body_exited"]
 
 [editable path="UI/PauseLayer/pause_menu"]
+[editable path="World/Player"]

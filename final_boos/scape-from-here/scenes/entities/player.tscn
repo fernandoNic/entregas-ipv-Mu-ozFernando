@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cho2j24qb2qyx" path="res://assets/player/run.png" id="3_1ie0h"]
 [ext_resource type="Texture2D" uid="uid://5mruvk3hu6p2" path="res://assets/player/jump.png" id="3_42nxq"]
 [ext_resource type="Texture2D" uid="uid://rd3ypsblskvd" path="res://assets/player/combo_1.png" id="3_ss7kx"]
+[ext_resource type="Texture2D" uid="uid://ch2iafm8vh0oc" path="res://assets/player/fall.png" id="4_ss7kx"]
+[ext_resource type="AudioStream" uid="uid://b8batnkuwqjc6" path="res://assets/sfx/Sword Attack 2.ogg" id="8_dnykm"]
+[ext_resource type="AudioStream" uid="uid://cobh53nreuokg" path="res://assets/sfx/Wood Run 5.ogg" id="9_c5rqy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw3xw"]
 atlas = ExtResource("2_d4qa6")
@@ -34,6 +37,22 @@ region = Rect2(128, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_txtga"]
 atlas = ExtResource("2_d4qa6")
 region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdlmq"]
+atlas = ExtResource("4_ss7kx")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_527fh"]
+atlas = ExtResource("4_ss7kx")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ow4gm"]
+atlas = ExtResource("4_ss7kx")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxsl8"]
+atlas = ExtResource("4_ss7kx")
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ie0h"]
 atlas = ExtResource("2_08t41")
@@ -166,9 +185,26 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yw3xw")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdlmq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_527fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ow4gm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxsl8")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -268,15 +304,27 @@ animations = [{
 size = Vector2(15, 33)
 
 [node name="Player" type="Node2D" unique_id=417206827]
+metadata/_edit_vertical_guides_ = [-249.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=643298198]
 script = ExtResource("1_08t41")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=614268679]
 sprite_frames = SubResource("SpriteFrames_5ki56")
-animation = &"idle"
-frame_progress = 0.28943262
+animation = &"fall"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1094740487]
 position = Vector2(-0.5, 1.5)
 shape = SubResource("RectangleShape2D_08t41")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=410587740]
+zoom = Vector2(2, 2)
+
+[node name="sfx" type="Node2D" parent="CharacterBody2D" unique_id=154950908]
+
+[node name="attack_sfx" type="AudioStreamPlayer2D" parent="CharacterBody2D/sfx" unique_id=159215061]
+stream = ExtResource("8_dnykm")
+
+[node name="run_sfx" type="AudioStreamPlayer2D" parent="CharacterBody2D/sfx" unique_id=1639380266]
+stream = ExtResource("9_c5rqy")
+parameters/looping = false
