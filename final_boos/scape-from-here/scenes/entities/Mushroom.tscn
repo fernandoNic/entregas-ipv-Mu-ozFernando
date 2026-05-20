@@ -206,8 +206,11 @@ size = Vector2(18, 34)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1364046219]
 sprite_frames = SubResource("SpriteFrames_1tgqx")
 animation = &"death"
-frame_progress = 0.8991518
+frame_progress = 0.99750024
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1700820095]
 position = Vector2(1, 7)
 shape = SubResource("RectangleShape2D_5mq0a")
+
+[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D" unique_id=383743446]
+target_position = Vector2(50, 0)
