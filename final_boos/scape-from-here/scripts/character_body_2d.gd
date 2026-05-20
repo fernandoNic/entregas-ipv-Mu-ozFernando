@@ -10,6 +10,7 @@ var current_state : STATE
 @onready var run_sfx: AudioStreamPlayer2D = $sfx/run_sfx
 @onready var attack_sfx: AudioStreamPlayer2D = $sfx/attack_sfx
 @onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
+@onready var hitbox_2d: CollisionShape2D = $hitbox/CollisionShape2D
 
 func _ready() -> void:
 	# Inicializa forzando el estado IDLE
@@ -42,6 +43,7 @@ func _enter_state() -> void:
 		STATE.ATTACK:
 			animated_sprite_2d.play("attack")
 			attack_sfx.play()
+			hitbox_2d.disabled = !hitbox_2d.disabled
 			# Conectar señal para salir del ataque de forma automática
 			if not animated_sprite_2d.animation_finished.is_connected(_on_attack_animation_finished):
 				animated_sprite_2d.animation_finished.connect(_on_attack_animation_finished)
@@ -52,6 +54,7 @@ func _exit_state() -> void:
 			# Desconectar señal al salir del estado
 			if animated_sprite_2d.animation_finished.is_connected(_on_attack_animation_finished):
 				animated_sprite_2d.animation_finished.disconnect(_on_attack_animation_finished)
+				hitbox_2d.disabled = !hitbox_2d.disabled
 		STATE.RUN:
 			# Apaga el loop de pasos inmediatamente al dejar de correr, saltar o atacar
 			run_sfx.stop()

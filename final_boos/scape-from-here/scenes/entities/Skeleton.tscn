@@ -2,8 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://sk5p0eim5f68" path="res://assets/enemies/Skeleton/Attack.png" id="1_qjt28"]
 [ext_resource type="Texture2D" uid="uid://bq2p3bqwa5mhm" path="res://assets/enemies/Skeleton/Idle.png" id="1_s04l1"]
+[ext_resource type="Script" uid="uid://lg4mundk305c" path="res://scripts/skeleton.gd" id="1_xegir"]
 [ext_resource type="Texture2D" uid="uid://c0v1r7p5ag363" path="res://assets/enemies/Skeleton/Death.png" id="2_xxvqf"]
 [ext_resource type="Texture2D" uid="uid://p632cvt5fmsu" path="res://assets/enemies/Skeleton/Walk.png" id="3_j7ytj"]
+[ext_resource type="PackedScene" uid="uid://bn08trqfu0cam" path="res://scenes/progress_bar.tscn" id="5_3renp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xegir"]
 atlas = ExtResource("1_qjt28")
@@ -112,7 +114,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vdd7u")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 20.0
 }, {
@@ -129,7 +131,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rs5wt")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 3.0
 }, {
@@ -163,7 +165,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s2vcg")
 }],
-"loop": true,
+"loop": false,
 "name": &"walk",
 "speed": 8.0
 }]
@@ -171,20 +173,33 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bl646"]
 size = Vector2(27, 49)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3renp"]
+size = Vector2(26, 40)
+
 [node name="Skeleton" type="Node2D" unique_id=508052477]
+script = ExtResource("1_xegir")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=333589403]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2116029732]
 sprite_frames = SubResource("SpriteFrames_xegir")
-animation = &"idle"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.30913076
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1355331360]
-position = Vector2(4, 0.5)
 shape = SubResource("RectangleShape2D_bl646")
 
 [node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D" unique_id=1228137570]
 target_position = Vector2(50, 0)
+
+[node name="ProgressBar" parent="CharacterBody2D" unique_id=1930645090 instance=ExtResource("5_3renp")]
+offset_top = -40.0
+offset_bottom = -32.0
+
+[node name="hurtbox" type="Area2D" parent="CharacterBody2D" unique_id=1715267738]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hurtbox" unique_id=361681473]
+position = Vector2(-3, -4)
+shape = SubResource("RectangleShape2D_3renp")
+debug_color = Color(0.9507491, 0.21428928, 0.17075568, 0.41960785)

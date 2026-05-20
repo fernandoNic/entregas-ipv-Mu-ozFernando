@@ -303,6 +303,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08t41"]
 size = Vector2(15, 33)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5rqy"]
+size = Vector2(32, 40)
+
 [node name="Player" type="Node2D" unique_id=417206827]
 metadata/_edit_vertical_guides_ = [-249.0]
 
@@ -311,7 +314,7 @@ script = ExtResource("1_08t41")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=614268679]
 sprite_frames = SubResource("SpriteFrames_5ki56")
-animation = &"fall"
+animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1094740487]
 position = Vector2(-0.5, 1.5)
@@ -328,3 +331,11 @@ stream = ExtResource("8_dnykm")
 [node name="run_sfx" type="AudioStreamPlayer2D" parent="CharacterBody2D/sfx" unique_id=1639380266]
 stream = ExtResource("9_c5rqy")
 parameters/looping = false
+
+[node name="hitbox" type="Area2D" parent="CharacterBody2D" unique_id=1837776883]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hitbox" unique_id=1053914007]
+position = Vector2(32, -4)
+shape = SubResource("RectangleShape2D_c5rqy")
+disabled = true
+debug_color = Color(0.9770264, 0.111617945, 0.26843953, 0.41960785)

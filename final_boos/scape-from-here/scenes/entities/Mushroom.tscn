@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://bnpxst5t5kdvs"]
 
+[ext_resource type="Script" uid="uid://dwhljif6ou76u" path="res://scripts/mushroom.gd" id="1_1tgqx"]
 [ext_resource type="Texture2D" uid="uid://dcmokdmlnh2tl" path="res://assets/enemies/Mushroom/Idle.png" id="1_oqy5j"]
 [ext_resource type="Texture2D" uid="uid://cnl2uqi0q770y" path="res://assets/enemies/Mushroom/Attack.png" id="1_qt8jx"]
 [ext_resource type="Texture2D" uid="uid://cncqnltq1ablf" path="res://assets/enemies/Mushroom/Run.png" id="2_axek8"]
 [ext_resource type="Texture2D" uid="uid://b3qm2yochwgt1" path="res://assets/enemies/Mushroom/Death.png" id="2_q68ii"]
+[ext_resource type="PackedScene" uid="uid://bn08trqfu0cam" path="res://scenes/progress_bar.tscn" id="5_q68ii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppal4"]
 atlas = ExtResource("1_qt8jx")
@@ -199,7 +201,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5mq0a"]
 size = Vector2(18, 34)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tgqx"]
+size = Vector2(20, 26)
+
 [node name="Mushroom" type="Node2D" unique_id=927427066]
+script = ExtResource("1_1tgqx")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=6434277]
 
@@ -216,3 +222,12 @@ shape = SubResource("RectangleShape2D_5mq0a")
 
 [node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D" unique_id=383743446]
 target_position = Vector2(50, 0)
+
+[node name="ProgressBar" parent="CharacterBody2D" unique_id=1930645090 instance=ExtResource("5_q68ii")]
+
+[node name="hurtbox" type="Area2D" parent="CharacterBody2D" unique_id=1320393628]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hurtbox" unique_id=531315145]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_1tgqx")
+debug_color = Color(0.98264223, 0.09859089, 0.22560072, 0.41960785)
