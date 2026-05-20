@@ -177,6 +177,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2002250043]
 sprite_frames = SubResource("SpriteFrames_w3o6u")
+autoplay = "default"
 frame_progress = 0.7148231
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495965560]

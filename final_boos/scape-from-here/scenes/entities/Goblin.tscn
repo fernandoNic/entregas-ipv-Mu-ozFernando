@@ -205,8 +205,10 @@ size = Vector2(20, 32)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1754038762]
 sprite_frames = SubResource("SpriteFrames_iay4v")
-animation = &"run"
-frame_progress = 0.8901262
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.3759763
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1112146681]
 position = Vector2(0, 8)

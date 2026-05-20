@@ -177,8 +177,10 @@ size = Vector2(27, 49)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2116029732]
 sprite_frames = SubResource("SpriteFrames_xegir")
-animation = &"death"
-frame_progress = 0.8891456
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.30913076
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1355331360]
 position = Vector2(4, 0.5)

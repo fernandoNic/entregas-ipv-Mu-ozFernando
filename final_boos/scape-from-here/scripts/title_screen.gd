@@ -1,10 +1,12 @@
 extends Control
 
 @onready var navigation_sound: AudioStreamPlayer2D = $sfx/navigation_sound
+@onready var start_game: Button = $"VBoxContainer/start game"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	start_game.grab_focus()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
