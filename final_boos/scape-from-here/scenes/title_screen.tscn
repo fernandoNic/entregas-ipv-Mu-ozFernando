@@ -7,6 +7,8 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1a2ex"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgrm8"]
+
 [node name="title_screen" type="Control" unique_id=911635876]
 layout_mode = 3
 anchors_preset = 15
@@ -50,19 +52,22 @@ grow_vertical = 2
 [node name="start game" type="Button" parent="VBoxContainer" unique_id=1966615191]
 layout_mode = 2
 focus_next = NodePath("../credits")
-theme_override_colors/font_hover_color = Color(0.6847617, 0.65908796, 0.0370807, 1)
+theme_override_colors/font_focus_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
+theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
+theme_override_colors/icon_focus_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
 theme_override_fonts/font = ExtResource("1_fgkus")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1a2ex")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_1a2ex")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_1a2ex")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_1a2ex")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mgrm8")
 text = "Start Game"
 
 [node name="credits" type="Button" parent="VBoxContainer" unique_id=919074329]
 layout_mode = 2
 focus_next = NodePath("../quit game")
 focus_previous = NodePath("../start game")
+theme_override_colors/font_focus_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
 theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
 theme_override_fonts/font = ExtResource("1_fgkus")
 theme_override_font_sizes/font_size = 30
@@ -75,6 +80,7 @@ text = "Credits"
 [node name="quit game" type="Button" parent="VBoxContainer" unique_id=311073033]
 layout_mode = 2
 focus_previous = NodePath("../credits")
+theme_override_colors/font_focus_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
 theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
 theme_override_fonts/font = ExtResource("1_fgkus")
 theme_override_font_sizes/font_size = 30
@@ -93,6 +99,7 @@ autoplay = true
 [node name="navigation_sound" type="AudioStreamPlayer2D" parent="sfx" unique_id=474859564]
 stream = ExtResource("4_mgrm8")
 
+[connection signal="focus_entered" from="VBoxContainer/start game" to="." method="_on_start_game_focus_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/start game" to="." method="_on_start_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/start game" to="." method="_on_start_game_pressed"]
 [connection signal="mouse_entered" from="VBoxContainer/credits" to="." method="_on_credits_mouse_entered"]

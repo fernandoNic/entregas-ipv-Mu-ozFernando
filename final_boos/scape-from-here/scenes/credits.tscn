@@ -113,6 +113,7 @@ anchor_bottom = 1.0
 offset_top = -42.0
 offset_right = 232.0
 grow_vertical = 0
+theme_override_colors/font_focus_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
 theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
 theme_override_fonts/font = ExtResource("1_0bpdh")
 theme_override_font_sizes/font_size = 30

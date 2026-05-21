@@ -3,9 +3,11 @@ extends Control
 @onready var scroll_container: ScrollContainer = $ScrollContainer
 @onready var v_box_container: VBoxContainer = $ScrollContainer/VBoxContainer
 @export var duracion_animacion: float = 50.0
+@onready var back_menu: Button = $"back menu"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	back_menu.grab_focus()
 	start_credits()
 
 func start_credits():

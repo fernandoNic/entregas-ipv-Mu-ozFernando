@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ij2ma86nqx4d"]
 
+[ext_resource type="Script" uid="uid://cpi73xgyqn8b1" path="res://scripts/key.gd" id="1_fttkb"]
 [ext_resource type="Texture2D" uid="uid://dvaw72hilyj4j" path="res://assets/items/key_32x32_24f.png" id="1_yk2u2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b121j"]
@@ -174,6 +175,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_klq6b"]
 
 [node name="key" type="Area2D" unique_id=587903310]
+script = ExtResource("1_fttkb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2002250043]
 sprite_frames = SubResource("SpriteFrames_w3o6u")
@@ -183,3 +185,5 @@ frame_progress = 0.7148231
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495965560]
 scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_klq6b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
