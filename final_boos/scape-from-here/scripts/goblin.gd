@@ -15,16 +15,20 @@ func be_harmed(amount:float) -> void:
 	current_health -= amount
 	current_health = clamp(current_health,0.0,max_health)
 	progress_bar.value = current_health
+	animated_sprite_2d.play("hit")
+	await animated_sprite_2d.animation_finished
 	
 	if current_health == 0:
 		death()
-
+	else:
+		animated_sprite_2d.play("idle")
+		
 func death():
 	animated_sprite_2d.play("death")
 	await animated_sprite_2d.animation_finished
 	queue_free()
 
-
-func _on_hurtbox_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
-		be_harmed(10.0)
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.name == "hitbox":
+		be_harmed(40.0)
+		

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cnl2uqi0q770y" path="res://assets/enemies/Mushroom/Attack.png" id="1_qt8jx"]
 [ext_resource type="Texture2D" uid="uid://cncqnltq1ablf" path="res://assets/enemies/Mushroom/Run.png" id="2_axek8"]
 [ext_resource type="Texture2D" uid="uid://b3qm2yochwgt1" path="res://assets/enemies/Mushroom/Death.png" id="2_q68ii"]
+[ext_resource type="Texture2D" uid="uid://d3ok22k0fpefm" path="res://assets/enemies/Mushroom/Take Hit.png" id="4_5mq0a"]
 [ext_resource type="PackedScene" uid="uid://bn08trqfu0cam" path="res://scenes/progress_bar.tscn" id="5_q68ii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ppal4"]
@@ -53,6 +54,22 @@ region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a6ga0"]
 atlas = ExtResource("2_q68ii")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_300ki"]
+atlas = ExtResource("4_5mq0a")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yqj6"]
+atlas = ExtResource("4_5mq0a")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn012"]
+atlas = ExtResource("4_5mq0a")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aywse"]
+atlas = ExtResource("4_5mq0a")
 region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_axek8"]
@@ -130,7 +147,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tfmmw")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack",
 "speed": 10.0
 }, {
@@ -147,9 +164,26 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a6ga0")
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_300ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yqj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn012")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aywse")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -193,7 +227,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jcpid")
 }],
-"loop": true,
+"loop": false,
 "name": &"run",
 "speed": 15.0
 }]
@@ -211,9 +245,8 @@ script = ExtResource("1_1tgqx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1364046219]
 sprite_frames = SubResource("SpriteFrames_1tgqx")
-animation = &"idle"
+animation = &"hit"
 autoplay = "idle"
-frame_progress = 0.13812742
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1700820095]
@@ -231,3 +264,5 @@ target_position = Vector2(50, 0)
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_1tgqx")
 debug_color = Color(0.98264223, 0.09859089, 0.22560072, 0.41960785)
+
+[connection signal="area_entered" from="CharacterBody2D/hurtbox" to="." method="_on_hurtbox_area_entered"]

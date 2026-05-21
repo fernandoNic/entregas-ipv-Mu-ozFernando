@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://0a4rm5ejmucn" path="res://assets/enemies/Goblin/Idle.png" id="1_ue0fe"]
 [ext_resource type="Texture2D" uid="uid://bg0k4admjk6h5" path="res://assets/enemies/Goblin/Death.png" id="2_01kty"]
 [ext_resource type="Texture2D" uid="uid://livjnjfgnomg" path="res://assets/enemies/Goblin/Run.png" id="2_4f871"]
+[ext_resource type="Texture2D" uid="uid://llppsho2ppqv" path="res://assets/enemies/Goblin/Take Hit.png" id="4_y6sfb"]
 [ext_resource type="PackedScene" uid="uid://bn08trqfu0cam" path="res://scenes/progress_bar.tscn" id="6_iay4v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5jbrk"]
@@ -53,6 +54,22 @@ region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lktc7"]
 atlas = ExtResource("2_01kty")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af3i2"]
+atlas = ExtResource("4_y6sfb")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsx7p"]
+atlas = ExtResource("4_y6sfb")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4euti"]
+atlas = ExtResource("4_y6sfb")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_luo8g"]
+atlas = ExtResource("4_y6sfb")
 region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4f871"]
@@ -153,6 +170,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_af3i2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsx7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4euti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_luo8g")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4f871")
 }, {
 "duration": 1.0,
@@ -211,8 +245,10 @@ script = ExtResource("1_s62bm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1754038762]
 sprite_frames = SubResource("SpriteFrames_iay4v")
-animation = &"idle"
+animation = &"hit"
 autoplay = "idle"
+frame = 3
+frame_progress = 1.0
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1112146681]
@@ -231,4 +267,5 @@ position = Vector2(-3, 8)
 shape = SubResource("RectangleShape2D_s62bm")
 debug_color = Color(0.8716098, 0.34111896, 0.2043868, 0.41960785)
 
+[connection signal="area_entered" from="CharacterBody2D/hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/hurtbox" to="." method="_on_hurtbox_body_entered"]

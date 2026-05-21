@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+signal grab_keys(cantidad:int)
+var keys :int
+
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
 const GRAVITY = 450.0
@@ -123,3 +126,8 @@ func _aplicar_gravedad(delta: float) -> void:
 func _on_attack_animation_finished() -> void:
 	if current_state == STATE.ATTACK:
 		_set_state(STATE.IDLE)
+
+func grab_a_key() -> void:
+	keys += 1
+	grab_keys.emit(keys)
+	

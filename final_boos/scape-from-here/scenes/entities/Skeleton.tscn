@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://lg4mundk305c" path="res://scripts/skeleton.gd" id="1_xegir"]
 [ext_resource type="Texture2D" uid="uid://c0v1r7p5ag363" path="res://assets/enemies/Skeleton/Death.png" id="2_xxvqf"]
 [ext_resource type="Texture2D" uid="uid://p632cvt5fmsu" path="res://assets/enemies/Skeleton/Walk.png" id="3_j7ytj"]
+[ext_resource type="Texture2D" uid="uid://cg5pn4at2tbxg" path="res://assets/enemies/Skeleton/Take Hit.png" id="4_bl646"]
 [ext_resource type="PackedScene" uid="uid://bn08trqfu0cam" path="res://scenes/progress_bar.tscn" id="5_3renp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xegir"]
@@ -53,6 +54,22 @@ region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rs5wt"]
 atlas = ExtResource("2_xxvqf")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf4ad"]
+atlas = ExtResource("4_bl646")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xfke"]
+atlas = ExtResource("4_bl646")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdde3"]
+atlas = ExtResource("4_bl646")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_107nm"]
+atlas = ExtResource("4_bl646")
 region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjt28"]
@@ -137,6 +154,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_yf4ad")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4xfke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdde3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_107nm")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qjt28")
 }, {
 "duration": 1.0,
@@ -183,7 +217,7 @@ script = ExtResource("1_xegir")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2116029732]
 sprite_frames = SubResource("SpriteFrames_xegir")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
 flip_h = true
 
@@ -203,3 +237,5 @@ offset_bottom = -32.0
 position = Vector2(-3, -4)
 shape = SubResource("RectangleShape2D_3renp")
 debug_color = Color(0.9507491, 0.21428928, 0.17075568, 0.41960785)
+
+[connection signal="area_entered" from="CharacterBody2D/hurtbox" to="." method="_on_hurtbox_area_entered"]
