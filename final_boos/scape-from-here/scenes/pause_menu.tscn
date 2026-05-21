@@ -43,6 +43,18 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_n87rw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_n87rw")
 text = "Resume Game"
 
+[node name="restart level" type="Button" parent="Panel" unique_id=633724272]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
+theme_override_fonts/font = ExtResource("1_n87rw")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_n87rw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_n87rw")
+text = "Reset Level"
+
 [node name="quit to menu" type="Button" parent="Panel" unique_id=1698095646]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
@@ -62,5 +74,7 @@ stream = ExtResource("3_kukqi")
 
 [connection signal="mouse_entered" from="Panel/resume game" to="." method="_on_resume_game_mouse_entered"]
 [connection signal="pressed" from="Panel/resume game" to="." method="_on_resume_game_pressed"]
+[connection signal="mouse_entered" from="Panel/restart level" to="." method="_on_resume_game_mouse_entered"]
+[connection signal="pressed" from="Panel/restart level" to="." method="_on_restart_level_pressed"]
 [connection signal="mouse_entered" from="Panel/quit to menu" to="." method="_on_quit_to_menu_mouse_entered"]
 [connection signal="pressed" from="Panel/quit to menu" to="." method="_on_quit_to_menu_pressed"]

@@ -16,3 +16,7 @@ func _on_resume_game_mouse_entered() -> void:
 
 func _on_quit_to_menu_mouse_entered() -> void:
 	audio_stream_player_2d.play()
+
+func _on_restart_level_pressed() -> void:
+	GameManager.handle_pause()
+	get_tree().reload_current_scene()

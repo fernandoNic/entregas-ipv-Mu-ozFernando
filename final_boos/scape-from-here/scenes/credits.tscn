@@ -26,9 +26,10 @@ script = ExtResource("1_2ckv8")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1979083615]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 260.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
@@ -38,7 +39,6 @@ custom_minimum_size = Vector2(500, 1000)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
-theme_override_constants/separation = 0
 
 [node name="nombre_juego" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1473276291]
 layout_mode = 2
@@ -66,7 +66,13 @@ size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("1_0bpdh")
 theme_override_font_sizes/font_size = 30
 text = "ARTE Y ANIMACIÓN:
-Artistas 2D Pixel Art: nombre de autores"
+Artistas 2D Pixel Art: 
+- szadiart.itch.io
+- teamgriffin.itch.io
+- xzany.itch.io
+- dreamir.itch.io
+- seartsy.itch.io
+- luizmelo.itch.io"
 
 [node name="diseño" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=267498084]
 layout_mode = 2
@@ -85,8 +91,10 @@ size_flags_vertical = 6
 theme_override_fonts/font = ExtResource("1_0bpdh")
 theme_override_font_sizes/font_size = 30
 text = "AUDIO Y MÚSICA:
-Composición Musical: alkakrab.itch.io
-Diseño de Sonido (SFX): davidkbd.itch.io"
+Composición Musical: 
+- alkakrab.itch.io
+Diseño de Sonido (SFX): 
+- davidkbd.itch.io"
 
 [node name="engine" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=893073027]
 layout_mode = 2
