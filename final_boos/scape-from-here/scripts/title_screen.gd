@@ -32,4 +32,4 @@ func _on_quit_game_mouse_entered() -> void:
 
 
 func _on_start_game_focus_entered() -> void:
-	print("estas en start game")
+	pass
