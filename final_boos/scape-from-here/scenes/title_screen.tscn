@@ -18,6 +18,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sa3yf")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2002905305]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.004899827, 0.004899827, 0.004899827, 1)
+
 [node name="Label" type="Label" parent="." unique_id=1719650062]
 layout_mode = 1
 anchors_preset = 8

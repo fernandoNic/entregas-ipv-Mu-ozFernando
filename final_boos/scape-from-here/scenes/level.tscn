@@ -1178,10 +1178,15 @@ shape = SubResource("WorldBoundaryShape2D_2q6dc")
 disabled = true
 
 [node name="Player" parent="World" unique_id=417206827 instance=ExtResource("2_w7c3h")]
-position = Vector2(336, 296)
+position = Vector2(-6375, 432)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
 position = Vector2(6504, 16)
+
+[node name="Camera2D" parent="World/Player/CharacterBody2D" index="2" unique_id=410587740]
+zoom = Vector2(1, 1)
+limit_left = 0
+limit_bottom = 640
 
 [node name="Tutorial_move" type="Area2D" parent="World" unique_id=1651048172]
 position = Vector2(-2, -20)
