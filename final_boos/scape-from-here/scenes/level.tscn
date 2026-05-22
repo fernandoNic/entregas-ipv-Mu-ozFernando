@@ -1120,6 +1120,9 @@ distance = 276.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppgk2"]
 size = Vector2(103.5, 118.0625)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8iemx"]
+size = Vector2(48, 947)
+
 [node name="Level" type="Node2D" unique_id=2039849859]
 script = ExtResource("1_8iemx")
 
@@ -1184,7 +1187,6 @@ position = Vector2(-6375, 432)
 position = Vector2(6504, 16)
 
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="2" unique_id=410587740]
-zoom = Vector2(1, 1)
 limit_left = 0
 limit_bottom = 640
 
@@ -1322,8 +1324,32 @@ position = Vector2(5448, 424)
 [node name="Skeleton" parent="World/enemies" unique_id=508052477 instance=ExtResource("10_64w2a")]
 position = Vector2(3485, 440)
 
+[node name="killzones" type="Node2D" parent="World" unique_id=850070048]
+
+[node name="StaticBody" type="StaticBody2D" parent="World/killzones" unique_id=58750184]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/killzones/StaticBody" unique_id=704606020]
+position = Vector2(-8, 325.5)
+shape = SubResource("RectangleShape2D_8iemx")
+
+[node name="area2d" type="Area2D" parent="World/killzones" unique_id=1189021844]
+position = Vector2(-407, 373)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/killzones/area2d" unique_id=610434365]
+position = Vector2(347.9998, -5222.5)
+shape = SubResource("RectangleShape2D_8iemx")
+
+[node name="StaticBody3" type="StaticBody2D" parent="World/killzones" unique_id=336743105]
+position = Vector2(-407, 373)
+rotation = 1.5707964
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/killzones/StaticBody3" unique_id=2045454263]
+position = Vector2(-108.000305, -7709)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_8iemx")
+
 [node name="music" type="Node2D" parent="." unique_id=936055420]
-visible = false
 
 [node name="bg_music" type="AudioStreamPlayer" parent="music" unique_id=2081479333]
 stream = ExtResource("3_w8frs")
@@ -1338,6 +1364,7 @@ autoplay = true
 [connection signal="body_exited" from="World/Tutorial_attack" to="World/Tutorial_attack" method="_on_body_exited"]
 [connection signal="body_entered" from="World/Tutorial_final" to="World/Tutorial_final" method="_on_body_entered"]
 [connection signal="body_exited" from="World/Tutorial_final" to="World/Tutorial_final" method="_on_body_exited"]
+[connection signal="body_entered" from="World/killzones/area2d" to="." method="_on_area_2d_body_entered"]
 
 [editable path="UI/PauseLayer/pause_menu"]
 [editable path="World/Player"]
