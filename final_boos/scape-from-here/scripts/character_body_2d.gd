@@ -14,6 +14,7 @@ var current_state : STATE
 @onready var attack_sfx: AudioStreamPlayer2D = $sfx/attack_sfx
 @onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox_2d: CollisionShape2D = $hitbox/CollisionShape2D
+@onready var hitbox: Area2D = $hitbox
 
 func _ready() -> void:
 	# Inicializa forzando el estado IDLE
@@ -63,11 +64,12 @@ func _exit_state() -> void:
 			run_sfx.stop()
 
 func _update_state(delta: float) -> void:
-	var direction = Input.get_axis("ui_left", "ui_right")
-	
+	var direction = Input.get_axis("ui_left", "ui_right") # 1 right -1 left
+	print(direction)
 	# Voltear sprite (común para todos los estados que permiten movimiento)
 	if direction != 0 and current_state != STATE.ATTACK:
 		animated_sprite_2d.flip_h = (direction < 0)
+		hitbox.scale.x = direction
 
 	match current_state:
 		STATE.IDLE:
