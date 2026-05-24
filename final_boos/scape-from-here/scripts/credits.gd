@@ -1,5 +1,5 @@
 extends Control
-@onready var btn_music: AudioStreamPlayer2D = $sfx/btn_music
+@onready var btn_music: AudioStreamPlayer = $sfx/btn_music
 @onready var scroll_container: ScrollContainer = $ScrollContainer
 @onready var v_box_container: VBoxContainer = $ScrollContainer/VBoxContainer
 @export var duracion_animacion: float = 50.0

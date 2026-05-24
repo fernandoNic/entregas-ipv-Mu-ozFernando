@@ -143,11 +143,11 @@ text = "◄ Back To Menu"
 
 [node name="sfx" type="Node2D" parent="." unique_id=1244617156]
 
-[node name="bg_music" type="AudioStreamPlayer2D" parent="sfx" unique_id=958393994]
+[node name="bg_music" type="AudioStreamPlayer" parent="sfx" unique_id=2085957284]
 stream = ExtResource("3_0ctdu")
 autoplay = true
 
-[node name="btn_music" type="AudioStreamPlayer2D" parent="sfx" unique_id=1115772571]
+[node name="btn_music" type="AudioStreamPlayer" parent="sfx" unique_id=1831438446]
 stream = ExtResource("4_2fbfq")
 
 [connection signal="mouse_entered" from="back menu" to="." method="_on_back_menu_mouse_entered"]
