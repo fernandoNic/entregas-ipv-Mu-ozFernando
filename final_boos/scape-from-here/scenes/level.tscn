@@ -1108,7 +1108,8 @@ texture = ExtResource("2_b121j")
 11:29/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_olg7q"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "ground"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -1181,10 +1182,10 @@ shape = SubResource("WorldBoundaryShape2D_2q6dc")
 disabled = true
 
 [node name="Player" parent="World" unique_id=417206827 instance=ExtResource("2_w7c3h")]
-position = Vector2(-6375, 432)
+position = Vector2(-6419, 456)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(6504, 16)
+position = Vector2(8275, -152)
 
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="2" unique_id=410587740]
 limit_left = 0

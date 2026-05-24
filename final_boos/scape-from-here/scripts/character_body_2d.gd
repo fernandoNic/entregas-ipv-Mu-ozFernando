@@ -65,7 +65,6 @@ func _exit_state() -> void:
 
 func _update_state(delta: float) -> void:
 	var direction = Input.get_axis("ui_left", "ui_right") # 1 right -1 left
-	print(direction)
 	# Voltear sprite (común para todos los estados que permiten movimiento)
 	if direction != 0 and current_state != STATE.ATTACK:
 		animated_sprite_2d.flip_h = (direction < 0)

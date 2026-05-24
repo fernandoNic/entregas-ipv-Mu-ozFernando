@@ -301,7 +301,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_08t41"]
-size = Vector2(15, 33)
+size = Vector2(15, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5rqy"]
 size = Vector2(32, 40)
@@ -310,6 +310,7 @@ size = Vector2(32, 40)
 metadata/_edit_vertical_guides_ = [-249.0]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=643298198]
+collision_mask = 6
 script = ExtResource("1_08t41")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=614268679]
@@ -317,7 +318,7 @@ sprite_frames = SubResource("SpriteFrames_5ki56")
 animation = &"attack"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1094740487]
-position = Vector2(-0.5, 1.5)
+position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_08t41")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=410587740]

@@ -124,12 +124,12 @@ text = "GRACIAS POR JUGAR !!!"
 
 [node name="back menu" type="Button" parent="." unique_id=1088347702]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.531
-anchor_bottom = 0.531
-offset_left = 360.0
-offset_top = 120.0
-grow_vertical = 2
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -42.0
+offset_right = 232.0
+grow_vertical = 0
 theme_override_colors/font_focus_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
 theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
 theme_override_fonts/font = ExtResource("1_0bpdh")

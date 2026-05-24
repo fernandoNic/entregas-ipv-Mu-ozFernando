@@ -1,8 +1,16 @@
 extends Node
 
+@onready var player : CharacterBody2D
+
+func get_main_player() -> CharacterBody2D:
+	var world_container: Node2D = get_tree().current_scene.get_node_or_null("World")
+	var player_container: Node2D = world_container.get_node_or_null("Player")
+	GameManager.player = player_container.get_child(0) as CharacterBody2D
+	return GameManager.player
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-
+	
 func _input(_event):
 	if Input.is_action_just_pressed("pause"):
 		handle_pause()
