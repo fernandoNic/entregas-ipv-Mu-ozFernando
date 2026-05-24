@@ -4,10 +4,29 @@
 [ext_resource type="Script" uid="uid://i3x8yfnunb5" path="res://scripts/title_screen.gd" id="1_sa3yf"]
 [ext_resource type="AudioStream" uid="uid://em0hkvjs0tgs" path="res://assets/tracks/1. Moonspire.ogg" id="3_s4lrb"]
 [ext_resource type="AudioStream" uid="uid://cvp3bs4dabpuu" path="res://assets/tracks/Sword Parry 1.ogg" id="4_mgrm8"]
+[ext_resource type="Texture2D" uid="uid://b7nsnvbqiriol" path="res://assets/items/ELR_FallLeaf.png" id="5_dc4i4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1a2ex"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgrm8"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_e54dn"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mgrm8"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(950, 550, 1)
+spread = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 90.0
+gravity = Vector3(0, 10, 0)
+scale_min = 0.7
+scale_max = 1.5
+anim_offset_max = 1.0
 
 [node name="title_screen" type="Control" unique_id=911635876]
 layout_mode = 3
@@ -41,7 +60,7 @@ offset_bottom = -139.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_fgkus")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 100
 text = "Escape From Here"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=276430629]
@@ -99,19 +118,45 @@ theme_override_styles/hover = SubResource("StyleBoxEmpty_1a2ex")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_1a2ex")
 text = "Quit Game"
 
+[node name="copyright" type="Label" parent="." unique_id=1102533952]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.888
+anchor_right = 0.5
+anchor_bottom = 2.0
+offset_left = -358.0
+offset_top = -39.0
+offset_right = 358.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.5636256, 0.5636255, 0.5636254, 1)
+theme_override_font_sizes/font_size = 28
+text = "Escape From Here © 2026, Fernando Muñoz. All Rights Reserved"
+
 [node name="sfx" type="Node2D" parent="." unique_id=1584848047]
 
 [node name="bg_music" type="AudioStreamPlayer" parent="sfx" unique_id=1093580367]
 stream = ExtResource("3_s4lrb")
 autoplay = true
+parameters/looping = true
 
 [node name="navigation_sound" type="AudioStreamPlayer" parent="sfx" unique_id=1890547090]
 stream = ExtResource("4_mgrm8")
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1154923037]
+material = SubResource("CanvasItemMaterial_e54dn")
+position = Vector2(962, 529)
+amount = 100
+texture = ExtResource("5_dc4i4")
+process_material = SubResource("ParticleProcessMaterial_mgrm8")
+
 [connection signal="focus_entered" from="VBoxContainer/start game" to="." method="_on_start_game_focus_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/start game" to="." method="_on_start_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/start game" to="." method="_on_start_game_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/credits" to="." method="_on_credits_focus_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/credits" to="." method="_on_credits_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/credits" to="." method="_on_credits_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/quit game" to="." method="_on_quit_game_focus_entered"]
 [connection signal="mouse_entered" from="VBoxContainer/quit game" to="." method="_on_quit_game_mouse_entered"]
 [connection signal="pressed" from="VBoxContainer/quit game" to="." method="_on_quit_pressed"]
