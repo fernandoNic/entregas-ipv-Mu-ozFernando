@@ -1,6 +1,6 @@
 extends Control
 
-@onready var navigation_sound: AudioStreamPlayer2D = $sfx/navigation_sound
+@onready var navigation_sound: AudioStreamPlayer = $sfx/navigation_sound
 @onready var start_game: Button = $"VBoxContainer/start game"
 
 # Called when the node enters the scene tree for the first time.

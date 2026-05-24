@@ -101,11 +101,11 @@ text = "Quit Game"
 
 [node name="sfx" type="Node2D" parent="." unique_id=1584848047]
 
-[node name="bg_music" type="AudioStreamPlayer2D" parent="sfx" unique_id=170531162]
+[node name="bg_music" type="AudioStreamPlayer" parent="sfx" unique_id=1093580367]
 stream = ExtResource("3_s4lrb")
 autoplay = true
 
-[node name="navigation_sound" type="AudioStreamPlayer2D" parent="sfx" unique_id=474859564]
+[node name="navigation_sound" type="AudioStreamPlayer" parent="sfx" unique_id=1890547090]
 stream = ExtResource("4_mgrm8")
 
 [connection signal="focus_entered" from="VBoxContainer/start game" to="." method="_on_start_game_focus_entered"]
