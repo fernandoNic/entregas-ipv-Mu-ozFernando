@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://f65mbe2xbw01"]
+
+[ext_resource type="Script" uid="uid://c7r7dsali0tfc" path="res://scripts/platform_v.gd" id="1_ddyne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4sak"]
+size = Vector2(32, 8)
+
+[node name="PlatformV" type="AnimatableBody2D" unique_id=1864702416]
+collision_layer = 4
+script = ExtResource("1_ddyne")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1198953191]
+offset_right = 32.0
+offset_bottom = 8.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=234135626]
+position = Vector2(16, 4)
+shape = SubResource("RectangleShape2D_w4sak")
