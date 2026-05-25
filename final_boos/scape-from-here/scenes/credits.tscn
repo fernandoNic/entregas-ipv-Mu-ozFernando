@@ -36,9 +36,9 @@ color = Color(0, 0, 0, 1)
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1979083615]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 260.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
@@ -48,6 +48,10 @@ custom_minimum_size = Vector2(500, 1000)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
+theme_override_constants/separation = 50
+
+[node name="space_begin" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=1422162127]
+layout_mode = 2
 
 [node name="nombre_juego" type="Label" parent="ScrollContainer/VBoxContainer" unique_id=1473276291]
 layout_mode = 2
@@ -122,8 +126,13 @@ theme_override_fonts/font = ExtResource("1_0bpdh")
 theme_override_font_sizes/font_size = 30
 text = "GRACIAS POR JUGAR !!!"
 
-[node name="back menu" type="Button" parent="." unique_id=1088347702]
-layout_mode = 1
+[node name="space_end" type="Control" parent="ScrollContainer/VBoxContainer" unique_id=171430841]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1085188363]
+
+[node name="back menu" type="Button" parent="CanvasLayer" unique_id=1088347702]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -150,5 +159,5 @@ autoplay = true
 [node name="btn_music" type="AudioStreamPlayer" parent="sfx" unique_id=1831438446]
 stream = ExtResource("4_2fbfq")
 
-[connection signal="mouse_entered" from="back menu" to="." method="_on_back_menu_mouse_entered"]
-[connection signal="pressed" from="back menu" to="." method="_on_back_menu_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/back menu" to="." method="_on_back_menu_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/back menu" to="." method="_on_back_menu_pressed"]

@@ -1204,7 +1204,7 @@ disabled = true
 position = Vector2(-8137, 600)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(19161, 312)
+position = Vector2(8273, -152)
 
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="2" unique_id=410587740]
 limit_left = -740
