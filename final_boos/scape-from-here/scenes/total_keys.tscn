@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cjji4vwtjk3k0"]
+
+[ext_resource type="Texture2D" uid="uid://dvaw72hilyj4j" path="res://assets/items/key_32x32_24f.png" id="1_qpvh6"]
+[ext_resource type="FontFile" uid="uid://dnwag73vl1x83" path="res://assets/fonts/SpecialElite-Regular.ttf" id="2_fls4u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fls4u"]
+atlas = ExtResource("1_qpvh6")
+region = Rect2(0, 0, 31, 32)
+
+[node name="total_keys" type="CanvasLayer" unique_id=1846686920]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=769640136]
+anchors_preset = -1
+anchor_left = 0.03
+anchor_top = 1.0
+anchor_right = 0.035
+anchor_bottom = 1.0
+offset_top = -32.0
+offset_right = 71.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer" unique_id=1713184361]
+layout_mode = 2
+texture = SubResource("AtlasTexture_fls4u")
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1825768819]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_fls4u")
+text = " x 0"
+horizontal_alignment = 1

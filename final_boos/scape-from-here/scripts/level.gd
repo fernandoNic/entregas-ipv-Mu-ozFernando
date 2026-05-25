@@ -1,6 +1,7 @@
 extends Node2D
 
-var keys: int = 5
+@onready var total_keys: CanvasLayer = $HUD/total_keys
+var keys: int = 0
 
 func game_over() -> void:
 	var canvas_layer: CanvasLayer = GameManager.obtener_canvas()
@@ -17,5 +18,7 @@ func game_over() -> void:
 
 func _on_character_body_2d_grab_keys() -> void:
 	keys += 1
+	var label_keys: Label = total_keys.get_node_or_null("HBoxContainer/Label")
+	label_keys.set_text(" x   " + str(keys))
 	if keys == 6:
 		game_over()
