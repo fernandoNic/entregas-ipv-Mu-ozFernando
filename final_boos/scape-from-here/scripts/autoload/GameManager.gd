@@ -21,7 +21,6 @@ func _input(_event):
 func obtener_canvas():
 	var escena_actual = get_tree().current_scene
 	var canvas = escena_actual.get_node_or_null("UI").get_node_or_null("PauseLayer")
-	#var canvas = escena_actual.get_node_or_null("CharacterBody2D")
 	return canvas
 	
 func handle_pause():

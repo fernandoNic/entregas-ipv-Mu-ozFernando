@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-signal grab_keys(cantidad:int)
-var keys :int
+#signal grab_keys(cantidad:int)
+#var keys :int
+signal grab_keys
 
 const SPEED = 200.0
 const JUMP_VELOCITY = -300.0
@@ -17,7 +18,6 @@ var current_state : STATE
 @onready var hitbox: Area2D = $hitbox
 
 func _ready() -> void:
-	# Inicializa forzando el estado IDLE
 	current_state = STATE.IDLE
 	_enter_state()
 
@@ -43,29 +43,25 @@ func _enter_state() -> void:
 			velocity.y = JUMP_VELOCITY
 			animated_sprite_2d.play("jump")
 		STATE.FALL:
-			animated_sprite_2d.play("fall") # Asegúrate de tener esta animación
+			animated_sprite_2d.play("fall") 
 		STATE.ATTACK:
 			animated_sprite_2d.play("attack")
 			attack_sfx.play()
 			hitbox_2d.disabled = !hitbox_2d.disabled
-			# Conectar señal para salir del ataque de forma automática
 			if not animated_sprite_2d.animation_finished.is_connected(_on_attack_animation_finished):
 				animated_sprite_2d.animation_finished.connect(_on_attack_animation_finished)
 
 func _exit_state() -> void:
 	match current_state:
 		STATE.ATTACK:
-			# Desconectar señal al salir del estado
 			if animated_sprite_2d.animation_finished.is_connected(_on_attack_animation_finished):
 				animated_sprite_2d.animation_finished.disconnect(_on_attack_animation_finished)
 				hitbox_2d.disabled = !hitbox_2d.disabled
 		STATE.RUN:
-			# Apaga el loop de pasos inmediatamente al dejar de correr, saltar o atacar
 			run_sfx.stop()
 
 func _update_state(delta: float) -> void:
 	var direction = Input.get_axis("ui_left", "ui_right") # 1 right -1 left
-	# Voltear sprite (común para todos los estados que permiten movimiento)
 	if direction != 0 and current_state != STATE.ATTACK:
 		animated_sprite_2d.flip_h = (direction < 0)
 		hitbox.scale.x = direction
@@ -114,7 +110,6 @@ func _update_state(delta: float) -> void:
 			move_and_slide()
 			
 		STATE.ATTACK:
-			# Frenar gradualmente durante el ataque si está en el suelo
 			if is_on_floor():
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 			_aplicar_gravedad(delta)
@@ -129,6 +124,5 @@ func _on_attack_animation_finished() -> void:
 		_set_state(STATE.IDLE)
 
 func grab_a_key() -> void:
-	keys += 1
-	grab_keys.emit(keys)
+	grab_keys.emit()
 	

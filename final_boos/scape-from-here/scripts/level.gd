@@ -1,12 +1,21 @@
 extends Node2D
 
-var keys: int
+var keys: int = 5
 
-func _on_character_body_2d_grab_keys(cantidad: int) -> void:
+func game_over() -> void:
+	var canvas_layer: CanvasLayer = GameManager.obtener_canvas()
+	canvas_layer.set_visible(true)
+	var pause_node = canvas_layer.get_node("pause_menu")
+	pause_node.queue_free()
+	var overlay = canvas_layer.get_node("DarkOverlay")
+	
+	var tween = create_tween()
+	tween.tween_property(overlay,"color:a",1,2.0)
+	await tween.finished
+	
+	get_tree().change_scene_to_file("res://scenes/credits.tscn")
+
+func _on_character_body_2d_grab_keys() -> void:
 	keys += 1
-	print(cantidad)
-
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
-		get_tree().call_deferred("reload_current_scene")
+	if keys == 6:
+		game_over()
