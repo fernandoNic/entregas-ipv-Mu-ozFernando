@@ -2,9 +2,6 @@ extends Node2D
 
 var keys: int
 
-func _ready() -> void:
-	pass
-
 func _on_character_body_2d_grab_keys(cantidad: int) -> void:
 	keys += 1
 	print(cantidad)
@@ -12,5 +9,4 @@ func _on_character_body_2d_grab_keys(cantidad: int) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		GameManager.handle_pause()
-		get_tree().reload_current_scene()
+		get_tree().call_deferred("reload_current_scene")
