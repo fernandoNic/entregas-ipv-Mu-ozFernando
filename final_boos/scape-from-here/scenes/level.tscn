@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://ch1lc3ledu8j2" path="res://scenes/entities/Skeleton.tscn" id="10_64w2a"]
 [ext_resource type="PackedScene" uid="uid://f65mbe2xbw01" path="res://scenes/platform_v.tscn" id="12_64w2a"]
 [ext_resource type="PackedScene" uid="uid://cjji4vwtjk3k0" path="res://scenes/total_keys.tscn" id="14_fpun6"]
+[ext_resource type="PackedScene" uid="uid://c05qxnesl23gk" path="res://scenes/health_bar.tscn" id="15_wc255"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t1rx8"]
 texture = ExtResource("2_b121j")
@@ -1194,7 +1195,7 @@ disabled = true
 position = Vector2(-8137, 600)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(19201, 312)
+position = Vector2(8273, -152)
 
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="2" unique_id=410587740]
 limit_left = -740
@@ -1473,6 +1474,8 @@ offset_bottom = 40.0
 
 [node name="Label" parent="HUD/total_keys/HBoxContainer" parent_id_path=PackedInt32Array(1846686920, 769640136) index="1" unique_id=1825768819]
 text = " x   0"
+
+[node name="HealthBar" parent="HUD" unique_id=31925271 instance=ExtResource("15_wc255")]
 
 [connection signal="grab_keys" from="World/Player/CharacterBody2D" to="." method="_on_character_body_2d_grab_keys"]
 [connection signal="body_entered" from="World/Tutorial_move" to="World/Tutorial_move" method="_on_body_entered"]
