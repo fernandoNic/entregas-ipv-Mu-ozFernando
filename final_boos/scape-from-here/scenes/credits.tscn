@@ -133,11 +133,12 @@ layout_mode = 2
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1085188363]
 
 [node name="back menu" type="Button" parent="CanvasLayer" unique_id=1088347702]
-anchors_preset = 2
+anchors_preset = -1
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -42.0
 offset_right = 232.0
+offset_bottom = -88.0
 grow_vertical = 0
 theme_override_colors/font_focus_color = Color(0.6862745, 0.65882355, 0.03529412, 1)
 theme_override_colors/font_hover_color = Color(0.6862745, 0.65882355, 0.03529412, 1)

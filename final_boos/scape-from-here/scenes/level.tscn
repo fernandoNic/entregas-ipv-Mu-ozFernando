@@ -1197,7 +1197,11 @@ position = Vector2(-8137, 600)
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
 position = Vector2(8273, -152)
 
+[node name="AnimatedSprite2D" parent="World/Player/CharacterBody2D" index="0" unique_id=614268679]
+animation = &"idle_1"
+
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="2" unique_id=410587740]
+zoom = Vector2(3, 3)
 limit_left = -740
 limit_top = -2350
 limit_right = 11700
@@ -1462,7 +1466,7 @@ _duracion = 5.0
 [node name="bg_music" type="AudioStreamPlayer" parent="music" unique_id=2081479333]
 stream = ExtResource("3_w8frs")
 autoplay = true
-parameters/looping = false
+parameters/looping = true
 
 [node name="HUD" type="Control" parent="." unique_id=1751898273]
 layout_mode = 3
@@ -1471,9 +1475,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="total_keys" parent="HUD" unique_id=1846686920 instance=ExtResource("14_fpun6")]
-
-[node name="Label" parent="HUD/total_keys/HBoxContainer" parent_id_path=PackedInt32Array(1846686920, 769640136) index="1" unique_id=1825768819]
-text = " x   0"
 
 [node name="HealthBar" parent="HUD" unique_id=31925271 instance=ExtResource("15_wc255")]
 
@@ -1489,4 +1490,3 @@ text = " x   0"
 
 [editable path="UI/PauseLayer/pause_menu"]
 [editable path="World/Player"]
-[editable path="HUD/total_keys"]

@@ -34,18 +34,18 @@ func _set_state(new_state: STATE) -> void:
 func _enter_state() -> void:
 	match current_state:
 		STATE.IDLE:
-			animated_sprite_2d.play("idle")
+			animated_sprite_2d.play("idle_1")
 		STATE.RUN:
-			animated_sprite_2d.play("run")
+			animated_sprite_2d.play("run_1")
 			if not run_sfx.playing:
 				run_sfx.play()	
 		STATE.JUMP:
 			velocity.y = JUMP_VELOCITY
-			animated_sprite_2d.play("jump")
+			animated_sprite_2d.play("jump_1")
 		STATE.FALL:
-			animated_sprite_2d.play("fall") 
+			animated_sprite_2d.play("fall_1") 
 		STATE.ATTACK:
-			animated_sprite_2d.play("attack")
+			animated_sprite_2d.play("attack_2")
 			attack_sfx.play()
 			hitbox_2d.disabled = !hitbox_2d.disabled
 			if not animated_sprite_2d.animation_finished.is_connected(_on_attack_animation_finished):
