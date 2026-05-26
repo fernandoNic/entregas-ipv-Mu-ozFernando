@@ -55,6 +55,9 @@ func handle_idle_state(delta: float) -> void:
 	character_body_2d.velocity.x = 0
 	sprite.play("idle")
 	
+	if can_pursue() and line_of_view.is_colliding():
+		change_state(State.CHASE)
+		
 	if is_waiting:
 		wait_timer -= delta
 		if wait_timer <= 0:
@@ -91,11 +94,6 @@ func handle_hit_state() -> void:
 			change_state(State.ATTACK)
 		else:
 			change_state(State.CHASE)
-		#if !line_of_view.is_colliding():
-			#direction *= -1
-			#update_sprite_direction()
-			
-		#change_state(State.ATTACK)
 
 func handle_death_state() -> void:
 	character_body_2d.velocity.x = 0
@@ -109,7 +107,7 @@ func handle_chase_state() -> void:
 		change_state(State.IDLE)
 		return
 	
-	if line_of_view.is_colliding():
+	if line_of_view.is_colliding() and can_pursue():
 		var direction_to_player = player.global_position.x - character_body_2d.global_position.x
 		var distance_to_player = abs(direction_to_player)
 		sprite.play("run")
@@ -120,9 +118,10 @@ func handle_chase_state() -> void:
 			change_state(State.ATTACK)
 		else:
 			character_body_2d.velocity.x = sign(direction_to_player) * speed
-
-# --- LÓGICA DE NAVEGACIÓN ---
-
+	else:
+		character_body_2d.velocity.x = 0
+		change_state(State.IDLE) 
+		
 func check_platform_edges() -> void:
 	if !raycast_L.is_colliding() and direction == -1:
 		direction *= -1          
@@ -198,3 +197,5 @@ func _on_vision_range_body_exited(_body: Node2D) -> void:
 	wait_timer = 3.0  
 	change_state(State.IDLE)
 	
+func can_pursue() -> bool:
+	return (raycast_L.is_colliding() and direction == -1) or (ray_cast_R.is_colliding() and direction == 1)
