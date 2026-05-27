@@ -199,8 +199,8 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s2vcg")
 }],
-"loop": false,
-"name": &"walk",
+"loop": true,
+"name": &"run",
 "speed": 8.0
 }]
 
@@ -209,6 +209,12 @@ size = Vector2(27, 49)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3renp"]
 size = Vector2(26, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trpxp"]
+size = Vector2(201, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpus7"]
+size = Vector2(47, 45)
 
 [node name="Skeleton" type="Node2D" unique_id=508052477]
 script = ExtResource("1_xegir")
@@ -219,15 +225,26 @@ collision_mask = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=2116029732]
 sprite_frames = SubResource("SpriteFrames_xegir")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
-flip_h = true
+frame_progress = 0.82825917
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1355331360]
 shape = SubResource("RectangleShape2D_bl646")
 
-[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D" unique_id=1228137570]
-target_position = Vector2(50, 0)
+[node name="RayCast_L" type="RayCast2D" parent="CharacterBody2D" unique_id=492068338]
+position = Vector2(-17, 0)
+target_position = Vector2(0, 30)
+collision_mask = 4
+
+[node name="RayCast_R" type="RayCast2D" parent="CharacterBody2D" unique_id=1228137570]
+position = Vector2(17, 0)
+target_position = Vector2(0, 30)
+collision_mask = 4
+
+[node name="line_of_view" type="RayCast2D" parent="CharacterBody2D" unique_id=1218885059]
+scale = Vector2(-1, -1)
+target_position = Vector2(200, 0)
 
 [node name="ProgressBar" parent="CharacterBody2D" unique_id=1930645090 instance=ExtResource("5_3renp")]
 offset_top = -40.0
@@ -240,4 +257,21 @@ position = Vector2(-3, -4)
 shape = SubResource("RectangleShape2D_3renp")
 debug_color = Color(0.9507491, 0.21428928, 0.17075568, 0.41960785)
 
+[node name="vision_range" type="Area2D" parent="CharacterBody2D" unique_id=1518442222]
+position = Vector2(-17, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/vision_range" unique_id=910094801]
+position = Vector2(99.5, -3)
+shape = SubResource("RectangleShape2D_trpxp")
+
+[node name="hitbox" type="Area2D" parent="CharacterBody2D" unique_id=1381530474]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hitbox" unique_id=871629562]
+position = Vector2(50.5, -4.5)
+shape = SubResource("RectangleShape2D_xpus7")
+disabled = true
+
 [connection signal="area_entered" from="CharacterBody2D/hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="CharacterBody2D/vision_range" to="." method="_on_vision_range_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/vision_range" to="." method="_on_vision_range_body_exited"]

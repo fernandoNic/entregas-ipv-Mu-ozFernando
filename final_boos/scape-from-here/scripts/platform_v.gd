@@ -6,8 +6,8 @@ extends AnimatableBody2D
 @export var _duracion: float = 2.0
 @export var first_direction: int = 1
 
-var _posicion_inicial : Vector2
-var _posicion_final : float
+#var _posicion_inicial : Vector2
+#var _posicion_final : float
 
 func _ready() -> void:
 	_iniciar_movimiento()

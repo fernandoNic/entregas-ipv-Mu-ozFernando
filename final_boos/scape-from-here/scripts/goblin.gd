@@ -66,7 +66,6 @@ func handle_idle_state(delta: float) -> void:
 
 func handle_run_state() -> void:
 	character_body_2d.velocity.x = direction * speed
-	#if sprite.animation != "run":
 	sprite.play("run")
 	update_sprite_direction()
 	check_platform_edges()
@@ -146,7 +145,6 @@ func update_sprite_direction() -> void:
 		vision_range.scale.x = direction
 		line_of_view.scale.x = direction
 		hitbox.scale.x = direction
-# --- FUNCIONES PÚBLICAS / DISPARADORES ---
 
 func change_state(new_state: State) -> void:
 	if current_state == State.DEATH: 
