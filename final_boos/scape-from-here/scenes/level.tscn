@@ -1195,7 +1195,7 @@ disabled = true
 position = Vector2(-8137, 600)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(14069, -202)
+position = Vector2(10799, -651)
 
 [node name="AnimatedSprite2D" parent="World/Player/CharacterBody2D" index="0" unique_id=614268679]
 animation = &"idle_1"
@@ -1351,7 +1351,7 @@ position = Vector2(10096, -1880)
 position = Vector2(2486, 88)
 
 [node name="Mushroom" parent="World/enemies" unique_id=927427066 instance=ExtResource("9_8iemx")]
-position = Vector2(5448, 424)
+position = Vector2(3375, -1048)
 
 [node name="Skeleton2" parent="World/enemies" unique_id=1471052809 instance=ExtResource("10_64w2a")]
 position = Vector2(2335, 151)

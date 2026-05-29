@@ -11,6 +11,7 @@ extends Node2D
 @onready var line_of_view: RayCast2D = $CharacterBody2D/line_of_view
 @onready var vision_range: Area2D = $CharacterBody2D/vision_range
 @onready var hitbox: Area2D = $CharacterBody2D/hitbox
+@onready var hitbox_shape: CollisionShape2D = $CharacterBody2D/hitbox/CollisionShape2D
 
 # Parámetros configurables
 @export var speed: float = 100.0
@@ -74,7 +75,14 @@ func handle_attack_state() -> void:
 	character_body_2d.velocity.x = 0
 	if current_state == State.ATTACK and sprite.animation != "attack":
 		sprite.play("attack")
+		if not sprite.frame_changed.is_connected(_on_attack_frame_changed):
+			sprite.frame_changed.connect(_on_attack_frame_changed)
+		
 		await sprite.animation_finished
+		
+		if sprite.frame_changed.is_connected(_on_attack_frame_changed):
+			sprite.frame_changed.disconnect(_on_attack_frame_changed)
+		
 		change_state(State.CHASE)
 
 func handle_hit_state() -> void:
@@ -181,7 +189,8 @@ func handle_combat_state() -> void:
 	change_state(State.CHASE)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.name == "hitbox":
+	if area.name == 'hitbox':
+	#if area.is_in_group("hitbox_player"):
 		player = GameManager.get_main_player()
 		take_damage()
 		
@@ -197,3 +206,13 @@ func _on_vision_range_body_exited(_body: Node2D) -> void:
 	
 func can_pursue() -> bool:
 	return (raycast_L.is_colliding() and direction == -1) or (ray_cast_R.is_colliding() and direction == 1)
+
+func _on_attack_frame_changed() -> void:
+	if sprite.animation == "attack":
+		# Frame 0 al 5: El enemigo está preparando el golpe (Anticipación)
+		if sprite.frame <= 5:
+			hitbox_shape.disabled = true
+			
+		# Frame 6: El golpe inicia e impacta al jugador (Activación)
+		elif sprite.frame == 6:
+			hitbox_shape.disabled = false

@@ -242,7 +242,7 @@ size = Vector2(26, 32)
 size = Vector2(201, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cwua"]
-size = Vector2(30, 32)
+size = Vector2(30, 24)
 
 [node name="Goblin" type="Node2D" unique_id=835979565]
 script = ExtResource("1_s62bm")
@@ -253,8 +253,9 @@ collision_mask = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1754038762]
 sprite_frames = SubResource("SpriteFrames_iay4v")
-animation = &"run"
+animation = &"attack"
 autoplay = "idle"
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1112146681]
 position = Vector2(0, 8)
@@ -271,12 +272,12 @@ target_position = Vector2(0, 30)
 collision_mask = 4
 
 [node name="line_of_view" type="RayCast2D" parent="CharacterBody2D" unique_id=454662050]
-scale = Vector2(-1, -1)
 target_position = Vector2(200, 0)
 
 [node name="ProgressBar" parent="CharacterBody2D" unique_id=1930645090 instance=ExtResource("6_iay4v")]
 
 [node name="hurtbox" type="Area2D" parent="CharacterBody2D" unique_id=454173110]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hurtbox" unique_id=573099326]
 position = Vector2(-3, 8)
@@ -293,9 +294,10 @@ shape = SubResource("RectangleShape2D_lq12u")
 [node name="hitbox" type="Area2D" parent="CharacterBody2D" unique_id=1300228098]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hitbox" unique_id=1677453090]
-position = Vector2(27, 8)
+position = Vector2(27, 4)
 shape = SubResource("RectangleShape2D_4cwua")
 disabled = true
+debug_color = Color(0, 0.54509807, 0.08235294, 0.41960785)
 
 [connection signal="area_entered" from="CharacterBody2D/hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/vision_range" to="." method="_on_vision_range_body_entered"]

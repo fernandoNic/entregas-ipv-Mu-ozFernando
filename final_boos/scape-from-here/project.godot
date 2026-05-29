@@ -24,6 +24,10 @@ GameManager="*uid://dofdnqcf2u1ak"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[global_group]
+
+hitbox_player="hitbox player"
+
 [input]
 
 ui_accept={

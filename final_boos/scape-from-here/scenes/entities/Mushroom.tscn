@@ -227,7 +227,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jcpid")
 }],
-"loop": false,
+"loop": true,
 "name": &"run",
 "speed": 15.0
 }]
@@ -238,6 +238,12 @@ size = Vector2(18, 34)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1tgqx"]
 size = Vector2(20, 26)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f5gf"]
+size = Vector2(201, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yx5er"]
+size = Vector2(23.5, 22.5)
+
 [node name="Mushroom" type="Node2D" unique_id=927427066]
 script = ExtResource("1_1tgqx")
 
@@ -247,16 +253,26 @@ collision_mask = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1364046219]
 sprite_frames = SubResource("SpriteFrames_1tgqx")
-animation = &"hit"
+animation = &"attack"
 autoplay = "idle"
-flip_h = true
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1700820095]
 position = Vector2(1, 7)
 shape = SubResource("RectangleShape2D_5mq0a")
 
-[node name="RayCast2D" type="RayCast2D" parent="CharacterBody2D" unique_id=383743446]
-target_position = Vector2(50, 0)
+[node name="RayCast_L" type="RayCast2D" parent="CharacterBody2D" unique_id=383743446]
+position = Vector2(-12, 0)
+target_position = Vector2(0, 30)
+collision_mask = 4
+
+[node name="RayCast_R" type="RayCast2D" parent="CharacterBody2D" unique_id=616883535]
+position = Vector2(12, 0)
+target_position = Vector2(0, 30)
+collision_mask = 4
+
+[node name="line_of_view" type="RayCast2D" parent="CharacterBody2D" unique_id=1490558214]
+target_position = Vector2(200, 0)
 
 [node name="ProgressBar" parent="CharacterBody2D" unique_id=1930645090 instance=ExtResource("5_q68ii")]
 
@@ -267,4 +283,22 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_1tgqx")
 debug_color = Color(0.98264223, 0.09859089, 0.22560072, 0.41960785)
 
+[node name="vision_range" type="Area2D" parent="CharacterBody2D" unique_id=1938034778]
+position = Vector2(-17, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/vision_range" unique_id=1857294249]
+position = Vector2(99.5, -3)
+shape = SubResource("RectangleShape2D_6f5gf")
+
+[node name="hitbox" type="Area2D" parent="CharacterBody2D" unique_id=1718905886]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hitbox" unique_id=1956242027]
+position = Vector2(24, 8)
+shape = SubResource("RectangleShape2D_yx5er")
+disabled = true
+debug_color = Color(0, 0.5442564, 0.081739835, 0.41960785)
+
 [connection signal="area_entered" from="CharacterBody2D/hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="CharacterBody2D/vision_range" to="." method="_on_vision_range_body_entered"]
+[connection signal="body_exited" from="CharacterBody2D/vision_range" to="." method="_on_vision_range_body_exited"]

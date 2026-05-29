@@ -11,6 +11,7 @@ const GRAVITY = 450.0
 enum STATE {IDLE, RUN, JUMP, FALL, ATTACK}
 var current_state : STATE
 
+
 @onready var run_sfx: AudioStreamPlayer2D = $sfx/run_sfx
 @onready var attack_sfx: AudioStreamPlayer2D = $sfx/attack_sfx
 @onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D

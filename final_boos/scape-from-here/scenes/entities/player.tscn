@@ -752,7 +752,7 @@ stream = ExtResource("8_dnykm")
 stream = ExtResource("9_c5rqy")
 parameters/looping = false
 
-[node name="hitbox" type="Area2D" parent="CharacterBody2D" unique_id=1837776883]
+[node name="hitbox" type="Area2D" parent="CharacterBody2D" unique_id=1837776883 groups=["hitbox_player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hitbox" unique_id=1053914007]
 position = Vector2(24, -4)
