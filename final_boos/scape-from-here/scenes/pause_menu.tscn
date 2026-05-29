@@ -69,7 +69,7 @@ text = "Quit to Title Menu"
 
 [node name="sfx" type="Node2D" parent="." unique_id=490465551]
 
-[node name="button_action" type="AudioStreamPlayer2D" parent="sfx" unique_id=1562357973]
+[node name="button_action" type="AudioStreamPlayer" parent="sfx" unique_id=246809674]
 stream = ExtResource("3_kukqi")
 
 [connection signal="mouse_entered" from="Panel/resume game" to="." method="_on_resume_game_mouse_entered"]

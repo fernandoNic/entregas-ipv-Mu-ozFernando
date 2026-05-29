@@ -1,5 +1,5 @@
 extends Control
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $sfx/button_action
+@onready var audio_stream_player_2d: AudioStreamPlayer = $sfx/button_action
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS

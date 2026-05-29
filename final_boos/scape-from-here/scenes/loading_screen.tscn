@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://ble74njeluj3m"]
+
+[ext_resource type="Script" uid="uid://bhe3ji38jeps4" path="res://scripts/loading_screen.gd" id="1_4n2lj"]
+[ext_resource type="Texture2D" uid="uid://blreogr6qvept" path="res://assets/player/WarriorMan-Sheet.png" id="2_hprjd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hprjd"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ep5rh"]
+bg_color = Color(0.1254902, 0.13333334, 0.7058824, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku3bi"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(0, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5phy8"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(80, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djmwj"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(160, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qygbf"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(240, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu4a1"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(320, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if62a"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(400, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7y4a"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(480, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gcv3i"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(560, 128, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amnj2"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(0, 192, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1mdd"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(80, 192, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5slh2"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(160, 192, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvqkx"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(240, 192, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7oyx"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(320, 192, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqhjm"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(400, 192, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdkap"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(480, 192, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb3t5"]
+atlas = ExtResource("2_hprjd")
+region = Rect2(560, 192, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ummuf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku3bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5phy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djmwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qygbf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu4a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if62a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7y4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gcv3i")
+}],
+"loop": true,
+"name": &"loading",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amnj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1mdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5slh2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvqkx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7oyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqhjm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdkap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb3t5")
+}],
+"loop": true,
+"name": &"run",
+"speed": 15.0
+}]
+
+[node name="canvasLayer" type="CanvasLayer" unique_id=363701956]
+script = ExtResource("1_4n2lj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=98798988]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=219054633]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.903
+anchor_right = 0.5
+anchor_bottom = 0.903
+offset_left = -469.0
+offset_top = -41.0
+offset_right = 469.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_hprjd")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ep5rh")
+rounded = true
+
+[node name="animation" type="Control" parent="." unique_id=432709561]
+layout_mode = 3
+anchor_left = 0.5
+anchor_top = 0.871
+anchor_right = 0.5
+anchor_bottom = 0.871
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="animation" unique_id=2001144474]
+position = Vector2(25, -52.5)
+scale = Vector2(3.075, 2.640625)
+sprite_frames = SubResource("SpriteFrames_ummuf")
+animation = &"run"
+autoplay = "run"
+frame_progress = 0.14316665
