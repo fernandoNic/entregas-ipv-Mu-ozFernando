@@ -190,6 +190,7 @@ func handle_combat_state() -> void:
 	change_state(State.CHASE)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
+	print("detectado hongo")
 	if area.name == "hitbox":
 		player = GameManager.get_main_player()
 		take_damage()

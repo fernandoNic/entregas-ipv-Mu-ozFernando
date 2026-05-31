@@ -277,6 +277,8 @@ target_position = Vector2(200, 0)
 [node name="ProgressBar" parent="CharacterBody2D" unique_id=1930645090 instance=ExtResource("5_q68ii")]
 
 [node name="hurtbox" type="Area2D" parent="CharacterBody2D" unique_id=1320393628]
+collision_layer = 64
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hurtbox" unique_id=531315145]
 position = Vector2(0, 3)
@@ -292,6 +294,8 @@ position = Vector2(99.5, -3)
 shape = SubResource("RectangleShape2D_6f5gf")
 
 [node name="hitbox" type="Area2D" parent="CharacterBody2D" unique_id=1718905886]
+collision_layer = 32
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hitbox" unique_id=1956242027]
 position = Vector2(24, 8)

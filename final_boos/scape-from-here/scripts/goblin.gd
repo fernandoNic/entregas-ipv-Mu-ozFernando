@@ -189,6 +189,7 @@ func handle_combat_state() -> void:
 	change_state(State.CHASE)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
+	print("detectado goblin")
 	if area.name == 'hitbox':
 	#if area.is_in_group("hitbox_player"):
 		player = GameManager.get_main_player()

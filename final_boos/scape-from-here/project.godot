@@ -73,6 +73,10 @@ attack={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Enemies"
 2d_physics/layer_3="Environment"
+2d_physics/layer_4="PlayerHurtbox"
+2d_physics/layer_5="PlayerHitbox"
+2d_physics/layer_6="EnemyHitBox"
+2d_physics/layer_7="EnemyHurtbox"
 
 [physics]
 

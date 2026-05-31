@@ -10,8 +10,6 @@
 [ext_resource type="Script" uid="uid://cr2nst8tqlm8g" path="res://scripts/tutorial_jump.gd" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://ij2ma86nqx4d" path="res://scenes/key.tscn" id="6_klq6b"]
 [ext_resource type="PackedScene" uid="uid://cgh1eicdd2v0w" path="res://scenes/entities/Goblin.tscn" id="8_t1rx8"]
-[ext_resource type="PackedScene" uid="uid://bnpxst5t5kdvs" path="res://scenes/entities/Mushroom.tscn" id="9_8iemx"]
-[ext_resource type="PackedScene" uid="uid://ch1lc3ledu8j2" path="res://scenes/entities/Skeleton.tscn" id="10_64w2a"]
 [ext_resource type="PackedScene" uid="uid://f65mbe2xbw01" path="res://scenes/platform_v.tscn" id="12_64w2a"]
 [ext_resource type="PackedScene" uid="uid://cjji4vwtjk3k0" path="res://scenes/total_keys.tscn" id="14_fpun6"]
 [ext_resource type="PackedScene" uid="uid://c05qxnesl23gk" path="res://scenes/health_bar.tscn" id="15_wc255"]
@@ -1348,31 +1346,7 @@ position = Vector2(10096, -1880)
 [node name="enemies" type="Node2D" parent="World" unique_id=1496939134]
 
 [node name="Goblin" parent="World/enemies" unique_id=835979565 instance=ExtResource("8_t1rx8")]
-position = Vector2(2406, -634)
-
-[node name="Goblin2" parent="World/enemies" unique_id=1892930019 instance=ExtResource("8_t1rx8")]
-position = Vector2(2486, 88)
-
-[node name="Goblin3" parent="World/enemies" unique_id=2038037189 instance=ExtResource("8_t1rx8")]
-position = Vector2(2486, 88)
-
-[node name="Mushroom" parent="World/enemies" unique_id=927427066 instance=ExtResource("9_8iemx")]
-position = Vector2(1617, 294)
-
-[node name="Mushroom3" parent="World/enemies" unique_id=1474482266 instance=ExtResource("9_8iemx")]
-position = Vector2(3014, 23)
-
-[node name="Mushroom2" parent="World/enemies" unique_id=1482832593 instance=ExtResource("9_8iemx")]
-position = Vector2(4249, -57)
-
-[node name="Skeleton2" parent="World/enemies" unique_id=1471052809 instance=ExtResource("10_64w2a")]
-position = Vector2(2335, 151)
-
-[node name="Skeleton4" parent="World/enemies" unique_id=508052477 instance=ExtResource("10_64w2a")]
-position = Vector2(1411, -1194)
-
-[node name="Skeleton3" parent="World/enemies" unique_id=272147748 instance=ExtResource("10_64w2a")]
-position = Vector2(1345, -762)
+position = Vector2(527, 439)
 
 [node name="platforms" type="Node2D" parent="World" unique_id=850070048]
 
