@@ -268,8 +268,8 @@ position = Vector2(103, -1)
 shape = SubResource("RectangleShape2D_trpxp")
 
 [node name="hitbox" type="Area2D" parent="CharacterBody2D" unique_id=1381530474]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 32
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/hitbox" unique_id=871629562]
 position = Vector2(48.75, -1)
@@ -280,3 +280,4 @@ debug_color = Color(0, 0.54509807, 0.08235294, 0.41960785)
 [connection signal="area_entered" from="CharacterBody2D/hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/vision_range" to="." method="_on_vision_range_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/vision_range" to="." method="_on_vision_range_body_exited"]
+[connection signal="area_entered" from="CharacterBody2D/hitbox" to="." method="_on_hitbox_area_entered"]

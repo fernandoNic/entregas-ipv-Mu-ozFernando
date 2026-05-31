@@ -1,6 +1,8 @@
 extends Node2D
 
+@onready var health_bar_canvas: CanvasLayer = $HUD/HealthBar
 @onready var total_keys: CanvasLayer = $HUD/total_keys
+
 var keys: int = 0
 
 func game_over() -> void:
@@ -22,3 +24,11 @@ func _on_character_body_2d_grab_keys() -> void:
 	label_keys.set_text(" x   " + str(keys))
 	if keys == 6:
 		game_over()
+
+func _on_character_body_2d_player_death() -> void:
+	game_over()
+
+
+func _on_character_body_2d_live_changed(enemy_damaged: int) -> void:
+	var health_bar: ProgressBar = health_bar_canvas.get_child(0)
+	health_bar.value -= enemy_damaged

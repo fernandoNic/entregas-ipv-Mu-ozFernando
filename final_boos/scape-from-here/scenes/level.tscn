@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://d3inr23owdyoh" path="res://assets/tracks/01 - DavidKBD - Belmont Chronicles Pack - Belmont Chronicles.ogg" id="3_w8frs"]
 [ext_resource type="Script" uid="uid://cr2nst8tqlm8g" path="res://scripts/tutorial_jump.gd" id="5_2r41h"]
 [ext_resource type="PackedScene" uid="uid://ij2ma86nqx4d" path="res://scenes/key.tscn" id="6_klq6b"]
-[ext_resource type="PackedScene" uid="uid://cgh1eicdd2v0w" path="res://scenes/entities/Goblin.tscn" id="8_t1rx8"]
+[ext_resource type="PackedScene" uid="uid://bnpxst5t5kdvs" path="res://scenes/entities/Mushroom.tscn" id="9_64w2a"]
 [ext_resource type="PackedScene" uid="uid://f65mbe2xbw01" path="res://scenes/platform_v.tscn" id="12_64w2a"]
 [ext_resource type="PackedScene" uid="uid://cjji4vwtjk3k0" path="res://scenes/total_keys.tscn" id="14_fpun6"]
 [ext_resource type="PackedScene" uid="uid://c05qxnesl23gk" path="res://scenes/health_bar.tscn" id="15_wc255"]
@@ -1190,13 +1190,10 @@ shape = SubResource("WorldBoundaryShape2D_2q6dc")
 disabled = true
 
 [node name="Player" parent="World" unique_id=417206827 instance=ExtResource("2_w7c3h")]
-position = Vector2(-8137, 600)
+position = Vector2(-6895, 804)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(8262, -152)
-
-[node name="AnimatedSprite2D" parent="World/Player/CharacterBody2D" index="0" unique_id=614268679]
-animation = &"idle_1"
+position = Vector2(8666, -502)
 
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="2" unique_id=410587740]
 zoom = Vector2(3, 3)
@@ -1345,8 +1342,8 @@ position = Vector2(10096, -1880)
 
 [node name="enemies" type="Node2D" parent="World" unique_id=1496939134]
 
-[node name="Goblin" parent="World/enemies" unique_id=835979565 instance=ExtResource("8_t1rx8")]
-position = Vector2(527, 439)
+[node name="Mushroom" parent="World/enemies" unique_id=927427066 instance=ExtResource("9_64w2a")]
+position = Vector2(1572, 296)
 
 [node name="platforms" type="Node2D" parent="World" unique_id=850070048]
 
@@ -1471,6 +1468,8 @@ offset_bottom = 40.0
 [node name="HealthBar" parent="HUD" unique_id=31925271 instance=ExtResource("15_wc255")]
 
 [connection signal="grab_keys" from="World/Player/CharacterBody2D" to="." method="_on_character_body_2d_grab_keys"]
+[connection signal="live_changed" from="World/Player/CharacterBody2D" to="." method="_on_character_body_2d_live_changed"]
+[connection signal="player_death" from="World/Player/CharacterBody2D" to="." method="_on_character_body_2d_player_death"]
 [connection signal="body_entered" from="World/Tutorial_move" to="World/Tutorial_move" method="_on_body_entered"]
 [connection signal="body_exited" from="World/Tutorial_move" to="World/Tutorial_move" method="_on_body_exited"]
 [connection signal="body_entered" from="World/Tutorial_jump" to="World/Tutorial_jump" method="_on_body_entered"]

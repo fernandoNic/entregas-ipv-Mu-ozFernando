@@ -1,5 +1,6 @@
 extends Node2D
 
+# globin script
 # Componentes obligatorios en la escena
 @export var max_health: float = 100.0
 @onready var sprite: AnimatedSprite2D = $CharacterBody2D/AnimatedSprite2D
@@ -27,6 +28,7 @@ var direction: float = 1.0 # 1 right -1 left
 var is_waiting: bool = false
 var wait_timer: float = 0.0
 var player: CharacterBody2D
+var attack: int = 5
 
 func _ready() -> void:
 	current_health = max_health
@@ -70,6 +72,11 @@ func handle_run_state() -> void:
 	sprite.play("run")
 	update_sprite_direction()
 	check_platform_edges()
+
+	if character_body_2d.is_on_wall():
+		character_body_2d.velocity = Vector2.ZERO
+		change_state(State.IDLE)
+	
 
 func handle_attack_state() -> void:
 	character_body_2d.velocity.x = 0
@@ -189,9 +196,7 @@ func handle_combat_state() -> void:
 	change_state(State.CHASE)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	print("detectado goblin")
 	if area.name == 'hitbox':
-	#if area.is_in_group("hitbox_player"):
 		player = GameManager.get_main_player()
 		take_damage()
 		
@@ -217,3 +222,7 @@ func _on_attack_frame_changed() -> void:
 		# Frame 6: El golpe inicia e impacta al jugador (Activación)
 		elif sprite.frame == 6:
 			hitbox_shape.disabled = false
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	area.take_damage(attack)

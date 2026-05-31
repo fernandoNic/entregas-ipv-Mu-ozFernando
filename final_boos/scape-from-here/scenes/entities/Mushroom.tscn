@@ -306,3 +306,4 @@ debug_color = Color(0, 0.5442564, 0.081739835, 0.41960785)
 [connection signal="area_entered" from="CharacterBody2D/hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="body_entered" from="CharacterBody2D/vision_range" to="." method="_on_vision_range_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/vision_range" to="." method="_on_vision_range_body_exited"]
+[connection signal="area_entered" from="CharacterBody2D/hitbox" to="." method="_on_hitbox_area_entered"]

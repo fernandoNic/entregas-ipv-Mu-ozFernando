@@ -27,6 +27,7 @@ var direction: float = 1.0 # 1 right -1 left
 var is_waiting: bool = false
 var wait_timer: float = 0.0
 var player: CharacterBody2D
+var attack_damage: int = 15
 
 func _ready() -> void:
 	current_health = max_health
@@ -217,3 +218,7 @@ func _on_attack_frame_changed() -> void:
 		# Frame 6: El golpe inicia e impacta al jugador (Activación)
 		elif sprite.frame == 6:
 			hitbox_shape.disabled = false
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	area.take_damage(attack_damage)

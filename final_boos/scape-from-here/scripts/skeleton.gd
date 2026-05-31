@@ -1,5 +1,6 @@
 extends Node2D
 
+# skeleton script
 # Componentes obligatorios en la escena
 @export var max_health: float = 100.0
 @onready var sprite: AnimatedSprite2D = $CharacterBody2D/AnimatedSprite2D
@@ -17,6 +18,7 @@ extends Node2D
 @export var speed: float = 100.0
 @export var gravity: float = 980.0
 @export var ATTACK_RANGE: float = 35.0
+@export var attack_damage: int = 30
 
 # Estados de la FSM
 enum State { IDLE, RUN, ATTACK, HIT, DEATH, CHASE }
@@ -221,3 +223,8 @@ func _on_attack_frame_changed() -> void:
 			
 		# Al terminar el frame 7 la animación finaliza y el await se encarga de apagarlo,
 		# pero si la animación se llega a interrumpir, este código garantiza el apagado.
+
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	area.take_damage(attack_damage)
