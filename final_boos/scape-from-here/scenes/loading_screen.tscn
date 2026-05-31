@@ -156,8 +156,10 @@ offset_top = -41.0
 offset_right = 469.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_font_sizes/font_size = 40
 theme_override_styles/background = SubResource("StyleBoxFlat_hprjd")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ep5rh")
+value = 80.0
 rounded = true
 
 [node name="animation" type="Control" parent="." unique_id=432709561]

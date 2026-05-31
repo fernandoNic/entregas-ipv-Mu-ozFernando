@@ -11,7 +11,6 @@ func _ready() -> void:
 
 func _on_start_game_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")	
-	#get_tree().change_scene_to_file("res://scenes/level.tscn")	
 
 func _on_credits_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/credits.tscn")

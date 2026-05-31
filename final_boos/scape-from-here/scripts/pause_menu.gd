@@ -19,4 +19,4 @@ func _on_quit_to_menu_mouse_entered() -> void:
 
 func _on_restart_level_pressed() -> void:
 	GameManager.handle_pause()
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")
