@@ -1192,7 +1192,7 @@ shape = SubResource("WorldBoundaryShape2D_2q6dc")
 disabled = true
 
 [node name="Player" parent="World" unique_id=417206827 instance=ExtResource("2_w7c3h")]
-position = Vector2(-6544, 2168)
+position = Vector2(-8528, 952)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
 position = Vector2(8666, -502)
