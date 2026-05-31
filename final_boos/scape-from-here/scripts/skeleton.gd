@@ -59,7 +59,9 @@ func handle_idle_state(delta: float) -> void:
 	sprite.play("idle")
 	
 	if can_pursue() and line_of_view.is_colliding():
+		is_waiting = false
 		change_state(State.CHASE)
+		return
 		
 	if is_waiting:
 		wait_timer -= delta
@@ -110,7 +112,7 @@ func handle_death_state() -> void:
 	sprite.play("death")
 	await sprite.animation_finished
 	queue_free()		
-	set_physics_process(false) # Desactiva el procesamiento al morir
+	set_physics_process(false) 
 
 func handle_chase_state() -> void:
 	if not player:
@@ -193,7 +195,6 @@ func handle_combat_state() -> void:
 	change_state(State.CHASE)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	print("detectado")
 	if area.name == "hitbox":
 		player = GameManager.get_main_player()
 		take_damage()
@@ -221,10 +222,5 @@ func _on_attack_frame_changed() -> void:
 		elif sprite.frame == 6:
 			hitbox_shape.disabled = false
 			
-		# Al terminar el frame 7 la animación finaliza y el await se encarga de apagarlo,
-		# pero si la animación se llega a interrumpir, este código garantiza el apagado.
-
-
-
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	area.take_damage(attack_damage)

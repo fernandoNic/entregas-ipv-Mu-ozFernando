@@ -1,5 +1,6 @@
 extends Node2D
 
+# mushroom script
 # Componentes obligatorios en la escena
 @export var max_health: float = 100.0
 @onready var sprite: AnimatedSprite2D = $CharacterBody2D/AnimatedSprite2D
@@ -58,7 +59,9 @@ func handle_idle_state(delta: float) -> void:
 	sprite.play("idle")
 	
 	if can_pursue() and line_of_view.is_colliding():
+		is_waiting = false
 		change_state(State.CHASE)
+		return 
 		
 	if is_waiting:
 		wait_timer -= delta
@@ -71,6 +74,12 @@ func handle_run_state() -> void:
 	sprite.play("run")
 	update_sprite_direction()
 	check_platform_edges()
+	
+	if character_body_2d.is_on_wall():
+		character_body_2d.velocity = Vector2.ZERO
+		wait_timer = 3.0         
+		is_waiting = true
+		change_state(State.IDLE)
 
 func handle_attack_state() -> void:
 	character_body_2d.velocity.x = 0
@@ -142,7 +151,9 @@ func check_platform_edges() -> void:
 		wait_timer = 3.0         
 		is_waiting = true
 		change_state(State.IDLE)
-		
+	if raycast_L.is_colliding() and ray_cast_R.is_colliding():
+		change_state(State.RUN)
+	
 # 1 right -1 left			
 func update_sprite_direction() -> void:
 	if direction > 0:
@@ -155,6 +166,9 @@ func update_sprite_direction() -> void:
 		vision_range.scale.x = direction
 		line_of_view.scale.x = direction
 		hitbox.scale.x = direction
+	
+	if character_body_2d.is_on_wall():
+		direction *= -1
 
 func change_state(new_state: State) -> void:
 	if current_state == State.DEATH: 
@@ -191,7 +205,6 @@ func handle_combat_state() -> void:
 	change_state(State.CHASE)
 
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	print("detectado hongo")
 	if area.name == "hitbox":
 		player = GameManager.get_main_player()
 		take_damage()

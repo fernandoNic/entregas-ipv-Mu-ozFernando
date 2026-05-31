@@ -18,6 +18,7 @@ extends Node2D
 @export var speed: float = 100.0
 @export var gravity: float = 980.0
 @export var ATTACK_RANGE: float = 35.0
+@export var attack: int = 5
 
 # Estados de la FSM
 enum State { IDLE, RUN, ATTACK, HIT, DEATH, CHASE }
@@ -28,7 +29,7 @@ var direction: float = 1.0 # 1 right -1 left
 var is_waiting: bool = false
 var wait_timer: float = 0.0
 var player: CharacterBody2D
-var attack: int = 5
+
 
 func _ready() -> void:
 	current_health = max_health
@@ -59,7 +60,9 @@ func handle_idle_state(delta: float) -> void:
 	sprite.play("idle")
 	
 	if can_pursue() and line_of_view.is_colliding():
+		is_waiting = false
 		change_state(State.CHASE)
+		return
 		
 	if is_waiting:
 		wait_timer -= delta
@@ -75,8 +78,9 @@ func handle_run_state() -> void:
 
 	if character_body_2d.is_on_wall():
 		character_body_2d.velocity = Vector2.ZERO
+		wait_timer = 3.0         
+		is_waiting = true
 		change_state(State.IDLE)
-	
 
 func handle_attack_state() -> void:
 	character_body_2d.velocity.x = 0
@@ -114,7 +118,7 @@ func handle_death_state() -> void:
 	sprite.play("death")
 	await sprite.animation_finished
 	queue_free()		
-	set_physics_process(false) # Desactiva el procesamiento al morir
+	set_physics_process(false)
 
 func handle_chase_state() -> void:
 	if not player:
@@ -147,6 +151,8 @@ func check_platform_edges() -> void:
 		wait_timer = 3.0         
 		is_waiting = true
 		change_state(State.IDLE)
+	#if raycast_L.is_colliding() and ray_cast_R.is_colliding():
+		#change_state(State.RUN)
 		
 # 1 right -1 left			
 func update_sprite_direction() -> void:
@@ -160,6 +166,10 @@ func update_sprite_direction() -> void:
 		vision_range.scale.x = direction
 		line_of_view.scale.x = direction
 		hitbox.scale.x = direction
+
+	#if character_body_2d.is_on_wall():
+		#direction *= -1
+		
 
 func change_state(new_state: State) -> void:
 	if current_state == State.DEATH: 

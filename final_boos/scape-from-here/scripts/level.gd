@@ -22,7 +22,7 @@ func _on_character_body_2d_grab_keys() -> void:
 	keys += 1
 	var label_keys: Label = total_keys.get_node_or_null("HBoxContainer/Label")
 	label_keys.set_text(" x   " + str(keys))
-	if keys == 6:
+	if keys == 4:
 		game_over()
 
 func _on_character_body_2d_player_death() -> void:
