@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=74 format=3 uid="uid://bf581rjwomsxq"]
+[gd_resource type="SpriteFrames" format=3 uid="uid://bf581rjwomsxq"]
 
 [ext_resource type="Texture2D" uid="uid://cua7opit3rikc" path="res://assets/textures/enemies/golem/Golem_AttackA.png" id="1_3bayo"]
 [ext_resource type="Texture2D" uid="uid://crtanj3k5enlm" path="res://assets/textures/enemies/golem/Golem_AttackB.png" id="2_hq0hs"]
