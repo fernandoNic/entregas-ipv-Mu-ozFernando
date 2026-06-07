@@ -1197,7 +1197,7 @@ disabled = true
 position = Vector2(-6464, 328)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(10695, -1448)
+position = Vector2(6352, 488)
 
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="2" unique_id=410587740]
 zoom = Vector2(3, 3)
@@ -1368,59 +1368,55 @@ position = Vector2(-432, -704)
 scale = Vector2(3.6, 1)
 first_direction = 0
 
-[node name="PlatformV5" parent="World/platforms" unique_id=1902599698 instance=ExtResource("12_64w2a")]
-position = Vector2(-432, 256)
-scale = Vector2(3.6, 1)
-first_direction = 0
-
 [node name="PlatformV3" parent="World/platforms" unique_id=1844602393 instance=ExtResource("12_64w2a")]
 position = Vector2(-272, -888)
 scale = Vector2(3.6, 1)
 
 [node name="PlatformV4" parent="World/platforms" unique_id=1947009928 instance=ExtResource("12_64w2a")]
-position = Vector2(-248, 0)
+position = Vector2(-272, 0)
 scale = Vector2(3.6, 1)
+
+[node name="PlatformV5" parent="World/platforms" unique_id=1902599698 instance=ExtResource("12_64w2a")]
+position = Vector2(-440, 376)
+scale = Vector2(3.6, 1)
+first_direction = 0
 
 [node name="PlatformV6" parent="World/platforms" unique_id=1488063110 instance=ExtResource("12_64w2a")]
-position = Vector2(-240.00002, 504)
+position = Vector2(-256, 824)
 scale = Vector2(3.6, 1)
+_distancia = 600.0
+_duracion = 4.0
 
 [node name="PlatformV9" parent="World/platforms" unique_id=1740371038 instance=ExtResource("12_64w2a")]
-position = Vector2(-120, 1696)
+position = Vector2(-119.00001, 1763)
 scale = Vector2(3.6, 1)
 
 [node name="PlatformV7" parent="World/platforms" unique_id=939498042 instance=ExtResource("12_64w2a")]
-position = Vector2(1792.0001, 1640)
+position = Vector2(1791.0001, 1748)
 scale = Vector2(7.4879994, 1)
 _distancia = 800.0
 _duracion = 4.0
 first_direction = 0
 
 [node name="PlatformV8" parent="World/platforms" unique_id=2103866922 instance=ExtResource("12_64w2a")]
-position = Vector2(320, -1672)
+position = Vector2(369.00003, -1644)
 scale = Vector2(3.6484056, 1)
-_distancia = 400.0
 
 [node name="PlatformV17" parent="World/platforms" unique_id=1606659378 instance=ExtResource("12_64w2a")]
-position = Vector2(5328.0005, 1696)
+position = Vector2(5319, 1751)
 scale = Vector2(3.6484056, 1)
-_distancia = 400.0
-_duracion = 3.0
 
 [node name="PlatformV19" parent="World/platforms" unique_id=543392968 instance=ExtResource("12_64w2a")]
-position = Vector2(3432, 1696)
+position = Vector2(3434, 1754)
 scale = Vector2(5.5455766, 1)
-_distancia = 400.0
-_duracion = 3.0
 
 [node name="PlatformV18" parent="World/platforms" unique_id=1405606451 instance=ExtResource("12_64w2a")]
-position = Vector2(5807.9995, 1208)
+position = Vector2(5801, 1247)
 scale = Vector2(1.1674898, 1)
 _distancia = 340.0
-_duracion = 3.0
 
 [node name="PlatformV15" parent="World/platforms" unique_id=722224536 instance=ExtResource("12_64w2a")]
-position = Vector2(6280, -832)
+position = Vector2(6325, -770)
 scale = Vector2(3.6484056, 1)
 _distancia = 700.0
 _duracion = 5.0

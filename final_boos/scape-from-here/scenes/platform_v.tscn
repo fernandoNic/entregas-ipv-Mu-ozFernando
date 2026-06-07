@@ -8,6 +8,8 @@ size = Vector2(32, 8)
 [node name="PlatformV" type="AnimatableBody2D" unique_id=1864702416]
 collision_layer = 4
 script = ExtResource("1_ddyne")
+_distancia = 400.0
+_duracion = 3.0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1198953191]
 offset_right = 32.0
