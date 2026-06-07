@@ -1,10 +1,12 @@
 ## Este estado hereda del TurretState pero solo por compatibilidad
 ## ya que no hace nada incluso si detecta al Player cerca
 extends TurretState
+@onready var enemy_sfx: AudioStreamPlayer = $"../../EnemySFX"
 
 
 func enter() -> void:
 	# Seteamos todas las variables de muerte para que no joda
+	_dead_audio()
 	character._play_animation(&"dead")
 	character.dead = true
 	character.collision_layer = 0
@@ -33,3 +35,7 @@ func exit() -> void:
 
 func handle_input(_event: InputEvent) -> void:
 	return
+	
+func _dead_audio() -> void:
+	enemy_sfx.stream = load("res://assets/sound/sfx/enemies/24_orc_death_spin.wav")
+	enemy_sfx.play()	

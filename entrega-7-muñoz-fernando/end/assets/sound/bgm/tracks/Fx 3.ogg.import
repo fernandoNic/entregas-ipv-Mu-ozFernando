@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bn1urig4v3io0"
+path="res://.godot/imported/Fx 3.ogg-bc156834be8abccf395b602267a413c7.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sound/bgm/tracks/Fx 3.ogg"
+dest_files=["res://.godot/imported/Fx 3.ogg-bc156834be8abccf395b602267a413c7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

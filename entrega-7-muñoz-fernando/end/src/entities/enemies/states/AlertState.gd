@@ -2,10 +2,12 @@
 ## que extiende la interfaz de State con comportamientos específicos
 ## (se puede abrir el script con Ctrl+click)
 extends TurretState
+@onready var enemy_sfx: AudioStreamPlayer = $"../../EnemySFX"
 
 
 func enter() -> void:
 	# Primero detenemos el character para que no se mueva más
+	_alert_audio()
 	character.velocity = Vector2.ZERO
 	
 	# Luego triggereamos un disparo y reproducimos la animación
@@ -63,3 +65,7 @@ func _handle_body_exited(body: Node) -> void:
 
 func handle_input(_event: InputEvent) -> void:
 	return
+
+func _alert_audio() -> void:
+	enemy_sfx.stream = load("res://assets/sound/sfx/enemies/Scream_Robotic.wav")
+	enemy_sfx.play()	

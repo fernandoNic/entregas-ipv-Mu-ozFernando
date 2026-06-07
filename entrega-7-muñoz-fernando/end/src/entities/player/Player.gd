@@ -18,6 +18,10 @@ signal hp_changed(current_hp: int, max_hp: int)
 @warning_ignore("unused_signal")
 signal died()
 
+@onready var player_sfx: AudioStreamPlayer = $PlayerSFX
+@export var dead_sfx: AudioStream
+@export var fire_sfx: AudioStream
+
 @onready var weapon: Node = $"%Weapon"
 @onready var body_animations: AnimationPlayer = $BodyAnimations
 @onready var body_pivot: Node2D = $BodyPivot
@@ -70,6 +74,8 @@ func _handle_weapon_actions() -> void:
 			projectile_container = get_parent()
 		if weapon.projectile_container == null:
 			weapon.projectile_container = projectile_container
+			
+		_fire_audio()
 		weapon.fire()
 
 
@@ -147,6 +153,7 @@ func notify_hit(amount: int = 1) -> void:
 # es apropiado manejarlo de esta manera.
 func _handle_hit(_amount: int = 1) -> void:
 	dead = true
+	_dead_audio()
 	hp_changed.emit(0, 1)
 
 
@@ -161,3 +168,11 @@ func _remove() -> void:
 func _play_animation(animation: StringName) -> void:
 	if body_animations.has_animation(animation):
 		body_animations.play(animation)
+
+func _dead_audio() -> void:
+	player_sfx.stream = dead_sfx
+	player_sfx.play()
+	
+func _fire_audio() -> void:
+	player_sfx.stream = fire_sfx
+	player_sfx.play()

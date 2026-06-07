@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://1c4vf4hpp4y0"]
+[gd_scene format=3 uid="uid://1c4vf4hpp4y0"]
 
 [ext_resource type="Script" uid="uid://bkj5hhu2oxiwc" path="res://src/entities/enemies/Turret.gd" id="2"]
 [ext_resource type="PackedScene" path="res://src/entities/enemies/TurretProjectile.tscn" id="3"]
@@ -17,75 +17,77 @@ size = Vector2(19, 25)
 [sub_resource type="CircleShape2D" id="2"]
 radius = 192.0
 
-[node name="Turret" type="CharacterBody2D"]
+[node name="Turret" type="CharacterBody2D" unique_id=1642860704]
 texture_filter = 1
 collision_layer = 4
 script = ExtResource("2")
 projectile_scene = ExtResource("3")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1744643061]
 position = Vector2(0.5, -12.5)
 shape = SubResource("1")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "dead_state", "start_state", "states_list")]
+[node name="StateMachine" type="Node" parent="." unique_id=885001133 node_paths=PackedStringArray("character", "dead_state", "start_state", "states_list")]
 script = ExtResource("3_mxww5")
 character = NodePath("..")
 dead_state = NodePath("Dead")
 start_state = NodePath("Idle")
 states_list = [NodePath("Idle"), NodePath("Walk"), NodePath("Alert"), NodePath("Dead")]
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_timer")]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1813075010 node_paths=PackedStringArray("idle_timer")]
 script = ExtResource("3_i6dqk")
 idle_timer = NodePath("IdleTimer")
 state_id = &"idle"
 
-[node name="IdleTimer" type="Timer" parent="StateMachine/Idle"]
+[node name="IdleTimer" type="Timer" parent="StateMachine/Idle" unique_id=1317222343]
 one_shot = true
 
-[node name="Walk" type="Node" parent="StateMachine"]
+[node name="Walk" type="Node" parent="StateMachine" unique_id=1703927807]
 script = ExtResource("4_mxww5")
 wander_radius = Vector2(100, 100)
 speed = 10.0
 max_speed = 60.0
 state_id = &"walk"
 
-[node name="Alert" type="Node" parent="StateMachine"]
+[node name="Alert" type="Node" parent="StateMachine" unique_id=1156239539]
 script = ExtResource("5_iiepl")
 state_id = &"alert"
 
-[node name="Dead" type="Node" parent="StateMachine"]
+[node name="Dead" type="Node" parent="StateMachine" unique_id=1343748388]
 script = ExtResource("6_p28ma")
 state_id = &"dead"
 
-[node name="FirePosition" type="Marker2D" parent="."]
+[node name="FirePosition" type="Marker2D" parent="." unique_id=555699775]
 position = Vector2(0, -18.0339)
 
-[node name="Body" type="AnimatedSprite2D" parent="."]
+[node name="Body" type="AnimatedSprite2D" parent="." unique_id=954274916]
 position = Vector2(0, -16)
 sprite_frames = ExtResource("8_njpiu")
 animation = &"alert"
 frame = 11
 frame_progress = 1.0
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1682862211]
 position = Vector2(0.0428963, -18.0659)
 target_position = Vector2(0, 0)
 collision_mask = 3
 
-[node name="DetectionArea" type="Area2D" parent="."]
+[node name="DetectionArea" type="Area2D" parent="." unique_id=355932835]
 position = Vector2(0, -12)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4")
 
-[node name="GreenCircle" type="Sprite2D" parent="DetectionArea"]
+[node name="GreenCircle" type="Sprite2D" parent="DetectionArea" unique_id=327986234]
 visible = false
 modulate = Color(1, 1, 1, 0.301961)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1946086907]
 shape = SubResource("2")
+
+[node name="EnemySFX" type="AudioStreamPlayer" parent="." unique_id=763179995]
 
 [connection signal="hit" from="." to="StateMachine" method="notify_hit"]
 [connection signal="timeout" from="StateMachine/Idle/IdleTimer" to="StateMachine/Idle" method="_on_idle_timer_timeout"]

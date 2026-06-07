@@ -7,6 +7,10 @@ signal hit(amount: int)
 @onready var raycast: RayCast2D = $RayCast2D
 @onready var body_anim: AnimatedSprite2D = $Body
 
+@onready var enemy_sfx: AudioStreamPlayer = $EnemySFX
+@export var fire_sfx: AudioStream
+
+
 @export var projectile_scene: PackedScene
 @export var pathfinding: PathfindAstar
 
@@ -24,6 +28,7 @@ func initialize(turret_pos: Vector2, projectile_container: Node) -> void:
 
 func _fire() -> void:
 	if target != null:
+		_fire_audio()
 		var proj_instance: Node = projectile_scene.instantiate()
 		if _projectile_container == null:
 			_projectile_container = get_parent()
@@ -73,3 +78,7 @@ func _play_animation(animation: String) -> void:
 # Wrapper para facilitar el acceso a la animación actual
 func get_current_animation() -> String:
 	return body_anim.animation
+
+func _fire_audio() -> void:
+	enemy_sfx.stream = load("res://assets/sound/sfx/enemies/20_orc_special_atk.wav")
+	enemy_sfx.play()	

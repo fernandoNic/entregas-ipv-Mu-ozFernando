@@ -1,12 +1,15 @@
 extends PlayerState
 
 @export var jumps_limit: int = 1
+@onready var player_sfx: AudioStreamPlayer = $"../../PlayerSFX"
+
 
 var jumps: int = 0
 
 
 func enter() -> void:
 	character.velocity.y = -character.jump_speed
+	_jump_audio()
 	character._play_animation(&"jump")
 
 
@@ -25,6 +28,7 @@ func handle_input(event: InputEvent) -> void:
 		jumps += 1
 		character.velocity.y = -character.jump_speed
 		character._play_animation(&"jump")
+		
 
 
 func update(delta: float) -> void:
@@ -55,3 +59,7 @@ func handle_event(event: StringName, value = null) -> void:
 
 func _on_animation_finished(_anim_name: StringName) -> void:
 	return
+
+func _jump_audio() -> void:
+	player_sfx.stream = load("res://assets/sound/sfx/jump/12_human_jump_3.wav")
+	player_sfx.play()

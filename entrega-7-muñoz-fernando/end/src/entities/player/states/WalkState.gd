@@ -1,8 +1,11 @@
 extends PlayerState
 
+@onready var player_sfx: AudioStreamPlayer = $"../../PlayerSFX"
+@export var walk_sfx: AudioStream
 
 # Al entrar se activa primero la animación "walk"
 func enter() -> void:
+	_walk_audio()
 	character._play_animation(&"walk")
 
 
@@ -53,3 +56,8 @@ func handle_event(event: StringName, value = null) -> void:
 			character._handle_hit(value)
 			if character.dead:
 				finished.emit(&"dead")
+
+
+func _walk_audio() -> void:
+	player_sfx.stream = load("res://assets/sound/sfx/movement/16_human_walk_stone_2.wav")
+	player_sfx.play()

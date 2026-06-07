@@ -19,10 +19,15 @@ run/main_scene="res://src/Main.tscn"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
 
+[audio]
+
+buses/default_bus_layout="uid://dmxm7fhag4erg"
+
 [display]
 
 window/size/viewport_width=288
 window/size/viewport_height=162
+window/size/mode=2
 window/size/window_width_override=1366
 window/size/window_height_override=768
 window/stretch/mode="canvas_items"

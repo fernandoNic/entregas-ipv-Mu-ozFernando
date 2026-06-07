@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://1c4vf4hpp4y0" path="res://src/entities/enemies/Turret.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://d24f418usmrj5" path="res://src/environment/Goal.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://dvm2rslkg23fn" path="res://src/entities/player/Player.tscn" id="12"]
+[ext_resource type="AudioStream" uid="uid://cp4d3e67yemxk" path="res://assets/sound/bgm/tracks/Ambient 10.ogg" id="13_0ri8u"]
 [ext_resource type="Script" uid="uid://drxcgrr7s1xp2" path="res://src/entities/player/Camera.gd" id="14"]
 
 [node name="Main" type="Node" unique_id=2076862388]
@@ -174,5 +175,9 @@ position = Vector2(509, 472)
 
 [node name="Goal" parent="Environment/Objects" unique_id=1970327120 instance=ExtResource("11")]
 position = Vector2(1947, 229)
+
+[node name="background" type="AudioStreamPlayer" parent="." unique_id=977937704]
+stream = ExtResource("13_0ri8u")
+autoplay = true
 
 [editable path="Environment/Objects/Obstacles/Obstacle3"]
