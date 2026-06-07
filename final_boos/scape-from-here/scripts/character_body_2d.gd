@@ -8,7 +8,7 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -260.0
 const GRAVITY = 450.0
 
-enum STATE {IDLE, RUN, JUMP, FALL, ATTACK, DEATH}
+enum STATE {IDLE, RUN, JUMP, FALL, ATTACK, DEATH, DOUBLE_JUMP}
 var current_state : STATE
 var live: int = 100
 
@@ -17,6 +17,10 @@ var live: int = 100
 @onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox_2d: CollisionShape2D = $hitbox/CollisionShape2D
 @onready var hitbox: Area2D = $hitbox
+@onready var double_jump_sfx: AudioStreamPlayer2D = $sfx/doubleJump_sfx
+@onready var double_jump_vfx: AnimatedSprite2D = $DoubleJumpVfx
+
+
 var max_jumps: int = 2
 var jumps_left: int = 0
 
@@ -45,6 +49,15 @@ func _enter_state() -> void:
 		STATE.JUMP:
 			velocity.y = JUMP_VELOCITY
 			animated_sprite_2d.play("jump_1")
+		STATE.DOUBLE_JUMP:
+			velocity.y = JUMP_VELOCITY
+			animated_sprite_2d.play("jump_1")
+			double_jump_sfx.play()
+			double_jump_vfx.visible = true
+			double_jump_vfx.play("smoke_vfx")
+			if not double_jump_vfx.animation_finished.is_connected(_on_smoke_vfx_finished):
+				double_jump_vfx.animation_finished.connect(_on_smoke_vfx_finished)
+			jumps_left -= 1
 		STATE.FALL:
 			animated_sprite_2d.play("fall_1") 
 		STATE.ATTACK:
@@ -77,8 +90,12 @@ func _update_state(delta: float) -> void:
 	match current_state:
 		STATE.IDLE:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			if is_on_floor():
+				jumps_left = max_jumps - 1 
+			
 			if not is_on_floor():
 				_set_state(STATE.FALL)
+				jumps_left = max_jumps - 1 
 			elif direction != 0:
 				_set_state(STATE.RUN)
 			elif Input.is_action_just_pressed("ui_accept"):
@@ -93,6 +110,7 @@ func _update_state(delta: float) -> void:
 			velocity.x = direction * SPEED
 			if not is_on_floor():
 				_set_state(STATE.FALL)
+				jumps_left = max_jumps - 1 
 			elif Input.is_action_just_pressed("ui_accept"):
 				_set_state(STATE.JUMP)
 			elif Input.is_action_just_pressed("attack"):
@@ -106,6 +124,15 @@ func _update_state(delta: float) -> void:
 		STATE.JUMP:
 			velocity.x = direction * SPEED
 			_aplicar_gravedad(delta)
+			if Input.is_action_just_pressed("ui_accept") and jumps_left > 0:
+				_set_state(STATE.DOUBLE_JUMP)
+			elif velocity.y > 0:
+				_set_state(STATE.FALL)
+			move_and_slide()
+		
+		STATE.DOUBLE_JUMP:
+			velocity.x = direction * SPEED
+			_aplicar_gravedad(delta)
 			if velocity.y > 0:
 				_set_state(STATE.FALL)
 			move_and_slide()
@@ -115,6 +142,8 @@ func _update_state(delta: float) -> void:
 			_aplicar_gravedad(delta)
 			if is_on_floor():
 				_set_state(STATE.IDLE)
+			elif Input.is_action_just_pressed("ui_accept") and jumps_left > 0:
+				_set_state(STATE.DOUBLE_JUMP)
 			move_and_slide()
 			
 		STATE.ATTACK:
@@ -140,3 +169,7 @@ func receive_damage(enemy_damage: int) -> void:
 	if live <= 0:
 		_set_state(STATE.DEATH)
 	
+func _on_smoke_vfx_finished() -> void:
+	double_jump_vfx.visible = false
+	if double_jump_vfx.animation_finished.is_connected(_on_smoke_vfx_finished):
+		double_jump_vfx.animation_finished.disconnect(_on_smoke_vfx_finished)
