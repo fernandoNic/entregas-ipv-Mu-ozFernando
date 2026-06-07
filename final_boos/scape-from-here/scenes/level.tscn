@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bnpxst5t5kdvs" path="res://scenes/entities/Mushroom.tscn" id="9_64w2a"]
 [ext_resource type="PackedScene" uid="uid://ch1lc3ledu8j2" path="res://scenes/entities/Skeleton.tscn" id="11_wc255"]
 [ext_resource type="PackedScene" uid="uid://f65mbe2xbw01" path="res://scenes/platform_v.tscn" id="12_64w2a"]
+[ext_resource type="PackedScene" uid="uid://cdw6t4pro2jli" path="res://scenes/entities/BigEye.tscn" id="12_arp2o"]
 [ext_resource type="PackedScene" uid="uid://cjji4vwtjk3k0" path="res://scenes/total_keys.tscn" id="14_fpun6"]
 [ext_resource type="PackedScene" uid="uid://c05qxnesl23gk" path="res://scenes/health_bar.tscn" id="15_wc255"]
 
@@ -1196,7 +1197,7 @@ disabled = true
 position = Vector2(-6464, 328)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(8886, -1480)
+position = Vector2(10695, -1448)
 
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="2" unique_id=410587740]
 zoom = Vector2(3, 3)
@@ -1352,6 +1353,9 @@ position = Vector2(1264, 344)
 
 [node name="Skeleton" parent="World/enemies" unique_id=508052477 instance=ExtResource("11_wc255")]
 position = Vector2(2120, -88)
+
+[node name="BigEye" parent="World/enemies" unique_id=1687116347 instance=ExtResource("12_arp2o")]
+position = Vector2(4346, -1123)
 
 [node name="platforms" type="Node2D" parent="World" unique_id=850070048]
 
