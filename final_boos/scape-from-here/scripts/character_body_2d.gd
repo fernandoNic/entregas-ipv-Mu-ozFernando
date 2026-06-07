@@ -17,6 +17,8 @@ var live: int = 100
 @onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox_2d: CollisionShape2D = $hitbox/CollisionShape2D
 @onready var hitbox: Area2D = $hitbox
+var max_jumps: int = 2
+var jumps_left: int = 0
 
 func _ready() -> void:
 	current_state = STATE.IDLE

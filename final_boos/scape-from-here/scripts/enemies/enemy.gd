@@ -1,6 +1,7 @@
 extends Node2D
 
-# globin script
+class_name Enemy
+
 # Componentes obligatorios en la escena
 @export var max_health: float = 100.0
 @onready var sprite: AnimatedSprite2D = $CharacterBody2D/AnimatedSprite2D

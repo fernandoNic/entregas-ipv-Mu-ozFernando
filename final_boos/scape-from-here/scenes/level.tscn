@@ -1192,10 +1192,10 @@ shape = SubResource("WorldBoundaryShape2D_2q6dc")
 disabled = true
 
 [node name="Player" parent="World" unique_id=417206827 instance=ExtResource("2_w7c3h")]
-position = Vector2(-8528, 952)
+position = Vector2(-6464, 328)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(8666, -502)
+position = Vector2(7528, 120)
 
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="2" unique_id=410587740]
 zoom = Vector2(3, 3)
@@ -1340,157 +1340,13 @@ position = Vector2(6440, 776)
 [node name="enemies" type="Node2D" parent="World" unique_id=1496939134]
 
 [node name="Mushroom" parent="World/enemies" unique_id=927427066 instance=ExtResource("9_64w2a")]
-position = Vector2(2272, -88)
-
-[node name="Mushroom17" parent="World/enemies" unique_id=167719935 instance=ExtResource("9_64w2a")]
-position = Vector2(6265, 776)
-
-[node name="Mushroom16" parent="World/enemies" unique_id=1757578161 instance=ExtResource("9_64w2a")]
-position = Vector2(6072, 1240)
-
-[node name="Mushroom15" parent="World/enemies" unique_id=2040718094 instance=ExtResource("9_64w2a")]
-position = Vector2(6232, 1368)
-
-[node name="Mushroom14" parent="World/enemies" unique_id=1773664015 instance=ExtResource("9_64w2a")]
-position = Vector2(5016, 1752)
-
-[node name="Mushroom13" parent="World/enemies" unique_id=1674140097 instance=ExtResource("9_64w2a")]
-position = Vector2(896, 1432)
-
-[node name="Mushroom12" parent="World/enemies" unique_id=306319717 instance=ExtResource("9_64w2a")]
-position = Vector2(3200, 920)
-
-[node name="Mushroom11" parent="World/enemies" unique_id=789040846 instance=ExtResource("9_64w2a")]
-position = Vector2(-120, 824)
-
-[node name="Mushroom10" parent="World/enemies" unique_id=1072497507 instance=ExtResource("9_64w2a")]
-position = Vector2(1640, -1768)
-
-[node name="Mushroom9" parent="World/enemies" unique_id=1599571359 instance=ExtResource("9_64w2a")]
-position = Vector2(824, -1640)
-
-[node name="Mushroom8" parent="World/enemies" unique_id=913526757 instance=ExtResource("9_64w2a")]
-position = Vector2(2976, -1352)
-
-[node name="Mushroom7" parent="World/enemies" unique_id=1719625215 instance=ExtResource("9_64w2a")]
-position = Vector2(320, -264)
-
-[node name="Mushroom6" parent="World/enemies" unique_id=725031693 instance=ExtResource("9_64w2a")]
-position = Vector2(2648, -632)
-
-[node name="Mushroom5" parent="World/enemies" unique_id=1126933660 instance=ExtResource("9_64w2a")]
-position = Vector2(1384, -376)
-
-[node name="Mushroom3" parent="World/enemies" unique_id=1634167469 instance=ExtResource("9_64w2a")]
-position = Vector2(3992, -56)
-
-[node name="Mushroom4" parent="World/enemies" unique_id=1010642067 instance=ExtResource("9_64w2a")]
-position = Vector2(3992, -56)
-
-[node name="Mushroom2" parent="World/enemies" unique_id=1807719132 instance=ExtResource("9_64w2a")]
-position = Vector2(2368, 296)
+position = Vector2(1256, 344)
 
 [node name="Goblin" parent="World/enemies" unique_id=835979565 instance=ExtResource("8_t1rx8")]
-position = Vector2(1392, 296)
-
-[node name="Goblin17" parent="World/enemies" unique_id=2018779032 instance=ExtResource("8_t1rx8")]
-position = Vector2(5368, 424)
-
-[node name="Goblin16" parent="World/enemies" unique_id=737472058 instance=ExtResource("8_t1rx8")]
-position = Vector2(5656, 888)
-
-[node name="Goblin15" parent="World/enemies" unique_id=1288367021 instance=ExtResource("8_t1rx8")]
-position = Vector2(6128, 1752)
-
-[node name="Goblin14" parent="World/enemies" unique_id=1192095496 instance=ExtResource("8_t1rx8")]
-position = Vector2(4088, 1416)
-
-[node name="Goblin13" parent="World/enemies" unique_id=529340631 instance=ExtResource("8_t1rx8")]
-position = Vector2(1248, 1112)
-
-[node name="Goblin11" parent="World/enemies" unique_id=1312459217 instance=ExtResource("8_t1rx8")]
-position = Vector2(2352, 920)
-
-[node name="Goblin12" parent="World/enemies" unique_id=870565028 instance=ExtResource("8_t1rx8")]
-position = Vector2(2352, 920)
-
-[node name="Goblin10" parent="World/enemies" unique_id=1849598443 instance=ExtResource("8_t1rx8")]
-position = Vector2(256, -1192)
-
-[node name="Goblin9" parent="World/enemies" unique_id=1993501647 instance=ExtResource("8_t1rx8")]
-position = Vector2(24, -2024)
-
-[node name="Goblin8" parent="World/enemies" unique_id=2132425004 instance=ExtResource("8_t1rx8")]
-position = Vector2(1328, -1192)
-
-[node name="Goblin6" parent="World/enemies" unique_id=920561945 instance=ExtResource("8_t1rx8")]
-position = Vector2(2056, -632)
-
-[node name="Goblin7" parent="World/enemies" unique_id=1931856965 instance=ExtResource("8_t1rx8")]
-position = Vector2(3576, -776)
-
-[node name="Goblin5" parent="World/enemies" unique_id=1177228573 instance=ExtResource("8_t1rx8")]
-position = Vector2(1888, -328)
-
-[node name="Goblin4" parent="World/enemies" unique_id=784174119 instance=ExtResource("8_t1rx8")]
-position = Vector2(6200, -360)
-
-[node name="Goblin3" parent="World/enemies" unique_id=126092921 instance=ExtResource("8_t1rx8")]
-position = Vector2(3032, 24)
-
-[node name="Goblin2" parent="World/enemies" unique_id=979619479 instance=ExtResource("8_t1rx8")]
-position = Vector2(2504, 88)
+position = Vector2(1264, 344)
 
 [node name="Skeleton" parent="World/enemies" unique_id=508052477 instance=ExtResource("11_wc255")]
-position = Vector2(2064, 216)
-
-[node name="Skeleton11" parent="World/enemies" unique_id=751947803 instance=ExtResource("11_wc255")]
-position = Vector2(696, 824)
-
-[node name="Skeleton14" parent="World/enemies" unique_id=1843245235 instance=ExtResource("11_wc255")]
-position = Vector2(2848, 1752)
-
-[node name="Skeleton3" parent="World/enemies" unique_id=357849588 instance=ExtResource("11_wc255")]
-position = Vector2(3840, 440)
-
-[node name="Skeleton4" parent="World/enemies" unique_id=1337139522 instance=ExtResource("11_wc255")]
-position = Vector2(4192, -184)
-
-[node name="Skeleton17" parent="World/enemies" unique_id=408387516 instance=ExtResource("11_wc255")]
-position = Vector2(6272, 424)
-
-[node name="Skeleton9" parent="World/enemies" unique_id=225004004 instance=ExtResource("11_wc255")]
-position = Vector2(4216, -1560)
-
-[node name="Skeleton13" parent="World/enemies" unique_id=292030768 instance=ExtResource("11_wc255")]
-position = Vector2(1152, 1752)
-
-[node name="Skeleton6" parent="World/enemies" unique_id=480195654 instance=ExtResource("11_wc255")]
-position = Vector2(632, -760)
-
-[node name="Skeleton5" parent="World/enemies" unique_id=633302106 instance=ExtResource("11_wc255")]
-position = Vector2(5352, -168)
-
-[node name="Skeleton7" parent="World/enemies" unique_id=1108797748 instance=ExtResource("11_wc255")]
-position = Vector2(4192, -1128)
-
-[node name="Skeleton12" parent="World/enemies" unique_id=254873698 instance=ExtResource("11_wc255")]
-position = Vector2(2552, 1368)
-
-[node name="Skeleton2" parent="World/enemies" unique_id=80206154 instance=ExtResource("11_wc255")]
-position = Vector2(2704, 440)
-
-[node name="Skeleton15" parent="World/enemies" unique_id=163089837 instance=ExtResource("11_wc255")]
-position = Vector2(4760, 744)
-
-[node name="Skeleton8" parent="World/enemies" unique_id=221425423 instance=ExtResource("11_wc255")]
-position = Vector2(2512, -1160)
-
-[node name="Skeleton10" parent="World/enemies" unique_id=1211330139 instance=ExtResource("11_wc255")]
-position = Vector2(5528, -1560)
-
-[node name="Skeleton16" parent="World/enemies" unique_id=1509626655 instance=ExtResource("11_wc255")]
-position = Vector2(5992, -776)
+position = Vector2(2120, -88)
 
 [node name="platforms" type="Node2D" parent="World" unique_id=850070048]
 

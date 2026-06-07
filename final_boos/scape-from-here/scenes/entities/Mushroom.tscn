@@ -253,9 +253,8 @@ collision_mask = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1364046219]
 sprite_frames = SubResource("SpriteFrames_1tgqx")
-animation = &"attack"
+animation = &"idle"
 autoplay = "idle"
-frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1700820095]
 position = Vector2(1, 7)
@@ -273,6 +272,11 @@ collision_mask = 4
 
 [node name="line_of_view" type="RayCast2D" parent="CharacterBody2D" unique_id=1490558214]
 target_position = Vector2(200, 0)
+
+[node name="RayWall" type="RayCast2D" parent="CharacterBody2D" unique_id=565134572]
+position = Vector2(0, 8)
+target_position = Vector2(13, 0)
+collision_mask = 4
 
 [node name="ProgressBar" parent="CharacterBody2D" unique_id=1930645090 instance=ExtResource("5_q68ii")]
 

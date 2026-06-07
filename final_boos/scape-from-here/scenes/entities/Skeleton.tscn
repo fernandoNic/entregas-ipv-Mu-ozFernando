@@ -243,8 +243,11 @@ target_position = Vector2(0, 30)
 collision_mask = 4
 
 [node name="line_of_view" type="RayCast2D" parent="CharacterBody2D" unique_id=1218885059]
-scale = Vector2(-1, -1)
 target_position = Vector2(200, 0)
+
+[node name="RayWall" type="RayCast2D" parent="CharacterBody2D" unique_id=10447077]
+target_position = Vector2(25, 0)
+collision_mask = 4
 
 [node name="ProgressBar" parent="CharacterBody2D" unique_id=1930645090 instance=ExtResource("5_3renp")]
 offset_top = -40.0

@@ -13,12 +13,15 @@ extends Node2D
 @onready var vision_range: Area2D = $CharacterBody2D/vision_range
 @onready var hitbox: Area2D = $CharacterBody2D/hitbox
 @onready var hitbox_shape: CollisionShape2D = $CharacterBody2D/hitbox/CollisionShape2D
+@onready var ray_wall: RayCast2D = $CharacterBody2D/RayWall
+
 
 # Parámetros configurables
 @export var speed: float = 100.0
 @export var gravity: float = 980.0
 @export var ATTACK_RANGE: float = 35.0
 @export var attack_damage: int = 30
+@export var attack: int = 5
 
 # Estados de la FSM
 enum State { IDLE, RUN, ATTACK, HIT, DEATH, CHASE }
@@ -36,7 +39,13 @@ func _ready() -> void:
 	progress_bar.value = current_health
 	
 func _physics_process(delta: float) -> void:
-	## Manejo de la máquina de estados
+	#if ray_wall.is_colliding():
+		#pass
+	
+	# Manejo de la máquina de estados
+	if not character_body_2d.is_on_floor():
+		character_body_2d.velocity.y += gravity * delta
+		
 	match current_state:
 		State.IDLE:
 			handle_idle_state(delta)
@@ -69,12 +78,6 @@ func handle_idle_state(delta: float) -> void:
 			is_waiting = false
 			change_state(State.RUN)
 
-func handle_run_state() -> void:
-	character_body_2d.velocity.x = direction * speed
-	sprite.play("run")
-	update_sprite_direction()
-	check_platform_edges()
-
 func handle_attack_state() -> void:
 	character_body_2d.velocity.x = 0
 	if current_state == State.ATTACK and sprite.animation != "attack":
@@ -88,7 +91,6 @@ func handle_attack_state() -> void:
 			sprite.frame_changed.disconnect(_on_attack_frame_changed)
 		
 		change_state(State.CHASE)
-		
 
 func handle_hit_state() -> void:
 	character_body_2d.velocity.x = 0
@@ -112,7 +114,7 @@ func handle_death_state() -> void:
 	sprite.play("death")
 	await sprite.animation_finished
 	queue_free()		
-	set_physics_process(false) 
+	set_physics_process(false)
 
 func handle_chase_state() -> void:
 	if not player:
@@ -133,6 +135,18 @@ func handle_chase_state() -> void:
 	else:
 		character_body_2d.velocity.x = 0
 		change_state(State.IDLE) 
+
+func handle_run_state() -> void:
+	character_body_2d.velocity.x = direction * speed
+	sprite.play("run")
+	update_sprite_direction()
+	check_platform_edges()
+
+	if character_body_2d.is_on_wall():
+		character_body_2d.velocity = Vector2.ZERO
+		wait_timer = 3.0         
+		is_waiting = true
+		change_state(State.IDLE)
 		
 func check_platform_edges() -> void:
 	if !raycast_L.is_colliding() and direction == -1:
@@ -140,11 +154,19 @@ func check_platform_edges() -> void:
 		wait_timer = 3.0         
 		is_waiting = true
 		change_state(State.IDLE)
-		return
 	if !ray_cast_R.is_colliding() and direction == 1:
 		direction *= -1          
 		wait_timer = 3.0         
 		is_waiting = true
+		change_state(State.IDLE)
+	if ray_wall.is_colliding():
+		character_body_2d.velocity = Vector2.ZERO
+		wait_timer = 3.0         
+		is_waiting = true
+		direction *= -1          
+		change_state(State.IDLE)
+	if raycast_L.is_colliding() && ray_cast_R.is_colliding() && ray_wall.is_colliding():
+		character_body_2d.velocity.x = direction * speed
 		change_state(State.IDLE)
 		
 # 1 right -1 left			
@@ -153,12 +175,14 @@ func update_sprite_direction() -> void:
 		sprite.flip_h = false
 		vision_range.scale.x = direction
 		line_of_view.scale.x = direction
-		hitbox.scale.x = direction
+		hitbox.scale.x       = direction
+		ray_wall.scale.x     = direction
 	elif direction < 0:
 		sprite.flip_h = true
 		vision_range.scale.x = direction
 		line_of_view.scale.x = direction
-		hitbox.scale.x = direction
+		hitbox.scale.x       = direction
+		ray_wall.scale.x     = direction
 
 func change_state(new_state: State) -> void:
 	if current_state == State.DEATH: 
@@ -167,6 +191,7 @@ func change_state(new_state: State) -> void:
 		return		
 	current_state = new_state
 
+
 func take_damage() -> void:
 	if current_state == State.DEATH or current_state == State.HIT:
 		return 
@@ -174,10 +199,12 @@ func take_damage() -> void:
 	change_state(State.HIT)
 	be_harmed(damage)
 
+
 func death():
 	sprite.play("death")
 	await sprite.animation_finished
 	queue_free()		
+
 	
 func be_harmed(amount:float) -> void:
 	current_health -= amount
@@ -191,26 +218,32 @@ func be_harmed(amount:float) -> void:
 		if current_state == State.HIT:
 			change_state(State.ATTACK)
 
+
 func handle_combat_state() -> void:
 	change_state(State.CHASE)
 
+
 func _on_hurtbox_area_entered(area: Area2D) -> void:
-	if area.name == "hitbox":
+	if area.name == 'hitbox':
 		player = GameManager.get_main_player()
 		take_damage()
+
 		
 func _on_vision_range_body_entered(body: Node2D) -> void:
 	player = body
 	change_state(State.CHASE)
+
 
 func _on_vision_range_body_exited(_body: Node2D) -> void:
 	speed = 100.0
 	is_waiting = true
 	wait_timer = 3.0  
 	change_state(State.IDLE)
+
 	
 func can_pursue() -> bool:
 	return (raycast_L.is_colliding() and direction == -1) or (ray_cast_R.is_colliding() and direction == 1)
+
 
 func _on_attack_frame_changed() -> void:
 	if sprite.animation == "attack":
@@ -221,6 +254,7 @@ func _on_attack_frame_changed() -> void:
 		# Frame 6: El golpe inicia e impacta al jugador (Activación)
 		elif sprite.frame == 6:
 			hitbox_shape.disabled = false
-			
+
+
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	area.take_damage(attack_damage)
+	area.take_damage(attack)
