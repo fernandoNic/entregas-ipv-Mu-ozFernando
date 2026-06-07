@@ -1150,6 +1150,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="PauseLayer" type="CanvasLayer" parent="UI" unique_id=78855931]
 layer = 10
@@ -1195,7 +1196,7 @@ disabled = true
 position = Vector2(-6464, 328)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(7528, 120)
+position = Vector2(8886, -1480)
 
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="2" unique_id=410587740]
 zoom = Vector2(3, 3)
@@ -1218,6 +1219,7 @@ offset_top = 357.0
 offset_right = 217.0
 offset_bottom = 425.0
 metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="World/Tutorial_move/VBoxContainer" unique_id=189750132]
 layout_mode = 2
@@ -1285,6 +1287,7 @@ offset_top = 376.0
 offset_right = 522.0
 offset_bottom = 399.0
 text = "press to Jump"
+metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial_attack" type="Area2D" parent="World" unique_id=736664544]
 position = Vector2(288, -16)
@@ -1306,6 +1309,7 @@ offset_top = 376.0
 offset_right = 522.0
 offset_bottom = 399.0
 text = "press to Attack"
+metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial_final" type="Area2D" parent="World" unique_id=371554706]
 position = Vector2(600, -16)
@@ -1322,6 +1326,7 @@ offset_right = 526.0
 offset_bottom = 399.0
 text = "now, find the four keys and
 escape from here!!!"
+metadata/_edit_use_anchors_ = true
 
 [node name="keys" type="Node2D" parent="World" unique_id=2038912653]
 
@@ -1428,6 +1433,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
 
 [node name="total_keys" parent="HUD" unique_id=1846686920 instance=ExtResource("14_fpun6")]
 

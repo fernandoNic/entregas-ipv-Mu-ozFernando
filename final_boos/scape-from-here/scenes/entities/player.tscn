@@ -60,10 +60,6 @@ region = Rect2(240, 640, 80, 64)
 atlas = ExtResource("6_b6tgf")
 region = Rect2(320, 640, 80, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wk3cj"]
-atlas = ExtResource("6_b6tgf")
-region = Rect2(0, 704, 80, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_abpb2"]
 atlas = ExtResource("6_b6tgf")
 region = Rect2(80, 704, 80, 64)
@@ -87,10 +83,6 @@ region = Rect2(400, 704, 80, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvgni"]
 atlas = ExtResource("6_b6tgf")
 region = Rect2(480, 704, 80, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_28nan"]
-atlas = ExtResource("6_b6tgf")
-region = Rect2(560, 704, 80, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_30ath"]
 atlas = ExtResource("6_b6tgf")
@@ -429,9 +421,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wk3cj")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_abpb2")
 }, {
 "duration": 1.0,
@@ -448,9 +437,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kvgni")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_28nan")
 }],
 "loop": false,
 "name": &"attack_2",
@@ -739,13 +725,16 @@ script = ExtResource("1_08t41")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=614268679]
 sprite_frames = SubResource("SpriteFrames_5ki56")
-animation = &"death"
+animation = &"attack_2"
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1094740487]
+visible = false
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_08t41")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=410587740]
+visible = false
 zoom = Vector2(2, 2)
 
 [node name="sfx" type="Node2D" parent="CharacterBody2D" unique_id=154950908]
@@ -768,6 +757,7 @@ disabled = true
 debug_color = Color(0.9770264, 0.111617945, 0.26843953, 0.41960785)
 
 [node name="hurtbox" type="Area2D" parent="CharacterBody2D" unique_id=86901536]
+visible = false
 collision_layer = 8
 collision_mask = 32
 script = ExtResource("11_73kkf")

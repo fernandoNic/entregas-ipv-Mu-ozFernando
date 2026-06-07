@@ -5,7 +5,7 @@ signal player_death
 signal live_changed(enemy_damaged : int)
 
 const SPEED = 200.0
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -260.0
 const GRAVITY = 450.0
 
 enum STATE {IDLE, RUN, JUMP, FALL, ATTACK, DEATH}

@@ -21,7 +21,7 @@ extends Node2D
 @export var gravity: float = 980.0
 @export var ATTACK_RANGE: float = 35.0
 @export var attack_damage: int = 30
-@export var attack: int = 5
+@export var attack: int = 20
 
 # Estados de la FSM
 enum State { IDLE, RUN, ATTACK, HIT, DEATH, CHASE }
