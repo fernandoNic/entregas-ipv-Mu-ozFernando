@@ -502,12 +502,10 @@ frame = 2
 frame_progress = 0.36285353
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1094740487]
-visible = false
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_08t41")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=410587740]
-visible = false
 zoom = Vector2(2, 2)
 
 [node name="sfx" type="Node2D" parent="CharacterBody2D" unique_id=154950908]
@@ -532,7 +530,6 @@ disabled = true
 debug_color = Color(0.9770264, 0.111617945, 0.26843953, 0.41960785)
 
 [node name="hurtbox" type="Area2D" parent="CharacterBody2D" unique_id=86901536]
-visible = false
 collision_layer = 8
 collision_mask = 32
 script = ExtResource("11_73kkf")
