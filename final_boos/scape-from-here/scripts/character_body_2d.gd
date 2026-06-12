@@ -86,7 +86,7 @@ func _update_state(delta: float) -> void:
 	if direction != 0 and current_state != STATE.ATTACK:
 		animated_sprite_2d.flip_h = (direction < 0)
 		hitbox.scale.x = direction
-
+	
 	match current_state:
 		STATE.IDLE:
 			velocity.x = move_toward(velocity.x, 0, SPEED)

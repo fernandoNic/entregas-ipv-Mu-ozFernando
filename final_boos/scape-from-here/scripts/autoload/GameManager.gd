@@ -18,6 +18,9 @@ func _input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 		
+	if Input.is_action_pressed("ui_map"):
+		show_minimap()
+		
 func obtener_canvas():
 	var escena_actual = get_tree().current_scene
 	var canvas = escena_actual.get_node_or_null("UI").get_node_or_null("PauseLayer")
@@ -35,3 +38,8 @@ func handle_pause():
 	else:
 		get_tree().set_pause(!get_tree().is_paused())
 		tween.tween_property(overlay,"color:a",0.60,1.0)	
+		
+func show_minimap():
+	var UI_node: Control = get_tree().current_scene.get_node_or_null("UI")
+	var view_map: CanvasLayer = UI_node.get_node_or_null("view_map")
+	view_map.set_visible(!view_map.is_visible())
