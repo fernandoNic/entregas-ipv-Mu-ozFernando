@@ -2,6 +2,8 @@ extends Node
 
 @onready var player : CharacterBody2D
 
+signal minimap_show
+
 func get_main_player() -> CharacterBody2D:
 	var world_container: Node2D = get_tree().current_scene.get_node_or_null("World")
 	var player_container: Node2D = world_container.get_node_or_null("Player")
@@ -40,6 +42,13 @@ func handle_pause():
 		tween.tween_property(overlay,"color:a",0.60,1.0)	
 		
 func show_minimap():
+	if get_tree().is_paused():
+		get_tree().set_pause(!get_tree().is_paused())
+	else:
+		get_tree().set_pause(!get_tree().is_paused())
+
+	minimap_show.emit()
+	
 	var UI_node: Control = get_tree().current_scene.get_node_or_null("UI")
 	var view_map: CanvasLayer = UI_node.get_node_or_null("view_map")
 	view_map.set_visible(!view_map.is_visible())

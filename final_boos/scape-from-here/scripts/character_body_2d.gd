@@ -19,12 +19,14 @@ var live: int = 100
 @onready var hitbox: Area2D = $hitbox
 @onready var double_jump_sfx: AudioStreamPlayer2D = $sfx/doubleJump_sfx
 @onready var double_jump_vfx: AnimatedSprite2D = $DoubleJumpVfx
+@onready var icon: Sprite2D = $icon
 
 
 var max_jumps: int = 2
 var jumps_left: int = 0
 
 func _ready() -> void:
+	GameManager.minimap_show.connect(show_on_minimap)
 	current_state = STATE.IDLE
 	_enter_state()
 
@@ -156,20 +158,27 @@ func _aplicar_gravedad(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 
+
 func _on_attack_animation_finished() -> void:
 	if current_state == STATE.ATTACK:
 		_set_state(STATE.IDLE)
 
+
 func grab_a_key() -> void:
 	grab_keys.emit()
-		
+
+
 func receive_damage(enemy_damage: int) -> void:
 	live -= enemy_damage	
 	live_changed.emit(enemy_damage)
 	if live <= 0:
 		_set_state(STATE.DEATH)
-	
+
+
 func _on_smoke_vfx_finished() -> void:
 	double_jump_vfx.visible = false
 	if double_jump_vfx.animation_finished.is_connected(_on_smoke_vfx_finished):
 		double_jump_vfx.animation_finished.disconnect(_on_smoke_vfx_finished)
+
+func show_on_minimap() -> void:
+	icon.visible = !icon.visible

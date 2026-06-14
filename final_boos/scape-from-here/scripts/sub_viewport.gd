@@ -4,6 +4,7 @@ extends SubViewport
 @onready var camera_2d: Camera2D = $Camera2D
 
 func _ready() -> void:
+	size = get_viewport().size
 	var level = get_tree().root
 	var mundo_principal = level.get_node("Level").get_node("World") 
 	

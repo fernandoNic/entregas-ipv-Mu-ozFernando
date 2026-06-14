@@ -1158,21 +1158,27 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="UI/view_map" unique_id=870985286]
-modulate = Color(1, 1, 1, 0.627451)
 anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_bottom = 500.0
-grow_horizontal = 0
+anchor_left = 0.201
+anchor_top = 0.266
+anchor_right = 0.685
+anchor_bottom = 0.656
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 544.0
+offset_bottom = 344.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="SubViewport" type="SubViewport" parent="UI/view_map/SubViewportContainer" unique_id=1172595058]
+transparent_bg = true
 handle_input_locally = false
-size = Vector2i(800, 500)
+size = Vector2i(1773, 1025)
 render_target_update_mode = 0
 script = ExtResource("2_ux5qa")
 
 [node name="Camera2D" type="Camera2D" parent="UI/view_map/SubViewportContainer/SubViewport" unique_id=2037494916]
-zoom = Vector2(0.15, 0.15)
+zoom = Vector2(0.2, 0.2)
 limit_left = -740
 limit_top = -2350
 limit_right = 6700

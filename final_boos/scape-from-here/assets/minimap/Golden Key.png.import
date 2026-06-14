@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cweivgy3tshg1"
-path="res://.godot/imported/map.png-3993657001cfcb15f035bdca009f02ea.ctex"
+uid="uid://clsvm5pnxod1j"
+path="res://.godot/imported/Golden Key.png-64244a96b1946bc5ffceeab244adc27b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/mini_map/map.png"
-dest_files=["res://.godot/imported/map.png-3993657001cfcb15f035bdca009f02ea.ctex"]
+source_file="res://assets/minimap/Golden Key.png"
+dest_files=["res://.godot/imported/Golden Key.png-64244a96b1946bc5ffceeab244adc27b.ctex"]
 
 [params]
 
