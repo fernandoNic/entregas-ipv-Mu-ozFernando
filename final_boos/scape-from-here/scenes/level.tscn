@@ -1519,7 +1519,6 @@ _duracion = 5.0
 
 [node name="bg_music" type="AudioStreamPlayer" parent="music" unique_id=2081479333]
 stream = ExtResource("3_w8frs")
-autoplay = true
 parameters/looping = true
 
 [node name="HUD" type="Control" parent="." unique_id=1751898273]

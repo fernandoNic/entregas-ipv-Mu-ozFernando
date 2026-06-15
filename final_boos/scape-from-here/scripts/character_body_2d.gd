@@ -12,7 +12,7 @@ enum STATE {IDLE, RUN, JUMP, FALL, ATTACK, DEATH, DOUBLE_JUMP}
 var current_state : STATE
 var live: int = 100
 
-@onready var run_sfx: AudioStreamPlayer2D = $sfx/run_sfx
+#@onready var run_sfx: AudioStreamPlayer2D = $sfx/run_sfx
 @onready var attack_sfx: AudioStreamPlayer2D = $sfx/attack_sfx
 @onready var animated_sprite_2d : AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox_2d: CollisionShape2D = $hitbox/CollisionShape2D
@@ -20,6 +20,7 @@ var live: int = 100
 @onready var double_jump_sfx: AudioStreamPlayer2D = $sfx/doubleJump_sfx
 @onready var double_jump_vfx: AnimatedSprite2D = $DoubleJumpVfx
 @onready var icon: Sprite2D = $icon
+@onready var jump_sfx: AudioStreamPlayer2D = $sfx/jump_sfx
 
 
 var max_jumps: int = 2
@@ -46,17 +47,19 @@ func _enter_state() -> void:
 			animated_sprite_2d.play("idle_1")
 		STATE.RUN:
 			animated_sprite_2d.play("run_1")
-			if not run_sfx.playing:
-				run_sfx.play()	
+			#if not run_sfx.playing:
+				#run_sfx.play()	
 		STATE.JUMP:
 			velocity.y = JUMP_VELOCITY
 			animated_sprite_2d.play("jump_1")
+			jump_sfx.play()
 		STATE.DOUBLE_JUMP:
 			velocity.y = JUMP_VELOCITY
 			animated_sprite_2d.play("jump_1")
 			double_jump_sfx.play()
 			double_jump_vfx.visible = true
 			double_jump_vfx.play("smoke_vfx")
+			jump_sfx.play()
 			if not double_jump_vfx.animation_finished.is_connected(_on_smoke_vfx_finished):
 				double_jump_vfx.animation_finished.connect(_on_smoke_vfx_finished)
 			jumps_left -= 1
@@ -81,7 +84,8 @@ func _exit_state() -> void:
 				animated_sprite_2d.animation_finished.disconnect(_on_attack_animation_finished)
 				hitbox_2d.disabled = !hitbox_2d.disabled
 		STATE.RUN:
-			run_sfx.stop()
+			pass
+			#run_sfx.stop()
 
 func _update_state(delta: float) -> void:
 	var direction = Input.get_axis("ui_left", "ui_right") # 1 right -1 left

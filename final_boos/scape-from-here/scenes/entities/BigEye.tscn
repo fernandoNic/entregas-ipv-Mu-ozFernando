@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b6fjlsntramlf" path="res://assets/enemies/BigEye/Death.png" id="2_16se8"]
 [ext_resource type="Texture2D" uid="uid://cq6ogk8468g2b" path="res://assets/enemies/BigEye/Take Hit.png" id="3_4fgj5"]
 [ext_resource type="PackedScene" uid="uid://bn08trqfu0cam" path="res://scenes/progress_bar.tscn" id="5_16se8"]
+[ext_resource type="AudioStream" uid="uid://b8batnkuwqjc6" path="res://assets/sfx/Sword Attack 2.ogg" id="7_bo2gh"]
+[ext_resource type="AudioStream" uid="uid://b3ivs8f8c815e" path="res://assets/sfx/death_1.mp3" id="8_tohhh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4s5qo"]
 atlas = ExtResource("1_r53e3")
@@ -267,6 +269,14 @@ disabled = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="vision_range" unique_id=1294491503]
 position = Vector2(81, 3)
 shape = SubResource("RectangleShape2D_bo2gh")
+
+[node name="sfx" type="Node2D" parent="." unique_id=1013060014]
+
+[node name="attack_sfx" type="AudioStreamPlayer2D" parent="sfx" unique_id=321676077]
+stream = ExtResource("7_bo2gh")
+
+[node name="death_sfx" type="AudioStreamPlayer2D" parent="sfx" unique_id=1302422891]
+stream = ExtResource("8_tohhh")
 
 [connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

@@ -14,6 +14,8 @@ extends Node2D
 @onready var hitbox: Area2D = $CharacterBody2D/hitbox
 @onready var hitbox_shape: CollisionShape2D = $CharacterBody2D/hitbox/CollisionShape2D
 @onready var ray_wall: RayCast2D = $CharacterBody2D/RayWall
+@onready var attack_sfx: AudioStreamPlayer2D = $CharacterBody2D/sfx/attack_sfx
+@onready var death_sfx: AudioStreamPlayer2D = $CharacterBody2D/sfx/death_sfx
 
 # Parámetros configurables
 @export var speed: float = 100.0
@@ -38,9 +40,6 @@ func _ready() -> void:
 	progress_bar.value = current_health
 	
 func _physics_process(delta: float) -> void:
-	#if ray_wall.is_colliding():
-		#pass
-	
 	# Manejo de la máquina de estados
 	if not character_body_2d.is_on_floor():
 		character_body_2d.velocity.y += gravity * delta
@@ -81,6 +80,7 @@ func handle_attack_state() -> void:
 	character_body_2d.velocity.x = 0
 	if current_state == State.ATTACK and sprite.animation != "attack":
 		sprite.play("attack")
+		
 		if not sprite.frame_changed.is_connected(_on_attack_frame_changed):
 			sprite.frame_changed.connect(_on_attack_frame_changed)
 		
@@ -100,7 +100,7 @@ func handle_hit_state() -> void:
 		var real_direction_to_player = sign(player.global_position.x - character_body_2d.global_position.x)
 
 		if direction != real_direction_to_player and real_direction_to_player != 0:
-			direction = real_direction_to_player # Corregimos la variable de dirección
+			direction = real_direction_to_player 
 			update_sprite_direction()   
 
 		if line_of_view.is_colliding() and line_of_view.get_collider() == player:
@@ -109,11 +109,16 @@ func handle_hit_state() -> void:
 			change_state(State.CHASE)
 
 func handle_death_state() -> void:
-	character_body_2d.velocity.x = 0
+	set_physics_process(false)
+	death_sfx.play()
+	character_body_2d.velocity =  Vector2.ZERO
 	sprite.play("death")
 	await sprite.animation_finished
-	queue_free()		
-	set_physics_process(false)
+	
+	if death_sfx.playing:
+		await death_sfx.finished
+		
+	queue_free()
 
 func handle_chase_state() -> void:
 	if not player:
@@ -253,6 +258,7 @@ func _on_attack_frame_changed() -> void:
 		# Frame 6: El golpe inicia e impacta al jugador (Activación)
 		elif sprite.frame == 6:
 			hitbox_shape.disabled = false
+			attack_sfx.play()
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
