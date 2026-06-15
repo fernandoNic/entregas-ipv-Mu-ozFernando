@@ -180,5 +180,6 @@ func _on_smoke_vfx_finished() -> void:
 	if double_jump_vfx.animation_finished.is_connected(_on_smoke_vfx_finished):
 		double_jump_vfx.animation_finished.disconnect(_on_smoke_vfx_finished)
 
+
 func show_on_minimap() -> void:
 	icon.visible = !icon.visible

@@ -44,6 +44,7 @@ func _on_character_body_2d_player_death() -> void:
 func _on_character_body_2d_live_changed(enemy_damaged: int) -> void:
 	var health_bar: ProgressBar = health_bar_canvas.get_child(0)
 	health_bar.value -= enemy_damaged
+	health_bar.recibir_daño()
 
 
 func _on_character_body_2d_input_map() -> void:
