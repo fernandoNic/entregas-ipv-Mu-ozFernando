@@ -7,8 +7,8 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		queue_free()
 		body.grab_a_key()
+		queue_free()
 
 func show_on_minimap() -> void:
 	icon.visible = !icon.visible

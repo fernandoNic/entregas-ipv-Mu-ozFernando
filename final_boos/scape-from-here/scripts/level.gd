@@ -4,6 +4,7 @@ extends Node2D
 @onready var total_keys: CanvasLayer = $HUD/total_keys
 @onready var view_map: CanvasLayer = $UI/view_map
 @onready var character_body_2d: CharacterBody2D = $World/Player/CharacterBody2D
+@onready var key_collect_sfx: AudioStreamPlayer = $music/key_collect_sfx
 
 const MUNDO_ANCHO: float = 6980.0
 const MUNDO_ALTO: float = 3900.0
@@ -30,6 +31,7 @@ func game_over() -> void:
 
 
 func _on_character_body_2d_grab_keys() -> void:
+	key_collect_sfx.play()
 	keys += 1
 	var label_keys: Label = total_keys.get_node_or_null("HBoxContainer/Label")
 	label_keys.set_text(" x   " + str(keys))

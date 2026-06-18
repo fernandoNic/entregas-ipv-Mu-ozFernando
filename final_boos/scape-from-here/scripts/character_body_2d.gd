@@ -8,7 +8,7 @@ const SPEED = 200.0
 const JUMP_VELOCITY = -260.0
 const GRAVITY = 450.0
 
-enum STATE {IDLE, RUN, JUMP, FALL, ATTACK, DEATH, DOUBLE_JUMP}
+enum STATE {IDLE, RUN, JUMP, FALL, ATTACK, DEATH, DOUBLE_JUMP, HIT}
 var current_state : STATE
 var live: int = 100
 
@@ -71,6 +71,8 @@ func _enter_state() -> void:
 			hitbox_2d.disabled = !hitbox_2d.disabled
 			if not animated_sprite_2d.animation_finished.is_connected(_on_attack_animation_finished):
 				animated_sprite_2d.animation_finished.connect(_on_attack_animation_finished)
+		STATE.HIT:
+			pass
 		STATE.DEATH:
 			player_death.emit()
 			animated_sprite_2d.play("death")
