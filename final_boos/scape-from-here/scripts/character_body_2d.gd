@@ -21,6 +21,7 @@ var live: int = 100
 @onready var double_jump_vfx: AnimatedSprite2D = $DoubleJumpVfx
 @onready var icon: Sprite2D = $icon
 @onready var jump_sfx: AudioStreamPlayer2D = $sfx/jump_sfx
+@onready var damage_sfx: AudioStreamPlayer2D = $sfx/damage_sfx
 
 
 var max_jumps: int = 2
@@ -47,8 +48,6 @@ func _enter_state() -> void:
 			animated_sprite_2d.play("idle_1")
 		STATE.RUN:
 			animated_sprite_2d.play("run_1")
-			#if not run_sfx.playing:
-				#run_sfx.play()	
 		STATE.JUMP:
 			velocity.y = JUMP_VELOCITY
 			animated_sprite_2d.play("jump_1")
@@ -72,7 +71,10 @@ func _enter_state() -> void:
 			if not animated_sprite_2d.animation_finished.is_connected(_on_attack_animation_finished):
 				animated_sprite_2d.animation_finished.connect(_on_attack_animation_finished)
 		STATE.HIT:
-			pass
+			animated_sprite_2d.play("hit") 
+			damage_sfx.play()
+			if not animated_sprite_2d.animation_finished.is_connected(_on_hit_animation_finished):
+				animated_sprite_2d.animation_finished.connect(_on_hit_animation_finished)
 		STATE.DEATH:
 			player_death.emit()
 			animated_sprite_2d.play("death")
@@ -85,10 +87,12 @@ func _exit_state() -> void:
 			if animated_sprite_2d.animation_finished.is_connected(_on_attack_animation_finished):
 				animated_sprite_2d.animation_finished.disconnect(_on_attack_animation_finished)
 				hitbox_2d.disabled = !hitbox_2d.disabled
+		STATE.HIT:
+			if animated_sprite_2d.animation_finished.is_connected(_on_hit_animation_finished):
+				animated_sprite_2d.animation_finished.disconnect(_on_hit_animation_finished)
 		STATE.RUN:
 			pass
-			#run_sfx.stop()
-
+			
 func _update_state(delta: float) -> void:
 	var direction = Input.get_axis("ui_left", "ui_right") # 1 right -1 left
 	if direction != 0 and current_state != STATE.ATTACK:
@@ -159,6 +163,10 @@ func _update_state(delta: float) -> void:
 				velocity.x = move_toward(velocity.x, 0, SPEED)
 			_aplicar_gravedad(delta)
 			move_and_slide()
+		STATE.HIT:
+			velocity.x = move_toward(velocity.x, 0, SPEED * delta)
+			_aplicar_gravedad(delta)
+			move_and_slide()
 
 func _aplicar_gravedad(delta: float) -> void:
 	if not is_on_floor():
@@ -174,12 +182,20 @@ func grab_a_key() -> void:
 	grab_keys.emit()
 
 
-func receive_damage(enemy_damage: int) -> void:
+func receive_damage(enemy_damage: int,enemy_pos: Vector2) -> void:
+	if current_state == STATE.DEATH or current_state == STATE.HIT:
+		return
+		
 	live -= enemy_damage	
 	live_changed.emit(enemy_damage)
+	
 	if live <= 0:
 		_set_state(STATE.DEATH)
-
+	else:
+		var knockback_dir = 1.0 if global_position.x > enemy_pos.x else -1.0
+		velocity.x = knockback_dir * 300.0
+		velocity.y = -120.0  
+		_set_state(STATE.HIT)
 
 func _on_smoke_vfx_finished() -> void:
 	double_jump_vfx.visible = false
@@ -189,3 +205,7 @@ func _on_smoke_vfx_finished() -> void:
 
 func show_on_minimap() -> void:
 	icon.visible = !icon.visible
+
+func _on_hit_animation_finished() -> void:
+	if current_state == STATE.HIT:
+		_set_state(STATE.IDLE)

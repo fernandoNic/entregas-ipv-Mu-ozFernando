@@ -89,6 +89,7 @@ func handle_attack_state() -> void:
 		if sprite.frame_changed.is_connected(_on_attack_frame_changed):
 			sprite.frame_changed.disconnect(_on_attack_frame_changed)
 		
+		hitbox_shape.disabled = true
 		change_state(State.CHASE)
 
 func handle_hit_state() -> void:
@@ -256,4 +257,4 @@ func _on_attack_frame_changed() -> void:
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	area.take_damage(attack)
+	area.take_damage(attack,character_body_2d.global_position)
