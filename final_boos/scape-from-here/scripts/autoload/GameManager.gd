@@ -1,6 +1,8 @@
 extends Node
 
 @onready var player : CharacterBody2D
+var focus_in_map :bool
+var focus_in_pause :bool
 
 signal minimap_show
 
@@ -14,13 +16,13 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
 func _input(_event):
-	if Input.is_action_just_pressed("pause"):
+	if Input.is_action_just_pressed("pause") && !focus_in_map:
 		handle_pause()
 		
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 		
-	if Input.is_action_pressed("ui_map"):
+	if Input.is_action_pressed("ui_map") && !focus_in_pause:
 		show_minimap()
 		
 func obtener_canvas():
@@ -40,6 +42,7 @@ func handle_pause():
 	else:
 		get_tree().set_pause(!get_tree().is_paused())
 		tween.tween_property(overlay,"color:a",0.60,1.0)	
+	focus_in_pause = canvas_layer.is_visible()
 		
 func show_minimap():
 	if get_tree().is_paused():
@@ -52,3 +55,4 @@ func show_minimap():
 	var UI_node: Control = get_tree().current_scene.get_node_or_null("UI")
 	var view_map: CanvasLayer = UI_node.get_node_or_null("view_map")
 	view_map.set_visible(!view_map.is_visible())
+	focus_in_map = view_map.is_visible()
