@@ -1228,7 +1228,7 @@ disabled = true
 position = Vector2(-6464, 328)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(6078, 1082)
+position = Vector2(6595, 120)
 
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="3" unique_id=410587740]
 zoom = Vector2(3, 3)
@@ -1580,6 +1580,7 @@ _duracion = 5.0
 
 [node name="bg_music" type="AudioStreamPlayer" parent="music" unique_id=2081479333]
 stream = ExtResource("3_w8frs")
+autoplay = true
 parameters/looping = true
 
 [node name="key_collect_sfx" type="AudioStreamPlayer" parent="music" unique_id=1936001592]
