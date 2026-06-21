@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cjji4vwtjk3k0" path="res://scenes/total_keys.tscn" id="14_fpun6"]
 [ext_resource type="PackedScene" uid="uid://c05qxnesl23gk" path="res://scenes/health_bar.tscn" id="15_wc255"]
 [ext_resource type="AudioStream" uid="uid://cv134o0e305a0" path="res://assets/sfx/heart_collect.wav" id="16_82cfe"]
+[ext_resource type="PackedScene" uid="uid://bcb4wrwkn4goi" path="res://scenes/fog_of_war.tscn" id="19_gunhw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t1rx8"]
 texture = ExtResource("2_b121j")
@@ -1229,7 +1230,7 @@ disabled = true
 position = Vector2(-6464, 328)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(7473, 58)
+position = Vector2(6616, 120)
 
 [node name="Camera2D" parent="World/Player/CharacterBody2D" index="3" unique_id=410587740]
 zoom = Vector2(3, 3)
@@ -1380,15 +1381,19 @@ metadata/_edit_use_anchors_ = true
 [node name="keys" type="Node2D" parent="World" unique_id=2038912653]
 
 [node name="key" parent="World/keys" unique_id=587903310 instance=ExtResource("6_klq6b")]
+z_index = 1
 position = Vector2(1440, 1432)
 
 [node name="key2" parent="World/keys" unique_id=1380536857 instance=ExtResource("6_klq6b")]
+z_index = 1
 position = Vector2(-480, -2024)
 
 [node name="key3" parent="World/keys" unique_id=1957413658 instance=ExtResource("6_klq6b")]
+z_index = 1
 position = Vector2(5776, -784)
 
 [node name="key4" parent="World/keys" unique_id=454209765 instance=ExtResource("6_klq6b")]
+z_index = 1
 position = Vector2(6440, 776)
 
 [node name="enemies" type="Node2D" parent="World" unique_id=1496939134]
@@ -1586,6 +1591,328 @@ parameters/looping = true
 
 [node name="key_collect_sfx" type="AudioStreamPlayer" parent="music" unique_id=1936001592]
 stream = ExtResource("16_82cfe")
+
+[node name="fog_of_war" type="Node2D" parent="." unique_id=1747143121]
+
+[node name="FogOfWar39" parent="fog_of_war" unique_id=1573726875 instance=ExtResource("19_gunhw")]
+position = Vector2(-144, 1832.0001)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar40" parent="fog_of_war" unique_id=2039433818 instance=ExtResource("19_gunhw")]
+position = Vector2(568.0015, 1823.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar41" parent="fog_of_war" unique_id=1824671169 instance=ExtResource("19_gunhw")]
+position = Vector2(1280.0015, 1839.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar42" parent="fog_of_war" unique_id=42223054 instance=ExtResource("19_gunhw")]
+position = Vector2(1992.0015, 1847.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar43" parent="fog_of_war" unique_id=475419612 instance=ExtResource("19_gunhw")]
+position = Vector2(2664.0015, 1863.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar44" parent="fog_of_war" unique_id=54414698 instance=ExtResource("19_gunhw")]
+position = Vector2(3352.0015, 1871.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar45" parent="fog_of_war" unique_id=1058934878 instance=ExtResource("19_gunhw")]
+position = Vector2(4072.0015, 1864.0001)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar46" parent="fog_of_war" unique_id=147770847 instance=ExtResource("19_gunhw")]
+position = Vector2(4800.0015, 1879.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar47" parent="fog_of_war" unique_id=780518700 instance=ExtResource("19_gunhw")]
+position = Vector2(5480.0015, 1879.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar48" parent="fog_of_war" unique_id=1529379944 instance=ExtResource("19_gunhw")]
+position = Vector2(6208.0015, 1879.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar49" parent="fog_of_war" unique_id=1684893141 instance=ExtResource("19_gunhw")]
+position = Vector2(-144, -1928.0002)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar50" parent="fog_of_war" unique_id=242730684 instance=ExtResource("19_gunhw")]
+position = Vector2(568.0015, -1936.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar51" parent="fog_of_war" unique_id=1646816286 instance=ExtResource("19_gunhw")]
+position = Vector2(1280.0015, -1920.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar52" parent="fog_of_war" unique_id=1669300839 instance=ExtResource("19_gunhw")]
+position = Vector2(1992.0015, -1912.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar53" parent="fog_of_war" unique_id=566184458 instance=ExtResource("19_gunhw")]
+position = Vector2(2664.0015, -1896.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar54" parent="fog_of_war" unique_id=1208142482 instance=ExtResource("19_gunhw")]
+position = Vector2(3352.0015, -1888.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar55" parent="fog_of_war" unique_id=1652659669 instance=ExtResource("19_gunhw")]
+position = Vector2(4072.0015, -1896.0002)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar56" parent="fog_of_war" unique_id=1837126947 instance=ExtResource("19_gunhw")]
+position = Vector2(4800.0015, -1880.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar57" parent="fog_of_war" unique_id=1356084719 instance=ExtResource("19_gunhw")]
+position = Vector2(5480.0015, -1880.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar58" parent="fog_of_war" unique_id=657371770 instance=ExtResource("19_gunhw")]
+position = Vector2(6208.0015, -1880.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar59" parent="fog_of_war" unique_id=1879465416 instance=ExtResource("19_gunhw")]
+position = Vector2(-56, -1392.0002)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar60" parent="fog_of_war" unique_id=1862241025 instance=ExtResource("19_gunhw")]
+position = Vector2(656.0015, -1400.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar61" parent="fog_of_war" unique_id=1221379857 instance=ExtResource("19_gunhw")]
+position = Vector2(1368.0015, -1384.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar62" parent="fog_of_war" unique_id=347148886 instance=ExtResource("19_gunhw")]
+position = Vector2(2080.0015, -1376.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar63" parent="fog_of_war" unique_id=421032118 instance=ExtResource("19_gunhw")]
+position = Vector2(2752.0015, -1360.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar64" parent="fog_of_war" unique_id=828479897 instance=ExtResource("19_gunhw")]
+position = Vector2(3440.0015, -1352.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar65" parent="fog_of_war" unique_id=1470446960 instance=ExtResource("19_gunhw")]
+position = Vector2(4160.0015, -1360.0002)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar66" parent="fog_of_war" unique_id=1532343256 instance=ExtResource("19_gunhw")]
+position = Vector2(4888.0015, -1344.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar67" parent="fog_of_war" unique_id=1468331113 instance=ExtResource("19_gunhw")]
+position = Vector2(5568.0015, -1344.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar68" parent="fog_of_war" unique_id=1237553013 instance=ExtResource("19_gunhw")]
+position = Vector2(6296.0015, -1344.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar69" parent="fog_of_war" unique_id=1278897630 instance=ExtResource("19_gunhw")]
+position = Vector2(-304.00003, -840.00024)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar70" parent="fog_of_war" unique_id=1437288989 instance=ExtResource("19_gunhw")]
+position = Vector2(408.0015, -848.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar71" parent="fog_of_war" unique_id=1455613739 instance=ExtResource("19_gunhw")]
+position = Vector2(1120.0015, -832.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar72" parent="fog_of_war" unique_id=1318780871 instance=ExtResource("19_gunhw")]
+position = Vector2(1832.0015, -824.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar73" parent="fog_of_war" unique_id=1493547082 instance=ExtResource("19_gunhw")]
+position = Vector2(2504.0015, -808.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar74" parent="fog_of_war" unique_id=1545687865 instance=ExtResource("19_gunhw")]
+position = Vector2(3192.0015, -800.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar75" parent="fog_of_war" unique_id=899450556 instance=ExtResource("19_gunhw")]
+position = Vector2(3912.0015, -808.00024)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar76" parent="fog_of_war" unique_id=291745128 instance=ExtResource("19_gunhw")]
+position = Vector2(4640.0015, -792.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar77" parent="fog_of_war" unique_id=490517740 instance=ExtResource("19_gunhw")]
+position = Vector2(5320.0015, -792.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar78" parent="fog_of_war" unique_id=73620026 instance=ExtResource("19_gunhw")]
+position = Vector2(6048.0015, -792.0005)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar79" parent="fog_of_war" unique_id=12834894 instance=ExtResource("19_gunhw")]
+position = Vector2(-176.00002, -272)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar80" parent="fog_of_war" unique_id=580260194 instance=ExtResource("19_gunhw")]
+position = Vector2(536.0015, -280.00024)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar81" parent="fog_of_war" unique_id=1076378308 instance=ExtResource("19_gunhw")]
+position = Vector2(1248.0015, -264.00024)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar82" parent="fog_of_war" unique_id=826014277 instance=ExtResource("19_gunhw")]
+position = Vector2(1960.0015, -256.00024)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar83" parent="fog_of_war" unique_id=1819499878 instance=ExtResource("19_gunhw")]
+position = Vector2(2632.0015, -240.00024)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar84" parent="fog_of_war" unique_id=1702947762 instance=ExtResource("19_gunhw")]
+position = Vector2(3320.0015, -232.00024)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar85" parent="fog_of_war" unique_id=881880149 instance=ExtResource("19_gunhw")]
+position = Vector2(4040.0015, -240)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar86" parent="fog_of_war" unique_id=1162208911 instance=ExtResource("19_gunhw")]
+position = Vector2(4768.0015, -224.00024)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar87" parent="fog_of_war" unique_id=1119737002 instance=ExtResource("19_gunhw")]
+position = Vector2(5448.0015, -224.00024)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar88" parent="fog_of_war" unique_id=1647712968 instance=ExtResource("19_gunhw")]
+position = Vector2(6176.0015, -224.00024)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar89" parent="fog_of_war" unique_id=579535507 instance=ExtResource("19_gunhw")]
+position = Vector2(-216.00002, 312)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar90" parent="fog_of_war" unique_id=266095404 instance=ExtResource("19_gunhw")]
+position = Vector2(496.00153, 303.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar91" parent="fog_of_war" unique_id=971449633 instance=ExtResource("19_gunhw")]
+position = Vector2(1208.0015, 319.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar92" parent="fog_of_war" unique_id=1256064864 instance=ExtResource("19_gunhw")]
+position = Vector2(1920.0015, 327.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar93" parent="fog_of_war" unique_id=743419323 instance=ExtResource("19_gunhw")]
+position = Vector2(2592.0015, 343.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar94" parent="fog_of_war" unique_id=1055209987 instance=ExtResource("19_gunhw")]
+position = Vector2(3280.0015, 351.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar95" parent="fog_of_war" unique_id=1877494069 instance=ExtResource("19_gunhw")]
+position = Vector2(4000.0015, 344)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar96" parent="fog_of_war" unique_id=1673512798 instance=ExtResource("19_gunhw")]
+position = Vector2(4728.0015, 359.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar97" parent="fog_of_war" unique_id=839083218 instance=ExtResource("19_gunhw")]
+position = Vector2(5408.0015, 359.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar98" parent="fog_of_war" unique_id=1060450283 instance=ExtResource("19_gunhw")]
+position = Vector2(6136.0015, 359.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar99" parent="fog_of_war" unique_id=1064174266 instance=ExtResource("19_gunhw")]
+position = Vector2(-152, 840)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar100" parent="fog_of_war" unique_id=730376538 instance=ExtResource("19_gunhw")]
+position = Vector2(560.0015, 831.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar101" parent="fog_of_war" unique_id=1206558169 instance=ExtResource("19_gunhw")]
+position = Vector2(1272.0015, 847.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar102" parent="fog_of_war" unique_id=255914960 instance=ExtResource("19_gunhw")]
+position = Vector2(1984.0015, 855.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar103" parent="fog_of_war" unique_id=238453749 instance=ExtResource("19_gunhw")]
+position = Vector2(2656.0015, 871.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar104" parent="fog_of_war" unique_id=1312680797 instance=ExtResource("19_gunhw")]
+position = Vector2(3344.0015, 879.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar105" parent="fog_of_war" unique_id=1029608519 instance=ExtResource("19_gunhw")]
+position = Vector2(4064.0015, 872)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar106" parent="fog_of_war" unique_id=912510860 instance=ExtResource("19_gunhw")]
+position = Vector2(4792.0015, 887.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar107" parent="fog_of_war" unique_id=53359431 instance=ExtResource("19_gunhw")]
+position = Vector2(5472.0015, 887.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar108" parent="fog_of_war" unique_id=1772049264 instance=ExtResource("19_gunhw")]
+position = Vector2(6200.0015, 887.99976)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar109" parent="fog_of_war" unique_id=749739741 instance=ExtResource("19_gunhw")]
+position = Vector2(-168.00002, 1384.0001)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar110" parent="fog_of_war" unique_id=402445368 instance=ExtResource("19_gunhw")]
+position = Vector2(544.0015, 1375.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar111" parent="fog_of_war" unique_id=762014545 instance=ExtResource("19_gunhw")]
+position = Vector2(1256.0015, 1391.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar112" parent="fog_of_war" unique_id=966244686 instance=ExtResource("19_gunhw")]
+position = Vector2(1968.0015, 1399.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar113" parent="fog_of_war" unique_id=177272235 instance=ExtResource("19_gunhw")]
+position = Vector2(2640.0015, 1415.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar114" parent="fog_of_war" unique_id=698438419 instance=ExtResource("19_gunhw")]
+position = Vector2(3328.0015, 1423.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar115" parent="fog_of_war" unique_id=1454110206 instance=ExtResource("19_gunhw")]
+position = Vector2(4048.0015, 1416.0001)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar116" parent="fog_of_war" unique_id=725926597 instance=ExtResource("19_gunhw")]
+position = Vector2(4776.0015, 1431.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar117" parent="fog_of_war" unique_id=1888272729 instance=ExtResource("19_gunhw")]
+position = Vector2(5456.0015, 1431.9999)
+scale = Vector2(0.53010666, 0.41138458)
+
+[node name="FogOfWar118" parent="fog_of_war" unique_id=346842812 instance=ExtResource("19_gunhw")]
+position = Vector2(6184.0015, 1431.9999)
+scale = Vector2(0.53010666, 0.41138458)
 
 [node name="HUD" type="Control" parent="." unique_id=1751898273]
 layout_mode = 3

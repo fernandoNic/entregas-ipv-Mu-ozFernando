@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bcb4wrwkn4goi"]
+
+[ext_resource type="Texture2D" uid="uid://boli0gu6c6bcb" path="res://assets/items/smoke_godot.png" id="1_j5xl7"]
+[ext_resource type="Script" uid="uid://csxywgntyu0bf" path="res://scripts/fog_of_war.gd" id="1_klt41"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_klt41"]
+radius = 871.9593
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_klt41"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j5xl7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="FogOfWar" type="Area2D" unique_id=1573726875]
+visibility_layer = 4
+script = ExtResource("1_klt41")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=110567408]
+texture = ExtResource("1_j5xl7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1461389828]
+shape = SubResource("CircleShape2D_klt41")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=557300681]
+visible = false
+rotation = 0.09345765
+sprite_frames = SubResource("SpriteFrames_klt41")
+autoplay = "default"
+frame_progress = 0.3396893
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
