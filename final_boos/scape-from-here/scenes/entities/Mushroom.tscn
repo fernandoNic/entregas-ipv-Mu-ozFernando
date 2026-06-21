@@ -247,6 +247,7 @@ size = Vector2(201, 32)
 size = Vector2(23.5, 22.5)
 
 [node name="Mushroom" type="Node2D" unique_id=927427066]
+visibility_layer = 2
 script = ExtResource("1_1tgqx")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=6434277]

@@ -13,6 +13,10 @@ const ORIGEN_Y: float = -2000.0
 
 var keys: int = 0
 
+func _ready() -> void:
+	#solo renderiza canvasitem en capas 1 y 2
+	get_viewport().canvas_cull_mask = 3
+
 func _process(_delta: float) -> void:
 	pass
 

@@ -204,7 +204,8 @@ func _on_smoke_vfx_finished() -> void:
 
 
 func show_on_minimap() -> void:
-	icon.visible = !icon.visible
+	pass
+	#icon.visible = !icon.visible
 
 func _on_hit_animation_finished() -> void:
 	if current_state == STATE.HIT:

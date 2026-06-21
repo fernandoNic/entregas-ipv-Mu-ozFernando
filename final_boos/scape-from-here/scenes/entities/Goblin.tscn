@@ -247,6 +247,7 @@ size = Vector2(201, 32)
 size = Vector2(30, 24)
 
 [node name="Goblin" type="Node2D" unique_id=835979565]
+visibility_layer = 2
 script = ExtResource("1_s62bm")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1944784266]

@@ -219,6 +219,7 @@ size = Vector2(201, 32)
 size = Vector2(48.5, 45)
 
 [node name="Skeleton" type="Node2D" unique_id=508052477]
+visibility_layer = 2
 script = ExtResource("1_xegir")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=333589403]

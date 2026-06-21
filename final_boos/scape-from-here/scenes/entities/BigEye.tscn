@@ -213,6 +213,7 @@ size = Vector2(12, 12)
 size = Vector2(132, 20)
 
 [node name="BigEye" type="CharacterBody2D" unique_id=1687116347]
+visibility_layer = 2
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_4fgj5")

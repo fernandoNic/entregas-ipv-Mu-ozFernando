@@ -511,10 +511,9 @@ floor_snap_length = 16.0
 script = ExtResource("1_08t41")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=614268679]
+visibility_layer = 2
 sprite_frames = SubResource("SpriteFrames_5ki56")
-animation = &"hit"
-frame = 1
-frame_progress = 1.0
+animation = &"idle_1"
 
 [node name="DoubleJumpVfx" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1186074540]
 visible = false
@@ -569,6 +568,6 @@ shape = SubResource("RectangleShape2D_b6tgf")
 debug_color = Color(0.925848, 0.2727843, 0, 0.41960785)
 
 [node name="icon" type="Sprite2D" parent="CharacterBody2D" unique_id=17081037]
-visible = false
+visibility_layer = 4
 scale = Vector2(7.8273516, 6.0132732)
 texture = ExtResource("7_ss7kx")
