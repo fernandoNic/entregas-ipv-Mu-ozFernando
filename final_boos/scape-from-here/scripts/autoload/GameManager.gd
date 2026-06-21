@@ -22,7 +22,7 @@ func _input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
 		
-	if Input.is_action_pressed("ui_map") && !focus_in_pause:
+	if Input.is_action_just_pressed("ui_map") && !focus_in_pause:
 		show_minimap()
 		
 func obtener_canvas():
