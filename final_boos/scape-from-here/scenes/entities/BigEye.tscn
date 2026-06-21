@@ -212,10 +212,10 @@ size = Vector2(12, 12)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo2gh"]
 size = Vector2(132, 20)
 
-[node name="BigEye" type="CharacterBody2D" unique_id=1687116347]
+[node name="BigEye" type="CharacterBody2D" unique_id=1687116347 groups=["enemies"]]
 visibility_layer = 2
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 script = ExtResource("1_4fgj5")
 
 [node name="ProgressBar" parent="." unique_id=1930645090 instance=ExtResource("5_16se8")]

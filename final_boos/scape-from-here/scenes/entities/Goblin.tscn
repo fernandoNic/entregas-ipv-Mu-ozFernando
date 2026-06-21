@@ -246,13 +246,13 @@ size = Vector2(201, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4cwua"]
 size = Vector2(30, 24)
 
-[node name="Goblin" type="Node2D" unique_id=835979565]
+[node name="Goblin" type="Node2D" unique_id=835979565 groups=["enemies"]]
 visibility_layer = 2
 script = ExtResource("1_s62bm")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1944784266]
 collision_layer = 2
-collision_mask = 5
+collision_mask = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" unique_id=1754038762]
 sprite_frames = SubResource("SpriteFrames_iay4v")
