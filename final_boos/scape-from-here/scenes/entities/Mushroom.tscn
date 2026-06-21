@@ -246,9 +246,14 @@ size = Vector2(201, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yx5er"]
 size = Vector2(23.5, 22.5)
 
-[node name="Mushroom" type="Node2D" unique_id=927427066]
+[node name="Mushroom" type="Node2D" unique_id=927427066 groups=["enemies"]]
 visibility_layer = 2
 script = ExtResource("1_1tgqx")
+max_health = null
+speed = null
+gravity = null
+ATTACK_RANGE = null
+attack = null
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=6434277]
 collision_layer = 2

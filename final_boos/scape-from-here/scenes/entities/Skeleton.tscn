@@ -218,7 +218,7 @@ size = Vector2(201, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpus7"]
 size = Vector2(48.5, 45)
 
-[node name="Skeleton" type="Node2D" unique_id=508052477]
+[node name="Skeleton" type="Node2D" unique_id=508052477 groups=["enemies"]]
 visibility_layer = 2
 script = ExtResource("1_xegir")
 

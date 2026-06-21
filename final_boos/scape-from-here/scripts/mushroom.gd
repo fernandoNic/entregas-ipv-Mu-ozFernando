@@ -16,6 +16,7 @@ extends Node2D
 @onready var ray_wall: RayCast2D = $CharacterBody2D/RayWall
 @onready var attack_sfx: AudioStreamPlayer2D = $CharacterBody2D/sfx/attack_sfx
 @onready var death_sfx: AudioStreamPlayer2D = $CharacterBody2D/sfx/death_sfx
+@onready var collision_shape_2d: CollisionShape2D = $CharacterBody2D/CollisionShape2D
 
 # Parámetros configurables
 @export var speed: float = 100.0
@@ -111,6 +112,7 @@ func handle_hit_state() -> void:
 
 func handle_death_state() -> void:
 	set_physics_process(false)
+	collision_shape_2d.set_disabled(true)
 	death_sfx.play()
 	character_body_2d.velocity =  Vector2.ZERO
 	sprite.play("death")
