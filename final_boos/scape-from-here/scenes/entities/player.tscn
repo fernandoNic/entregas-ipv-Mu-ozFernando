@@ -568,6 +568,7 @@ shape = SubResource("RectangleShape2D_b6tgf")
 debug_color = Color(0.925848, 0.2727843, 0, 0.41960785)
 
 [node name="icon" type="Sprite2D" parent="CharacterBody2D" unique_id=17081037]
+visible = false
 visibility_layer = 4
 scale = Vector2(7.8273516, 6.0132732)
 texture = ExtResource("7_ss7kx")
