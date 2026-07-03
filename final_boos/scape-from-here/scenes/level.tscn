@@ -5131,6 +5131,9 @@ limit_top = -2188
 limit_right = 11700
 limit_bottom = 1840
 
+[node name="icon" parent="World/Player/CharacterBody2D" index="7" unique_id=17081037]
+visible = true
+
 [node name="Tutorial_move" type="Area2D" parent="World" unique_id=1651048172]
 position = Vector2(-2, -20)
 script = ExtResource("3_ppgk2")
@@ -5271,7 +5274,6 @@ escape from here!!!"
 metadata/_edit_use_anchors_ = true
 
 [node name="keys" type="Node2D" parent="World" unique_id=2038912653]
-visible = false
 
 [node name="key" parent="World/keys" unique_id=587903310 instance=ExtResource("6_klq6b")]
 z_index = 1
@@ -5456,7 +5458,6 @@ parameters/looping = true
 stream = ExtResource("16_82cfe")
 
 [node name="fog_of_war" type="Node2D" parent="." unique_id=1747143121]
-visible = false
 
 [node name="FogOfWar39" parent="fog_of_war" unique_id=1573726875 instance=ExtResource("19_gunhw")]
 position = Vector2(-144, 1832.0001)
