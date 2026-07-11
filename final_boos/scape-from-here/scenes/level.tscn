@@ -9622,11 +9622,43 @@ sources/5 = SubResource("TileSetAtlasSource_c1pbi")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2q6dc"]
 distance = 276.0
 
-[sub_resource type="Curve2D" id="Curve2D_v3why"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 6384, -776, 0, 0, 0, 0, 6384, -1312)
+[sub_resource type="Animation" id="Animation_v3why"]
+length = 3.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, 8)]
 }
-point_count = 2
+
+[sub_resource type="Animation" id="Animation_asl66"]
+resource_name = "movement"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.99, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(24, 8), Vector2(24, -471), Vector2(24, 8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jdvr"]
+_data = {
+&"RESET": SubResource("Animation_v3why"),
+&"movement": SubResource("Animation_asl66")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v3why"]
 texture = ExtResource("6_gur6y")
@@ -11876,44 +11908,6 @@ sources/2 = SubResource("TileSetAtlasSource_asl66")
 sources/3 = SubResource("TileSetAtlasSource_2jdvr")
 sources/4 = SubResource("TileSetAtlasSource_50fbu")
 
-[sub_resource type="Animation" id="Animation_v3why"]
-length = 3.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_asl66"]
-resource_name = "movement"
-length = 4.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 522.73, 0.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jdvr"]
-_data = {
-&"RESET": SubResource("Animation_v3why"),
-&"movement": SubResource("Animation_asl66")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3why"]
 size = Vector2(96, 25.889648)
 
@@ -11922,14 +11916,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(5824, 1216)]
 }
 
 [sub_resource type="Animation" id="Animation_q4oe8"]
@@ -11939,14 +11933,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:progress")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.9995427, 6),
+"times": PackedFloat32Array(0, 3.0213563, 5.9915032),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 367.0, 0.0]
+"values": [Vector2(5824, 1216), Vector2(5824, 844), Vector2(5824, 1214.9388)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_svjb4"]
@@ -11954,12 +11948,6 @@ _data = {
 &"RESET": SubResource("Animation_2jdvr"),
 &"movement": SubResource("Animation_q4oe8")
 }
-
-[sub_resource type="Curve2D" id="Curve2D_asl66"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 384, 416, 0, 0, 0, 0, 384, 32)
-}
-point_count = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4oe8"]
 texture = ExtResource("13_xy2fk")
@@ -12146,14 +12134,14 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Path2D/PathFollow2D:progress")
+tracks/0/path = NodePath("AnimatableBody2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(-6, 192)]
 }
 
 [sub_resource type="Animation" id="Animation_c1pbi"]
@@ -12163,14 +12151,14 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Path2D/PathFollow2D:progress")
+tracks/0/path = NodePath("AnimatableBody2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 2.504076, 5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 544.0, 0.0]
+"values": [Vector2(-6, 192), Vector2(-6, -328), Vector2(-6, 192)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_535f6"]
@@ -12178,12 +12166,6 @@ _data = {
 &"RESET": SubResource("Animation_svjb4"),
 &"movement": SubResource("Animation_c1pbi")
 }
-
-[sub_resource type="Curve2D" id="Curve2D_50fbu"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -6, 192, 0, 0, 0, 0, -6, -376)
-}
-point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fmhk"]
 size = Vector2(24, 160)
@@ -12747,29 +12729,23 @@ disabled = true
 
 [node name="platforms_mobiles" type="Node2D" parent="World/platforms" unique_id=742904346]
 
-[node name="Path2D" type="Path2D" parent="World/platforms/platforms_mobiles" unique_id=120322677]
-curve = SubResource("Curve2D_v3why")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="World/platforms/platforms_mobiles/Path2D" unique_id=1705227906]
-position = Vector2(6384, -776)
+[node name="StaticBody2D" type="AnimatableBody2D" parent="World/platforms/platforms_mobiles" unique_id=1834605194]
+position = Vector2(24, 8)
 rotation = -1.5707964
+collision_layer = 4
+collision_mask = 0
 
-[node name="TileMapLayer" type="TileMapLayer" parent="World/platforms/platforms_mobiles/Path2D/PathFollow2D" unique_id=1284187103]
-tile_map_data = PackedByteArray("AAAAAP3/BAAAAAYAAFAAAP7/BAABAAYAAFAAAP//BAACAAYAAFAAAAAABAADAAYAAFAAAAEABAACAAYAAFAAAAIABAAAAAYAADD///3/BAAAAAYAAAD///7/BAADAAYAAGD/////BAACAAYAAGD//wAABAABAAYAAGD//wEABAACAAYAAGD//wIABAAAAAYAAGA=")
-tile_set = SubResource("TileSet_asl66")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/platforms/platforms_mobiles/Path2D/PathFollow2D" unique_id=1571192009]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/platforms/platforms_mobiles/StaticBody2D" unique_id=1571192009]
 callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_2jdvr")
 autoplay = &"movement"
 speed_scale = 0.5
 
-[node name="StaticBody2D" type="AnimatableBody2D" parent="World/platforms/platforms_mobiles/Path2D/PathFollow2D" unique_id=1834605194]
-collision_layer = 4
-collision_mask = 0
-sync_to_physics = false
+[node name="TileMapLayer" type="TileMapLayer" parent="World/platforms/platforms_mobiles/StaticBody2D" unique_id=1284187103]
+tile_map_data = PackedByteArray("AAAAAP3/BAAAAAYAAFAAAP7/BAABAAYAAFAAAP//BAACAAYAAFAAAAAABAADAAYAAFAAAAEABAACAAYAAFAAAAIABAAAAAYAADD///3/BAAAAAYAAAD///7/BAADAAYAAGD/////BAACAAYAAGD//wAABAABAAYAAGD//wEABAACAAYAAGD//wIABAAAAAYAAGA=")
+tile_set = SubResource("TileSet_asl66")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/platforms/platforms_mobiles/Path2D/PathFollow2D/StaticBody2D" unique_id=535423021]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/platforms/platforms_mobiles/StaticBody2D" unique_id=535423021]
 position = Vector2(1.8896484, 0)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_v3why")
@@ -12778,29 +12754,23 @@ debug_color = Color(0, 0.53333336, 0.69803923, 0.41960785)
 [node name="platforms_mobiles2" type="Node2D" parent="World/platforms" unique_id=1175089114]
 position = Vector2(5352, 1688)
 
-[node name="Path2D" type="Path2D" parent="World/platforms/platforms_mobiles2" unique_id=815798243]
-position = Vector2(-6360, 840)
-curve = SubResource("Curve2D_v3why")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="World/platforms/platforms_mobiles2/Path2D" unique_id=650928921]
-position = Vector2(6384, -776)
+[node name="StaticBody2D" type="AnimatableBody2D" parent="World/platforms/platforms_mobiles2" unique_id=1961083832]
+position = Vector2(24, 8)
 rotation = -1.5707964
+collision_layer = 4
+collision_mask = 0
 
-[node name="TileMapLayer" type="TileMapLayer" parent="World/platforms/platforms_mobiles2/Path2D/PathFollow2D" unique_id=1062464579]
-tile_map_data = PackedByteArray("AAAAAP3/AwABAAEAAFAAAP7/AwACAAEAAFAAAP//AwADAAEAAFAAAAAAAwAEAAEAAFAAAAEAAwAFAAEAAFAAAAIAAwAIAAEAAFD///3/AwABAAgAAFD///7/AwACAAgAAFD/////AwADAAgAAFD//wAAAwAEAAgAAFD//wEAAwAFAAgAAFD//wIAAwAIAAgAAFA=")
-tile_set = SubResource("TileSet_asl66")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/platforms/platforms_mobiles2/Path2D/PathFollow2D" unique_id=345165675]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/platforms/platforms_mobiles2/StaticBody2D" unique_id=345165675]
 callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_2jdvr")
 autoplay = &"movement"
 speed_scale = 0.5
 
-[node name="StaticBody2D" type="StaticBody2D" parent="World/platforms/platforms_mobiles2/Path2D/PathFollow2D" unique_id=1014989582]
-collision_layer = 4
-collision_mask = 0
+[node name="TileMapLayer" type="TileMapLayer" parent="World/platforms/platforms_mobiles2/StaticBody2D" unique_id=1062464579]
+tile_map_data = PackedByteArray("AAAAAP3/AwABAAEAAFAAAP7/AwACAAEAAFAAAP//AwADAAEAAFAAAAAAAwAEAAEAAFAAAAEAAwAFAAEAAFAAAAIAAwAIAAEAAFD///3/AwABAAgAAFD///7/AwACAAgAAFD/////AwADAAgAAFD//wAAAwAEAAgAAFD//wEAAwAFAAgAAFD//wIAAwAIAAgAAFA=")
+tile_set = SubResource("TileSet_asl66")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/platforms/platforms_mobiles2/Path2D/PathFollow2D/StaticBody2D" unique_id=1848122268]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/platforms/platforms_mobiles2/StaticBody2D" unique_id=1848122268]
 position = Vector2(-3.0551758, 0)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_v3why")
@@ -12808,60 +12778,45 @@ debug_color = Color(0, 0.53333336, 0.69803923, 0.41960785)
 
 [node name="Node2D" type="Node2D" parent="World/platforms" unique_id=1341507864]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/platforms/Node2D" unique_id=438062017]
-root_node = NodePath("../Path2D2/PathFollow2D")
+[node name="CharacterBody2D" type="AnimatableBody2D" parent="World/platforms/Node2D" unique_id=1639372902]
+position = Vector2(5824, 1216)
+rotation = -1.5734487
+collision_layer = 4
+collision_mask = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/platforms/Node2D/CharacterBody2D" unique_id=438062017]
 callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_svjb4")
 autoplay = &"movement"
 
-[node name="Path2D2" type="Path2D" parent="World/platforms/Node2D" unique_id=1741648144]
-position = Vector2(5432, 800)
-curve = SubResource("Curve2D_asl66")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="World/platforms/Node2D/Path2D2" unique_id=52859421]
-position = Vector2(384, 416)
-rotates = false
-
-[node name="CharacterBody2D" type="AnimatableBody2D" parent="World/platforms/Node2D/Path2D2/PathFollow2D" unique_id=1639372902]
-position = Vector2(8, 0)
-rotation = -1.5734487
-collision_layer = 4
-collision_mask = 0
-sync_to_physics = false
-
-[node name="TileMapLayer" type="TileMapLayer" parent="World/platforms/Node2D/Path2D2/PathFollow2D/CharacterBody2D" unique_id=472998382]
+[node name="TileMapLayer" type="TileMapLayer" parent="World/platforms/Node2D/CharacterBody2D" unique_id=472998382]
 tile_map_data = PackedByteArray("AAAAAP3/AAABAAEAAFAAAAAAAAABAAEAADAAAP7/AAACAAEAAFAAAP//AAADAAEAAFD//wAAAAAIAAgAAFD///3/AAABAAgAAFD///7/AAACAAgAAFD/////AAADAAgAAFA=")
 tile_set = SubResource("TileSet_svjb4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/platforms/Node2D/Path2D2/PathFollow2D/CharacterBody2D" unique_id=92842518]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/platforms/Node2D/CharacterBody2D" unique_id=92842518]
 position = Vector2(3.9709473, -12.012207)
 shape = SubResource("RectangleShape2D_c1pbi")
 
 [node name="Node2D2" type="Node2D" parent="World/platforms" unique_id=1712698216]
 position = Vector2(3526, 1528)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="World/platforms/Node2D2" unique_id=157082224]
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="World/platforms/Node2D2" unique_id=317400577]
+position = Vector2(-6, 192)
+rotation = -1.5707964
+collision_layer = 4
+collision_mask = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/platforms/Node2D2/AnimatableBody2D" unique_id=157082224]
+root_node = NodePath("../..")
 callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_535f6")
 autoplay = &"movement"
 
-[node name="Path2D" type="Path2D" parent="World/platforms/Node2D2" unique_id=548649401]
-curve = SubResource("Curve2D_50fbu")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="World/platforms/Node2D2/Path2D" unique_id=281153408]
-position = Vector2(-6, 192)
-rotation = -1.5707964
-
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="World/platforms/Node2D2/Path2D/PathFollow2D" unique_id=317400577]
-collision_layer = 4
-collision_mask = 0
-sync_to_physics = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="World/platforms/Node2D2/Path2D/PathFollow2D/AnimatableBody2D" unique_id=372137474]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="World/platforms/Node2D2/AnimatableBody2D" unique_id=372137474]
 position = Vector2(4, 8)
 shape = SubResource("RectangleShape2D_0fmhk")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="World/platforms/Node2D2/Path2D/PathFollow2D/AnimatableBody2D" unique_id=1520216698]
+[node name="TileMapLayer" type="TileMapLayer" parent="World/platforms/Node2D2/AnimatableBody2D" unique_id=1520216698]
 tile_map_data = PackedByteArray("AAAAAPv/AAABAAEAAFAAAPz/AAACAAEAAFAAAP3/AAACAAEAAFAAAP7/AAACAAEAAFAAAP//AAACAAEAAFAAAAAAAAACAAEAAFAAAAEAAAACAAEAAFAAAAIAAAACAAEAAFAAAAMAAAACAAEAAFAAAAQAAAACAAEAAFAAAAUAAAADAAEAAFD///v/AAABAAMAAFD///z/AAACAAMAAFD///3/AAACAAMAAFD///7/AAACAAMAAFD/////AAACAAMAAFD//wAAAAACAAMAAFD//wEAAAACAAMAAFD//wIAAAACAAMAAFD//wMAAAACAAMAAFD//wQAAAACAAMAAFD//wUAAAADAAMAAFA=")
 tile_set = SubResource("TileSet_50fbu")
 
@@ -12869,7 +12824,7 @@ tile_set = SubResource("TileSet_50fbu")
 position = Vector2(-6464, 328)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(12632, -1248)
+position = Vector2(10128, 1392)
 floor_snap_length = 20.0
 platform_on_leave = 2
 
@@ -12879,6 +12834,9 @@ limit_left = -568
 limit_top = -2188
 limit_right = 6519
 limit_bottom = 1840
+
+[node name="icon" parent="World/Player/CharacterBody2D" index="7" unique_id=17081037]
+visible = true
 
 [node name="Tutorial_move" type="Area2D" parent="World" unique_id=1651048172]
 position = Vector2(-2, -20)
@@ -13464,7 +13422,6 @@ parameters/looping = true
 stream = ExtResource("16_82cfe")
 
 [node name="fog_of_war" type="Node2D" parent="." unique_id=1747143121]
-visible = false
 
 [node name="FogOfWar39" parent="fog_of_war" unique_id=1573726875 instance=ExtResource("19_gunhw")]
 position = Vector2(-144, 1832.0001)
