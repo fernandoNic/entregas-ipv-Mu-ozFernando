@@ -12824,7 +12824,7 @@ tile_set = SubResource("TileSet_50fbu")
 position = Vector2(-6464, 328)
 
 [node name="CharacterBody2D" parent="World/Player" index="0" unique_id=643298198]
-position = Vector2(10128, 1392)
+position = Vector2(6504, 120)
 floor_snap_length = 20.0
 platform_on_leave = 2
 
